@@ -1,0 +1,536 @@
+.sidebar {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    bottom: 0;
+  
+    width: 258px;
+  
+    background: #ffffff;
+    border-right: 1px solid #e9eef5;
+  
+    display: flex;
+    flex-direction: column;
+  
+    z-index: 900;
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #dce7f2;
+    border-radius: 10px;
+  }
+  
+  /* ============================= */
+  /* MENU */
+  /* ============================= */
+  
+  .menuArea {
+    padding: 27px 16px 0;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 5px;
+  }
+  
+  .menuItem {
+    width: 100%;
+    min-height: 40px;
+  
+    padding: 0 12px;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 15px;
+  
+    text-decoration: none;
+  
+    border-radius: 8px;
+  
+    color: #29496d;
+  
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  
+  .menuItem:hover {
+    background: #f1f7fd;
+    color: #1685e5;
+  }
+  
+  .menuIcon {
+    width: 22px;
+    height: 22px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    color: #365979;
+  }
+  
+  .menuIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menuText {
+    font-size: 13px;
+    font-weight: 500;
+  
+    white-space: nowrap;
+  }
+  
+  .menuItem.active {
+    background: linear-gradient(
+      100deg,
+      #1289ee,
+      #1684e5
+    );
+  
+    color: #ffffff;
+  
+    box-shadow:
+      0 5px 14px rgba(18, 137, 238, 0.18);
+  }
+  
+  .menuItem.active .menuIcon {
+    color: #ffffff;
+  }
+  
+  .menuItem.active .menuText {
+    font-weight: 600;
+  }
+  
+  /* ============================= */
+  /* BADGE */
+  /* ============================= */
+  
+  .menuBadge {
+    margin-left: auto;
+  
+    min-width: 19px;
+    height: 19px;
+  
+    padding: 0 5px;
+  
+    border-radius: 50%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: #1688e8;
+  
+    color: #ffffff;
+  
+    font-size: 10px;
+    font-weight: 700;
+  }
+  
+  .menuItem.active .menuBadge {
+    background: #ffffff;
+    color: #1688e8;
+  }
+  
+  /* ============================= */
+  /* BOTTOM */
+  /* ============================= */
+  
+  .bottomArea {
+    margin-top: auto;
+  
+    padding: 35px 24px 18px;
+  }
+  
+  /* ============================= */
+  /* PROMO CARD */
+  /* ============================= */
+  
+  .promoCard {
+    min-height: 184px;
+  
+    position: relative;
+  
+    padding: 17px 18px;
+  
+    border: 1px solid #dce8f3;
+  
+    border-radius: 8px;
+  
+    background: linear-gradient(
+      145deg,
+      #ffffff,
+      #f9fcff
+    );
+  
+    box-shadow:
+      0 4px 14px rgba(40, 91, 135, 0.04);
+  }
+  
+  .promoLogo {
+    width: 38px;
+    height: 39px;
+  
+    position: relative;
+  
+    margin-bottom: 7px;
+  }
+  
+  .promoLogo span:first-child {
+    position: absolute;
+  
+    top: 1px;
+    left: 0;
+  
+    width: 34px;
+    height: 12px;
+  
+    background: linear-gradient(
+      90deg,
+      #1556e9,
+      #15b5c3
+    );
+  
+    border-radius: 5px 13px 13px 5px;
+  
+    transform: skewX(17deg);
+  }
+  
+  .promoLogo span:last-child {
+    position: absolute;
+  
+    top: 11px;
+    left: 4px;
+  
+    width: 13px;
+    height: 28px;
+  
+    background: linear-gradient(
+      180deg,
+      #0877df,
+      #17a8b8
+    );
+  
+    border-radius: 0 0 4px 11px;
+  }
+  
+  .promoCard h3 {
+    margin: 0;
+  
+    font-size: 12px;
+    line-height: 17px;
+  
+    font-weight: 700;
+  
+    color: #173e6c;
+  }
+  
+  .promoCard p {
+    margin: 7px 0 0;
+  
+    font-size: 9px;
+    line-height: 14px;
+  
+    color: #7890a9;
+  }
+  
+  .promoButton {
+    position: absolute;
+  
+    right: 15px;
+    bottom: 14px;
+  
+    width: 20px;
+    height: 20px;
+  
+    border: none;
+  
+    border-radius: 50%;
+  
+    background: #1688e8;
+  
+    color: #ffffff;
+  
+    font-size: 14px;
+    line-height: 1;
+  
+    cursor: pointer;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    transition: transform 0.2s ease;
+  }
+  
+  .promoButton:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ============================= */
+  /* COPYRIGHT */
+  /* ============================= */
+  
+  .copyright {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  
+    margin-top: 43px;
+  }
+  
+  .copyright span {
+    font-size: 9px;
+  
+    line-height: 13px;
+  
+    color: #7089a3;
+  }
+  
+  /* ============================= */
+  /* 1200px */
+  /* ============================= */
+  
+  @media (max-width: 1200px) {
+    .sidebar {
+      width: 225px;
+    }
+  
+    .menuArea {
+      padding-left: 13px;
+      padding-right: 13px;
+    }
+  
+    .bottomArea {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  }
+  
+  /* ============================= */
+  /* 950px */
+  /* ============================= */
+  
+  @media (max-width: 950px) {
+    .sidebar {
+      width: 225px;
+    }
+  }
+  
+  /* ============================= */
+  /* 700px */
+  /* ============================= */
+  
+  @media (max-width: 700px) {
+    .sidebar {
+      top: 64px;
+  
+      width: 260px;
+  
+      transform: translateX(-100%);
+  
+      transition: transform 0.3s ease;
+  
+      box-shadow:
+        8px 0 30px rgba(20, 63, 105, 0.12);
+    }
+  
+    .sidebar.mobileOpen {
+      transform: translateX(0);
+    }
+  }
+  
+  /* ============================= */
+  /* 500px */
+  /* ============================= */
+  
+  @media (max-width: 500px) {
+    .sidebar {
+      width: 245px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* =========================================================
+   ADMIN BUTTON
+   ========================================================= */
+
+.adminButton {
+  width: 100%;
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 15px;
+  margin-bottom: 14px;
+
+  border: 1px solid #dbe8f5;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #123b70;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.adminButton:hover {
+  background: #1287ee;
+  border-color: #1287ee;
+  color: #ffffff;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 7px 18px rgba(18, 135, 238, 0.18);
+}
+
+.adminButtonActive {
+  background: #1287ee;
+  border-color: #1287ee;
+  color: #ffffff;
+
+  box-shadow: 0 7px 18px rgba(18, 135, 238, 0.18);
+}
+
+.adminIcon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #eaf5ff;
+  color: #1287ee;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.adminButton:hover .adminIcon,
+.adminButtonActive .adminIcon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.adminText {
+  flex: 1;
+
+  white-space: nowrap;
+}
+
+.adminArrow {
+  font-size: 19px;
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+.adminButton:hover .adminArrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   RESPONSIVE ADMIN BUTTON
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .adminButton {
+    min-height: 46px;
+    padding: 0 13px;
+    margin-bottom: 12px;
+
+    font-size: 13.5px;
+  }
+
+  .adminIcon {
+    width: 29px;
+    height: 29px;
+  }
+}
+
+@media (max-width: 600px) {
+  .adminButton {
+    min-height: 44px;
+
+    padding: 0 12px;
+    gap: 10px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+  }
+
+  .adminIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .adminArrow {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .adminButton {
+    min-height: 42px;
+    padding: 0 10px;
+    gap: 9px;
+
+    font-size: 12.5px;
+  }
+
+  .adminIcon {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,1566 @@
+/* =========================================================
+   NOTIFICATIONS PAGE
+   ========================================================= */
+
+   .app {
+    --blue: #1287ee;
+    --blue-dark: #075fbd;
+    --blue-light: #eaf5ff;
+  
+    --text: #123b70;
+    --text-dark: #102f59;
+    --muted: #7890ad;
+  
+    --border: #e5edf6;
+    --bg: #f6faff;
+    --panel: #ffffff;
+  
+    min-height: 100vh;
+    display: flex;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+  
+
+  /* =========================================================
+     MAIN
+     ========================================================= */
+  
+  .main {
+    width: calc(100% - 256px);
+    min-height: 100vh;
+    margin-left: 256px;
+    padding-top: 48px;
+  }
+  
+  /* =========================================================
+     TOPBAR
+     ========================================================= */
+  
+  .topbar {
+    height: 76px;
+    padding: 0 30px;
+  
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  
+    background: #ffffff;
+    border-bottom: 1px solid #e6eef7;
+  }
+  
+  .searchBox {
+    width: min(510px, 100%);
+    height: 42px;
+  
+    display: flex;
+    align-items: center;
+  
+    padding: 0 14px;
+  
+    border-radius: 9px;
+    background: #eff7ff;
+    border: 1px solid #e2edf8;
+  }
+  
+  .searchIcon {
+    color: #174f95;
+    font-size: 27px;
+    line-height: 1;
+    transform: rotate(-20deg);
+    margin-right: 10px;
+  }
+  
+  .searchBox input {
+    width: 100%;
+  
+    border: 0;
+    outline: 0;
+    background: transparent;
+  
+    color: #23466f;
+    font-size: 12px;
+  }
+  
+  .searchBox input::placeholder {
+    color: #7d96b5;
+  }
+  
+  .topActions {
+    margin-left: auto;
+  
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .notificationButton,
+  .themeButton {
+    position: relative;
+  
+    width: 32px;
+    height: 38px;
+  
+    border: 0;
+    background: transparent;
+  
+    color: #174a8e;
+    font-size: 23px;
+  
+    cursor: pointer;
+  }
+  
+  .topBadge {
+    position: absolute;
+    top: 2px;
+    right: 0;
+  
+    min-width: 15px;
+    height: 15px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 0 4px;
+  
+    background: #178cf0;
+    color: #ffffff;
+  
+    border-radius: 10px;
+  
+    font-size: 8px;
+    font-weight: 800;
+  }
+  
+  .profile {
+    min-width: 175px;
+  
+    padding-left: 17px;
+  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    border-left: 1px solid #e4edf6;
+  }
+  
+  .avatar {
+    width: 39px;
+    height: 39px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 50%;
+  
+    color: #ffffff;
+    background: linear-gradient(135deg, #102b55, #d17b57);
+  
+    font-size: 11px;
+    font-weight: 800;
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .profileInfo strong {
+    color: #163d73;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  
+  .profileInfo span {
+    margin-top: 3px;
+  
+    color: #7c91aa;
+    font-size: 9px;
+  }
+  
+  .profileArrow {
+    color: #164485;
+    font-size: 19px;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  /* =========================================================
+     CONTENT
+     ========================================================= */
+  
+  .content {
+    padding: 16px 24px 25px;
+  }
+  
+  /* HEADER */
+  
+  .pageHeader {
+    min-height: 96px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    gap: 20px;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    color: #7590af;
+    font-size: 10px;
+  }
+  
+  .breadcrumb span:first-child {
+    color: var(--blue);
+    font-size: 13px;
+  }
+  
+  .breadcrumb b {
+    color: #b3c2d2;
+    font-size: 15px;
+  }
+  
+  .breadcrumb strong {
+    color: #7890ad;
+    font-weight: 600;
+  }
+  
+  .titleRow {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 9px;
+  }
+  
+  .titleBell {
+    width: 31px;
+    height: 31px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #075fbd;
+    font-size: 27px;
+  }
+  
+  .titleRow h1 {
+    margin: 0;
+  
+    color: #123b70;
+    font-size: 25px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  
+  .titleRow p {
+    margin: 5px 0 0;
+  
+    color: #7890ad;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  
+  .markAllButton {
+    height: 36px;
+  
+    padding: 0 13px;
+  
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    border: 1px solid #e1ebf6;
+    border-radius: 7px;
+  
+    background: #ffffff;
+    color: #1665b8;
+  
+    font-size: 11px;
+    font-weight: 700;
+  
+    box-shadow: 0 4px 12px rgba(37, 83, 124, 0.08);
+  
+    cursor: pointer;
+  }
+  
+  .markAllButton span {
+    font-size: 17px;
+    color: #1287ee;
+  }
+  
+  /* =========================================================
+     PAGE GRID
+     ========================================================= */
+  
+  .pageGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 24px;
+    align-items: start;
+  }
+  
+  /* =========================================================
+     NOTIFICATION PANEL
+     ========================================================= */
+  
+  .notificationsPanel {
+    min-width: 0;
+  
+    overflow: hidden;
+  
+    border: 1px solid #e2ebf4;
+    border-radius: 9px;
+  
+    background: #ffffff;
+    box-shadow: 0 3px 13px rgba(42, 84, 124, 0.035);
+  }
+  
+  /* TABS */
+  
+  .tabs {
+    min-height: 55px;
+  
+    padding: 0 13px;
+  
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  
+    border-bottom: 1px solid #e6edf5;
+  
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tab {
+    height: 34px;
+  
+    padding: 0 13px;
+  
+    border: 0;
+    border-radius: 8px;
+  
+    background: transparent;
+    color: #55779f;
+  
+    font-size: 10px;
+    font-weight: 600;
+  
+    white-space: nowrap;
+  
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .tab:hover {
+    background: #eff7ff;
+    color: #147ee1;
+  }
+  
+  .tabActive {
+    color: #ffffff !important;
+    background: linear-gradient(100deg, #0785f0, #148fee);
+    box-shadow: 0 3px 9px rgba(18, 135, 238, 0.18);
+  }
+  
+  /* LIST */
+  
+  .notificationList {
+    width: 100%;
+  }
+  
+  .notificationRow {
+    min-height: 76px;
+  
+    padding: 10px 15px 10px 12px;
+  
+    display: flex;
+    align-items: center;
+  
+    border-bottom: 1px solid #edf2f7;
+  
+    transition: 0.18s ease;
+  }
+  
+  .notificationRow:hover {
+    background: #fbfdff;
+  }
+  
+  .unreadRow {
+    background: #ffffff;
+  }
+  
+  .statusDot {
+    width: 25px;
+    min-width: 25px;
+  
+    display: flex;
+    justify-content: center;
+  }
+  
+  .statusDot span {
+    width: 8px;
+    height: 8px;
+  
+    border-radius: 50%;
+    background: #148aeb;
+  
+    box-shadow: 0 0 0 2px rgba(20, 138, 235, 0.06);
+  }
+  
+  .notificationIcon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  
+    margin-right: 16px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 50%;
+  
+    font-size: 17px;
+    font-weight: 700;
+  }
+  
+  .notificationIcon.lead {
+    color: #ffffff;
+    background: #63a7ed;
+  }
+  
+  .notificationIcon.client {
+    color: #ffffff;
+    background: #1dc0a4;
+  }
+  
+  .notificationIcon.project {
+    color: #ffffff;
+    background: #9b61e8;
+  }
+  
+  .notificationIcon.task {
+    color: #ffffff;
+    background: #62a7ec;
+  }
+  
+  .notificationIcon.payment {
+    color: #ffffff;
+    background: #f2a41c;
+  }
+  
+  .notificationIcon.team {
+    color: #ffffff;
+    background: #a66be7;
+  }
+  
+  .notificationIcon.followup {
+    color: #ffffff;
+    background: #f16c78;
+  }
+  
+  .notificationIcon.system {
+    color: #ffffff;
+    background: #22baa5;
+  }
+  
+  .notificationContent {
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .notificationContent h3 {
+    margin: 0;
+  
+    color: #183e72;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  
+  .notificationContent p {
+    max-width: 600px;
+  
+    margin: 4px 0 4px;
+  
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  
+    color: #7890ad;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+  
+  .tag {
+    display: inline-flex;
+    align-items: center;
+  
+    min-height: 15px;
+  
+    padding: 2px 7px;
+  
+    border-radius: 7px;
+  
+    font-size: 8px;
+    line-height: 1;
+  
+    font-weight: 700;
+  }
+  
+  .tag_lead {
+    color: #2582d8;
+    background: #e8f4ff;
+  }
+  
+  .tag_client {
+    color: #1baf8d;
+    background: #e4f9f4;
+  }
+  
+  .tag_project {
+    color: #8650db;
+    background: #f1e8ff;
+  }
+  
+  .tag_task {
+    color: #3888d8;
+    background: #e7f3ff;
+  }
+  
+  .tag_payment {
+    color: #e49b17;
+    background: #fff4dc;
+  }
+  
+  .tag_team {
+    color: #8d58dc;
+    background: #f1e9ff;
+  }
+  
+  .tag_followup {
+    color: #ed6673;
+    background: #ffe9ed;
+  }
+  
+  .tag_system {
+    color: #1da890;
+    background: #e4f8f4;
+  }
+  
+  /* META */
+  
+  .notificationMeta {
+    width: 145px;
+    min-width: 145px;
+  
+    display: grid;
+    grid-template-columns: 1fr 52px 18px;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .time {
+    color: #7890ad;
+    font-size: 8px;
+    text-align: right;
+  }
+  
+  .readStatus {
+    min-width: 48px;
+    height: 20px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 12px;
+  
+    font-size: 8px;
+    font-weight: 700;
+  }
+  
+  .unreadStatus {
+    color: #ec6570;
+    background: #ffe7ea;
+  }
+  
+  .readStatusGreen {
+    color: #24ae8f;
+    background: #e3f8f2;
+  }
+  
+  .moreButton {
+    width: 18px;
+    height: 25px;
+  
+    border: 0;
+    background: transparent;
+  
+    color: #2182da;
+    font-size: 18px;
+    line-height: 1;
+  
+    cursor: pointer;
+  }
+  
+  /* EMPTY */
+  
+  .emptyState {
+    min-height: 350px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    color: #7890ad;
+  }
+  
+  .emptyState > div {
+    width: 55px;
+    height: 55px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 50%;
+  
+    background: #edf7ff;
+    color: #1287ee;
+  
+    font-size: 25px;
+  }
+  
+  .emptyState h3 {
+    margin: 15px 0 4px;
+  
+    color: #173d72;
+    font-size: 14px;
+  }
+  
+  .emptyState p {
+    margin: 0;
+    font-size: 10px;
+  }
+  
+  /* PAGINATION */
+  
+  .paginationArea {
+    min-height: 53px;
+  
+    padding: 0 15px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    color: #7890ad;
+    font-size: 9px;
+  }
+  
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .pagination button {
+    width: 28px;
+    height: 28px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border: 1px solid #e7eef6;
+    border-radius: 7px;
+  
+    color: #7890ad;
+    background: #ffffff;
+  
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .pagination .currentPage {
+    border-color: #1287ee;
+    background: #1287ee;
+    color: #ffffff;
+  }
+  
+  /* =========================================================
+     RIGHT SIDEBAR
+     ========================================================= */
+  
+  .rightSidebar {
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+  }
+  
+  .summaryCard,
+  .recentCard {
+    border: 1px solid #e2ebf4;
+    border-radius: 9px;
+  
+    background: #ffffff;
+  
+    box-shadow: 0 3px 13px rgba(42, 84, 124, 0.035);
+  }
+  
+  /* SUMMARY */
+  
+  .summaryCard {
+    padding: 16px 15px;
+  }
+  
+  .summaryCard h2,
+  .recentHeader h2 {
+    margin: 0;
+  
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    color: #123b70;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  
+  .summaryCard h2 span,
+  .recentHeader h2 span {
+    color: #075fbd;
+    font-size: 18px;
+  }
+  
+  .summaryGrid {
+    margin-top: 14px;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .summaryBox {
+    min-height: 70px;
+  
+    padding: 9px;
+  
+    border-radius: 9px;
+  
+    display: grid;
+    grid-template-columns: 23px 1fr;
+    grid-template-rows: 25px 16px;
+    column-gap: 6px;
+    align-items: center;
+  }
+  
+  .summaryIcon {
+    grid-row: span 2;
+  
+    width: 23px;
+    height: 23px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 15px;
+    border-radius: 5px;
+  }
+  
+  .summaryBox strong {
+    font-size: 15px;
+    line-height: 1;
+  }
+  
+  .summaryBox small {
+    font-size: 8px;
+    font-weight: 600;
+  }
+  
+  .blueBox {
+    background: #edf7ff;
+  }
+  
+  .blueBox .summaryIcon {
+    color: #1887df;
+  }
+  
+  .blueBox strong,
+  .blueBox small {
+    color: #1777c8;
+  }
+  
+  .redBox {
+    background: #fff0f1;
+  }
+  
+  .redBox .summaryIcon {
+    color: #ed6171;
+  }
+  
+  .redBox strong,
+  .redBox small {
+    color: #e25868;
+  }
+  
+  .greenBox {
+    background: #ebfaf6;
+  }
+  
+  .greenBox .summaryIcon {
+    color: #22ae8e;
+  }
+  
+  .greenBox strong,
+  .greenBox small {
+    color: #1c9f83;
+  }
+  
+  .purpleBox {
+    background: #f3edff;
+  }
+  
+  .purpleBox .summaryIcon {
+    color: #945fe1;
+  }
+  
+  .purpleBox strong,
+  .purpleBox small {
+    color: #8050cc;
+  }
+  
+  /* RECENT */
+  
+  .recentCard {
+    padding: 16px 15px 7px;
+  }
+  
+  .recentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .recentHeader button {
+    border: 0;
+    background: transparent;
+  
+    color: #1683df;
+  
+    font-size: 8px;
+    font-weight: 700;
+  
+    cursor: pointer;
+  }
+  
+  .recentList {
+    margin-top: 12px;
+  }
+  
+  .recentItem {
+    position: relative;
+  
+    min-height: 72px;
+  
+    padding: 7px 0 7px 11px;
+  
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .recentDot {
+    position: absolute;
+    left: 0;
+    top: 17px;
+  
+    width: 6px;
+    height: 6px;
+  
+    border-radius: 50%;
+  }
+  
+  .dot_lead {
+    background: #158aee;
+  }
+  
+  .dot_client {
+    background: #1cc1a2;
+  }
+  
+  .dot_project {
+    background: #9b5de5;
+  }
+  
+  .dot_task {
+    background: #7fa7d6;
+  }
+  
+  .dot_payment {
+    background: #f2b23c;
+  }
+  
+  .recentItem .notificationIcon {
+    width: 31px;
+    height: 31px;
+    min-width: 31px;
+  
+    margin-right: 0;
+  
+    font-size: 13px;
+  }
+  
+  .recentItem > div:last-child {
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .recentItem h4 {
+    margin: 1px 0 3px;
+  
+    color: #244873;
+  
+    font-size: 9px;
+    font-weight: 800;
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .recentItem p {
+    margin: 0;
+  
+    color: #8196b0;
+  
+    font-size: 8px;
+    line-height: 1.35;
+  
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  
+  .recentItem span {
+    display: block;
+  
+    margin-top: 4px;
+  
+    color: #8aa0b9;
+  
+    font-size: 7px;
+  }
+  
+  /* =========================================================
+     CTA CARD
+     ========================================================= */
+  
+  .ctaCard {
+    min-height: 190px;
+  
+    position: relative;
+    overflow: hidden;
+  
+    padding: 21px 20px;
+  
+    border-radius: 9px;
+  
+    background:
+      radial-gradient(
+        circle at 90% 5%,
+        rgba(255, 255, 255, 0.2),
+        transparent 35%
+      ),
+      linear-gradient(135deg, #176ce4, #0867d6);
+  
+    box-shadow: 0 9px 22px rgba(17, 104, 218, 0.15);
+  }
+  
+  .ctaText {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .ctaCard h2 {
+    margin: 0;
+  
+    color: #ffffff;
+  
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 800;
+  }
+  
+  .ctaCard p {
+    max-width: 185px;
+  
+    margin: 13px 0;
+  
+    color: rgba(255, 255, 255, 0.82);
+  
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  
+  .ctaCard button {
+    height: 32px;
+  
+    padding: 0 12px;
+  
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  
+    border: 0;
+    border-radius: 16px;
+  
+    background: #ffffff;
+    color: #15509b;
+  
+    font-size: 9px;
+    font-weight: 800;
+  
+    cursor: pointer;
+  }
+  
+  .ctaCard button span {
+    font-size: 14px;
+  }
+  
+  .paperPlane {
+    position: absolute;
+    right: 14px;
+    top: 15px;
+  
+    color: rgba(255, 255, 255, 0.9);
+  
+    font-size: 70px;
+  
+    transform: rotate(-18deg);
+  }
+  
+  /* =========================================================
+     OVERLAY
+     ========================================================= */
+  
+  .overlay {
+    display: none;
+  }
+  
+  /* =========================================================
+     1400px
+     ========================================================= */
+  
+  @media (max-width: 1400px) {
+    .sidebar {
+      width: 245px;
+      min-width: 245px;
+    }
+  
+    .main {
+      width: calc(100% - 245px);
+      margin-left: 245px;
+      padding-top: 48px;
+    }
+  
+    .pageGrid {
+      grid-template-columns: minmax(0, 1fr) 285px;
+      gap: 18px;
+    }
+  
+    .content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  /* =========================================================
+     1200px
+     ========================================================= */
+  
+  @media (max-width: 1200px) {
+    .sidebar {
+      width: 225px;
+      min-width: 225px;
+    }
+  
+    .main {
+      width: calc(100% - 225px);
+      margin-left: 225px;
+      padding-top: 48px;
+    }
+  
+    .logoArea {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    .sideNav {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    .navItem {
+      font-size: 12px;
+      gap: 10px;
+    }
+  
+    .pageGrid {
+      grid-template-columns: minmax(0, 1fr) 260px;
+    }
+  
+    .rightSidebar {
+      gap: 14px;
+    }
+  
+    .notificationMeta {
+      width: 125px;
+      min-width: 125px;
+      grid-template-columns: 1fr 48px 14px;
+    }
+  
+    .notificationIcon {
+      margin-right: 11px;
+    }
+  }
+  
+  /* =========================================================
+     1050px
+     ========================================================= */
+  
+  @media (max-width: 1050px) {
+    .pageGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .rightSidebar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  
+    .ctaCard {
+      grid-column: span 2;
+    }
+  }
+  
+  /* =========================================================
+     900px
+     ========================================================= */
+  
+  @media (max-width: 900px) {
+    .sidebar {
+      width: 245px;
+      min-width: 245px;
+  
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+    }
+  
+    .sidebarOpen {
+      transform: translateX(0);
+    }
+  
+    .main {
+      width: 100%;
+      margin-left: 0;
+      padding-top: 48px;
+    }
+  
+    .hamburger {
+      width: 35px;
+      height: 35px;
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+  
+      padding: 7px;
+  
+      border: 1px solid #e0eaf5;
+      border-radius: 7px;
+  
+      background: #ffffff;
+      cursor: pointer;
+    }
+  
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+  
+      display: block;
+  
+      border-radius: 2px;
+  
+      background: #1760a9;
+    }
+  
+    .mobileClose {
+      display: flex;
+  
+      width: 27px;
+      height: 27px;
+  
+      margin-left: auto;
+  
+      align-items: center;
+      justify-content: center;
+  
+      border: 0;
+      border-radius: 50%;
+  
+      color: #ffffff;
+      background: #1287ee;
+  
+      font-size: 18px;
+  
+      cursor: pointer;
+    }
+  
+    .overlay {
+      display: block;
+  
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+  
+      background: rgba(13, 42, 72, 0.35);
+    }
+  
+    .topbar {
+      padding: 0 18px;
+    }
+  
+    .content {
+      padding: 15px 16px 22px;
+    }
+  }
+  
+  /* =========================================================
+     760px
+     ========================================================= */
+  
+  @media (max-width: 760px) {
+    .topbar {
+      height: 68px;
+      gap: 10px;
+    }
+  
+    .searchBox {
+      flex: 1;
+      height: 39px;
+    }
+  
+    .searchBox input {
+      font-size: 10px;
+    }
+  
+    .topActions {
+      gap: 4px;
+    }
+  
+    .themeButton {
+      display: none;
+    }
+  
+    .profile {
+      min-width: auto;
+      padding-left: 7px;
+    }
+  
+    .profileInfo {
+      display: none;
+    }
+  
+    .profileArrow {
+      display: none;
+    }
+  
+    .pageHeader {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 4px 0 15px;
+    }
+  
+    .markAllButton {
+      align-self: flex-end;
+    }
+  
+    .rightSidebar {
+      grid-template-columns: 1fr;
+    }
+  
+    .ctaCard {
+      grid-column: span 1;
+    }
+  }
+  
+  /* =========================================================
+     600px
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .content {
+      padding: 12px;
+    }
+  
+    .titleRow h1 {
+      font-size: 22px;
+    }
+  
+    .titleRow p {
+      font-size: 10px;
+    }
+  
+    .notificationsPanel {
+      border-radius: 8px;
+    }
+  
+    .tabs {
+      padding: 0 8px;
+    }
+  
+    .tab {
+      padding: 0 10px;
+      font-size: 9px;
+    }
+  
+    .notificationRow {
+      min-height: auto;
+      padding: 12px 9px;
+      align-items: flex-start;
+    }
+  
+    .statusDot {
+      width: 16px;
+      min-width: 16px;
+      padding-top: 7px;
+    }
+  
+    .notificationIcon {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+  
+      margin-right: 9px;
+  
+      font-size: 14px;
+    }
+  
+    .notificationContent h3 {
+      font-size: 10px;
+    }
+  
+    .notificationContent p {
+      white-space: normal;
+      font-size: 8px;
+      line-height: 1.45;
+    }
+  
+    .notificationMeta {
+      width: auto;
+      min-width: auto;
+  
+      display: flex;
+      flex-direction: column;
+  
+      align-items: flex-end;
+      gap: 5px;
+    }
+  
+    .time {
+      font-size: 7px;
+      white-space: nowrap;
+    }
+  
+    .readStatus {
+      height: 18px;
+      min-width: 42px;
+      font-size: 7px;
+    }
+  
+    .moreButton {
+      display: none;
+    }
+  
+    .paginationArea {
+      padding: 8px 10px;
+      min-height: auto;
+  
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+  
+  /* =========================================================
+     480px
+     ========================================================= */
+  
+  @media (max-width: 480px) {
+    .topbar {
+      padding: 0 10px;
+    }
+  
+    .searchBox {
+      min-width: 0;
+    }
+  
+    .searchIcon {
+      margin-right: 5px;
+      font-size: 22px;
+    }
+  
+    .notificationButton {
+      display: none;
+    }
+  
+    .avatar {
+      width: 34px;
+      height: 34px;
+      font-size: 9px;
+    }
+  
+    .content {
+      padding: 10px;
+    }
+  
+    .breadcrumb {
+      font-size: 8px;
+    }
+  
+    .titleRow {
+      gap: 8px;
+    }
+  
+    .titleBell {
+      width: 27px;
+      font-size: 23px;
+    }
+  
+    .titleRow h1 {
+      font-size: 20px;
+    }
+  
+    .titleRow p {
+      max-width: 290px;
+      font-size: 9px;
+    }
+  
+    .markAllButton {
+      font-size: 9px;
+    }
+  
+    .notificationRow {
+      display: grid;
+      grid-template-columns: 10px 34px minmax(0, 1fr);
+      column-gap: 7px;
+    }
+  
+    .statusDot {
+      width: 10px;
+      min-width: 10px;
+    }
+  
+    .notificationIcon {
+      margin-right: 0;
+    }
+  
+    .notificationContent {
+      padding-right: 2px;
+    }
+  
+    .notificationMeta {
+      grid-column: 3;
+      width: 100%;
+  
+      margin-top: 5px;
+  
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .paginationArea {
+      font-size: 8px;
+    }
+  
+    .pagination {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  
+    .summaryCard,
+    .recentCard {
+      padding: 13px;
+    }
+  
+    .ctaCard {
+      min-height: 175px;
+    }
+  }
+  
+  /* =========================================================
+     360px
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .logoText strong {
+      font-size: 22px;
+    }
+  
+    .sidebar {
+      width: 230px;
+      min-width: 230px;
+    }
+  
+    .searchBox input {
+      font-size: 9px;
+    }
+  
+    .titleRow h1 {
+      font-size: 18px;
+    }
+  
+    .tab {
+      padding: 0 8px;
+    }
+  
+    .summaryGrid {
+      gap: 7px;
+    }
+  
+    .summaryBox {
+      padding: 7px;
+    }
+  }

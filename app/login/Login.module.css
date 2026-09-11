@@ -1,0 +1,2133 @@
+/* =========================================================
+   PRISM INFOTECH
+   LOGIN PAGE
+   FULL RESPONSIVE CSS
+   ========================================================= */
+
+   .page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  
+    background: #f5faff;
+    color: #123b70;
+  
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+  
+  /* =========================================================
+     BACKGROUND SHAPES
+     ========================================================= */
+  
+  .topShape {
+    position: absolute;
+  
+    top: -170px;
+    right: -100px;
+  
+    width: 430px;
+    height: 330px;
+  
+    background: linear-gradient(
+      135deg,
+      #dcecff,
+      #eaf3ff
+    );
+  
+    border-radius: 0 0 0 100%;
+  
+    transform: rotate(8deg);
+  
+    z-index: 0;
+  
+    pointer-events: none;
+  }
+  
+  .topShape::before {
+    content: "";
+  
+    position: absolute;
+  
+    width: 95px;
+    height: 300px;
+  
+    right: 100px;
+    top: 30px;
+  
+    background: #bfd3ff;
+  
+    border-radius: 0 0 40px 40px;
+  
+    transform: rotate(-42deg);
+  }
+  
+  .topShape::after {
+    content: "";
+  
+    position: absolute;
+  
+    width: 75px;
+    height: 250px;
+  
+    right: 30px;
+    top: 50px;
+  
+    background: #a9c5ff;
+  
+    border-radius: 0 0 35px 35px;
+  
+    transform: rotate(-42deg);
+  }
+  
+  .bottomShape {
+    position: absolute;
+  
+    left: -250px;
+    bottom: -250px;
+  
+    width: 800px;
+    height: 500px;
+  
+    background: linear-gradient(
+      115deg,
+      #087bea 0%,
+      #087bea 38%,
+      #6938ea 100%
+    );
+  
+    border-radius: 50%;
+  
+    transform: rotate(8deg);
+  
+    z-index: 0;
+  
+    pointer-events: none;
+  }
+  
+  /* =========================================================
+     MAIN
+     ========================================================= */
+  
+  .container {
+    position: relative;
+  
+    z-index: 2;
+  
+    width: 100%;
+    max-width: 1500px;
+  
+    min-height: 100vh;
+  
+    margin: 0 auto;
+  
+    padding: 45px 65px 35px;
+  
+    display: grid;
+  
+    grid-template-columns: 48% 52%;
+  
+    gap: 35px;
+  
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     LEFT
+     ========================================================= */
+  
+  .leftSide {
+    min-height: calc(100vh - 80px);
+  
+    display: flex;
+    flex-direction: column;
+  
+    position: relative;
+  }
+  
+  /* =========================================================
+     LOGO
+     ========================================================= */
+  
+  .logoArea {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 12px;
+  }
+  
+  .logoMark {
+    position: relative;
+  
+    width: 55px;
+    height: 55px;
+  
+    flex-shrink: 0;
+  }
+  
+  .logoTop,
+  .logoMiddle,
+  .logoBottom {
+    position: absolute;
+  
+    display: block;
+  
+    border-radius: 7px 18px 7px 18px;
+  }
+  
+  .logoTop {
+    width: 38px;
+    height: 18px;
+  
+    top: 2px;
+    left: 4px;
+  
+    background: linear-gradient(
+      90deg,
+      #203cf0,
+      #16c1d8
+    );
+  
+    transform: skewX(-25deg);
+  }
+  
+  .logoMiddle {
+    width: 20px;
+    height: 42px;
+  
+    top: 8px;
+    left: 20px;
+  
+    background: linear-gradient(
+      180deg,
+      #1686ed,
+      #173ee8
+    );
+  
+    transform: skewX(-25deg);
+  }
+  
+  .logoBottom {
+    width: 20px;
+    height: 30px;
+  
+    bottom: 0;
+    left: 5px;
+  
+    background: linear-gradient(
+      180deg,
+      #1248e9,
+      #16a9e1
+    );
+  
+    transform: skewX(-25deg);
+  }
+  
+  .logoText {
+    display: flex;
+  
+    flex-direction: column;
+  }
+  
+  .logoName {
+    font-size: 35px;
+  
+    line-height: 1;
+  
+    font-weight: 900;
+  
+    letter-spacing: 1px;
+  
+    background: linear-gradient(
+      90deg,
+      #1648ee,
+      #13a6dd
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    background-clip: text;
+  }
+  
+  .logoSub {
+    margin-top: 5px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 5px;
+  
+    color: #414952;
+  
+    font-size: 9px;
+  
+    letter-spacing: 0.7px;
+  }
+  
+  .logoSub span {
+    width: 12px;
+    height: 1px;
+  
+    background: #1985dd;
+  }
+  
+  /* =========================================================
+     HERO
+     ========================================================= */
+  
+  .heroContent {
+    margin-top: 55px;
+  }
+  
+  .heroContent h1 {
+    margin: 0;
+  
+    color: #123b70;
+  
+    font-size: 45px;
+  
+    line-height: 1.13;
+  
+    font-weight: 800;
+  
+    letter-spacing: -1px;
+  }
+  
+  .heroContent h1 span {
+    background: linear-gradient(
+      90deg,
+      #087bea,
+      #7436e9
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    background-clip: text;
+  }
+  
+  .heroContent p {
+    max-width: 590px;
+  
+    margin: 18px 0 0;
+  
+    color: #7185a2;
+  
+    font-size: 16px;
+  
+    line-height: 1.6;
+  }
+  
+  /* =========================================================
+     SERVICES
+     ========================================================= */
+  
+  .services {
+    margin-top: 35px;
+  
+    display: grid;
+  
+    grid-template-columns: repeat(4, 1fr);
+  
+    gap: 13px;
+  
+    max-width: 620px;
+  }
+  
+  .service {
+    min-height: 110px;
+  
+    padding: 14px 10px;
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    text-align: center;
+  
+    background: rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+  
+    border: 1px solid
+      rgba(221, 232, 245, 0.8);
+  
+    border-radius: 12px;
+  
+    box-sizing: border-box;
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .service:hover {
+    transform: translateY(-3px);
+  
+    box-shadow:
+      0 8px 25px
+        rgba(35, 91, 160, 0.1);
+  }
+  
+  .serviceIcon {
+    width: 39px;
+    height: 39px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    color: #087bea;
+  
+    background: #e8f3ff;
+  
+    border-radius: 10px;
+  }
+  
+  .serviceIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .service h3 {
+    margin: 9px 0 0;
+  
+    color: #123b70;
+  
+    font-size: 10px;
+  
+    line-height: 1.35;
+  
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     ILLUSTRATION
+     ========================================================= */
+  
+  .illustrationArea {
+    position: relative;
+  
+    width: 100%;
+  
+    height: 310px;
+  
+    margin-top: auto;
+  
+    margin-bottom: 5px;
+  }
+  
+  /* =========================================================
+     PLANT
+     ========================================================= */
+  
+  .plant {
+    position: absolute;
+  
+    left: 1%;
+    bottom: 12px;
+  
+    width: 100px;
+    height: 145px;
+  
+    z-index: 4;
+  }
+  
+  .stem {
+    position: absolute;
+  
+    left: 47px;
+    top: 42px;
+  
+    width: 4px;
+    height: 75px;
+  
+    background: #18a96f;
+  
+    border-radius: 10px;
+  
+    transform: rotate(3deg);
+  }
+  
+  .leaf {
+    position: absolute;
+  
+    background: linear-gradient(
+      135deg,
+      #15bf83,
+      #159d68
+    );
+  
+    border-radius: 100% 0 100% 0;
+  }
+  
+  .leaf1 {
+    width: 37px;
+    height: 65px;
+  
+    left: 43px;
+    top: 3px;
+  
+    transform: rotate(22deg);
+  }
+  
+  .leaf2 {
+    width: 36px;
+    height: 57px;
+  
+    left: 13px;
+    top: 24px;
+  
+    transform: rotate(-40deg);
+  }
+  
+  .leaf3 {
+    width: 33px;
+    height: 54px;
+  
+    left: 55px;
+    top: 42px;
+  
+    transform: rotate(42deg);
+  }
+  
+  .leaf4 {
+    width: 28px;
+    height: 45px;
+  
+    left: 19px;
+    top: 55px;
+  
+    transform: rotate(-52deg);
+  }
+  
+  .pot {
+    position: absolute;
+  
+    left: 25px;
+    bottom: 0;
+  
+    width: 55px;
+    height: 52px;
+  
+    background: linear-gradient(
+      90deg,
+      #c9d9ea,
+      #ffffff
+    );
+  
+    border-radius: 4px 4px 16px 16px;
+  
+    box-shadow:
+      0 7px 15px
+        rgba(35, 74, 125, 0.13);
+  }
+  
+  .pot div {
+    position: absolute;
+  
+    left: -3px;
+    top: -4px;
+  
+    width: 61px;
+    height: 9px;
+  
+    background: #d5e2ef;
+  
+    border-radius: 50%;
+  }
+  
+  /* =========================================================
+     LAPTOP
+     ========================================================= */
+  
+  .laptop {
+    position: absolute;
+  
+    left: 12%;
+    bottom: 20px;
+  
+    width: 63%;
+  
+    transform:
+      perspective(900px)
+      rotateX(4deg)
+      rotateY(-7deg);
+  
+    z-index: 2;
+  }
+  
+  .laptopScreen {
+    padding: 7px;
+  
+    min-height: 225px;
+  
+    background: #ffffff;
+  
+    border: 5px solid #153b88;
+  
+    border-radius: 12px 12px 5px 5px;
+  
+    box-shadow:
+      0 15px 30px
+        rgba(27, 65, 135, 0.18);
+  
+    box-sizing: border-box;
+  }
+  
+  .browserBar {
+    height: 12px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 4px;
+  
+    padding: 0 5px;
+  }
+  
+  .browserBar span {
+    width: 4px;
+    height: 4px;
+  
+    border-radius: 50%;
+  
+    background: #c6d3e5;
+  }
+  
+  /* =========================================================
+     MOCK DASHBOARD
+     ========================================================= */
+  
+  .dashboardMock {
+    height: 195px;
+  
+    display: flex;
+  
+    overflow: hidden;
+  
+    border-radius: 5px;
+  
+    background: #f7faff;
+  }
+  
+  .dashboardMock aside {
+    width: 28%;
+  
+    padding: 9px 6px;
+  
+    background: #102d6c;
+  
+    color: #ffffff;
+  
+    box-sizing: border-box;
+  }
+  
+  .mockLogo {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 4px;
+  
+    margin-bottom: 12px;
+  
+    font-size: 8px;
+  }
+  
+  .mockLogo b {
+    width: 14px;
+    height: 14px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    border-radius: 4px;
+  
+    background: #1786eb;
+  
+    font-size: 8px;
+  }
+  
+  .mockNav,
+  .mockNavActive {
+    padding: 5px 4px;
+  
+    margin-bottom: 4px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 5px;
+  
+    border-radius: 3px;
+  
+    font-size: 6px;
+  }
+  
+  .mockNavActive {
+    background: #1683e9;
+  }
+  
+  .mockNav {
+    color: #b9c8e3;
+  }
+  
+  .mockMain {
+    flex: 1;
+  
+    min-width: 0;
+  
+    padding: 9px;
+  
+    box-sizing: border-box;
+  }
+  
+  .mockTitle {
+    color: #123b70;
+  
+    font-size: 10px;
+  
+    font-weight: 700;
+  }
+  
+  .mockStats {
+    display: grid;
+  
+    grid-template-columns: repeat(
+      3,
+      1fr
+    );
+  
+    gap: 4px;
+  
+    margin-top: 8px;
+  }
+  
+  .mockStats div {
+    padding: 6px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #e2ebf5;
+  
+    border-radius: 4px;
+  }
+  
+  .mockStats small {
+    display: block;
+  
+    color: #8496ad;
+  
+    font-size: 5px;
+  }
+  
+  .mockStats b {
+    display: block;
+  
+    margin-top: 2px;
+  
+    color: #123b70;
+  
+    font-size: 10px;
+  }
+  
+  .mockGraph {
+    margin-top: 7px;
+  
+    height: 75px;
+  
+    padding: 6px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #e4edf6;
+  
+    border-radius: 4px;
+  
+    box-sizing: border-box;
+  }
+  
+  .graphTitle {
+    color: #123b70;
+  
+    font-size: 6px;
+  
+    font-weight: 700;
+  }
+  
+  .mockGraph svg {
+    width: 100%;
+    height: 55px;
+  
+    margin-top: 2px;
+  
+    color: #1688ed;
+  }
+  
+  .mockBottom {
+    display: flex;
+  
+    justify-content: space-between;
+  
+    margin-top: 5px;
+  }
+  
+  .donut {
+    width: 22px;
+    height: 22px;
+  
+    border: 5px solid #1688ed;
+  
+    border-right-color: #dce8f6;
+  
+    border-radius: 50%;
+  }
+  
+  .mockBottom div:last-child {
+    display: flex;
+  
+    align-items: flex-end;
+  
+    gap: 3px;
+  }
+  
+  .mockBottom span {
+    width: 5px;
+  
+    display: block;
+  
+    background: #1688ed;
+  
+    border-radius: 2px 2px 0 0;
+  }
+  
+  .mockBottom span:nth-child(1) {
+    height: 12px;
+  }
+  
+  .mockBottom span:nth-child(2) {
+    height: 19px;
+  }
+  
+  .mockBottom span:nth-child(3) {
+    height: 25px;
+  }
+  
+  .laptopBase {
+    width: 108%;
+    height: 15px;
+  
+    margin-left: -4%;
+  
+    background: linear-gradient(
+      #b8cce5,
+      #e0e9f4
+    );
+  
+    border-radius: 0 0 20px 20px;
+  
+    box-shadow:
+      0 8px 16px
+        rgba(24, 63, 120, 0.15);
+  }
+  
+  /* =========================================================
+     PHONE
+     ========================================================= */
+  
+  .phone {
+    position: absolute;
+  
+    right: 9%;
+    bottom: 28px;
+  
+    width: 90px;
+    height: 155px;
+  
+    padding: 7px;
+  
+    background: #142f6c;
+  
+    border: 4px solid #ffffff;
+  
+    border-radius: 16px;
+  
+    box-shadow:
+      0 15px 30px
+        rgba(30, 73, 143, 0.18);
+  
+    transform: rotate(5deg);
+  
+    z-index: 5;
+  
+    box-sizing: border-box;
+  }
+  
+  .phoneNotch {
+    position: absolute;
+  
+    top: 5px;
+    left: 50%;
+  
+    width: 28px;
+    height: 5px;
+  
+    transform: translateX(-50%);
+  
+    background: #142f6c;
+  
+    border-radius: 10px;
+  
+    z-index: 3;
+  }
+  
+  .phoneScreen {
+    width: 100%;
+    height: 100%;
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    background: #f7faff;
+  
+    border-radius: 10px;
+  
+    text-align: center;
+  }
+  
+  .phoneLogo {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 3px;
+  
+    color: #1385e8;
+  
+    font-size: 9px;
+  
+    font-weight: 800;
+  }
+  
+  .phoneLogo b {
+    font-size: 14px;
+  }
+  
+  .phoneText {
+    margin-top: 8px;
+  
+    color: #123b70;
+  
+    font-size: 7px;
+  
+    line-height: 1.4;
+  
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     GROWTH
+     ========================================================= */
+  
+  .growthText {
+    position: absolute;
+  
+    left: 4%;
+    bottom: 2px;
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    color: #ffffff;
+  
+    font-size: 12px;
+  
+    z-index: 8;
+  }
+  
+  .growthText span {
+    opacity: 0.9;
+  }
+  
+  .growthText strong {
+    margin-top: 2px;
+  
+    font-size: 14px;
+  }
+  
+  .growthText div {
+    width: 65px;
+    height: 2px;
+  
+    margin-top: 5px;
+  
+    background: #ffffff;
+  
+    border-radius: 10px;
+  }
+  
+  /* =========================================================
+     RIGHT SIDE
+     ========================================================= */
+  
+  .rightSide {
+    min-height: calc(100vh - 80px);
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    padding: 15px 0;
+  
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     LOGIN CARD
+     ========================================================= */
+  
+  .loginCard {
+    width: 100%;
+  
+    max-width: 600px;
+  
+    padding: 42px 48px 40px;
+  
+    background: rgba(
+      255,
+      255,
+      255,
+      0.98
+    );
+  
+    border: 1px solid #e5edf6;
+  
+    border-radius: 18px;
+  
+    box-shadow:
+      0 18px 50px
+        rgba(36, 79, 137, 0.1);
+  
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     LOGIN HEADING
+     ========================================================= */
+  
+  .loginHeading {
+    text-align: center;
+  
+    margin-bottom: 32px;
+  }
+  
+  .loginIcon {
+    width: 48px;
+    height: 48px;
+  
+    margin: 0 auto 10px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    color: #087bea;
+  
+    background: #eaf5ff;
+  
+    border-radius: 13px;
+  }
+  
+  .loginIcon svg {
+    width: 27px;
+    height: 27px;
+  }
+  
+  .loginHeading h2 {
+    margin: 0;
+  
+    color: #123b70;
+  
+    font-size: 31px;
+  
+    line-height: 1.2;
+  
+    font-weight: 800;
+  }
+  
+  .loginHeading p {
+    max-width: 420px;
+  
+    margin: 10px auto 0;
+  
+    color: #8494aa;
+  
+    font-size: 14px;
+  
+    line-height: 1.5;
+  }
+  
+  /* =========================================================
+     FORM
+     ========================================================= */
+  
+  .form {
+    display: flex;
+  
+    flex-direction: column;
+  
+    gap: 20px;
+  }
+  
+  /* =========================================================
+     INPUT GROUP
+     ========================================================= */
+  
+  .inputGroup {
+    display: flex;
+  
+    flex-direction: column;
+  
+    gap: 8px;
+  }
+  
+  .inputGroup label {
+    color: #123b70;
+  
+    font-size: 13px;
+  
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     INPUT BOX
+     ========================================================= */
+  
+  .inputBox {
+    width: 100%;
+    height: 51px;
+  
+    padding: 0 15px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 11px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #d7e2ed;
+  
+    border-radius: 9px;
+  
+    box-sizing: border-box;
+  
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .inputBox:hover {
+    border-color: #bdcfe1;
+  }
+  
+  .inputBox:focus-within {
+    border-color: #1387ea;
+  
+    box-shadow:
+      0 0 0 3px
+        rgba(19, 135, 234, 0.08);
+  }
+  
+  /* =========================================================
+     INPUT ICON
+     ========================================================= */
+  
+  .inputIcon {
+    width: 21px;
+    height: 21px;
+  
+    flex-shrink: 0;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    color: #8295ad;
+  }
+  
+  .inputIcon svg {
+    width: 19px;
+    height: 19px;
+  }
+  
+  /* =========================================================
+     INPUT
+     ========================================================= */
+  
+  .inputBox input {
+    width: 100%;
+    height: 100%;
+  
+    min-width: 0;
+  
+    padding: 0;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #123b70;
+  
+    font-family: inherit;
+  
+    font-size: 14px;
+  }
+  
+  .inputBox input::placeholder {
+    color: #9baabd;
+  }
+  
+  /* =========================================================
+     EYE
+     ========================================================= */
+  
+  .eyeButton {
+    width: 30px;
+    height: 30px;
+  
+    flex-shrink: 0;
+  
+    padding: 0;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #8295ad;
+  
+    cursor: pointer;
+  }
+  
+  .eyeButton:hover {
+    color: #1387ea;
+  }
+  
+  .eyeButton svg {
+    width: 21px;
+    height: 21px;
+  }
+  
+  /* =========================================================
+     OPTIONS
+     ========================================================= */
+  
+  .options {
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: space-between;
+  
+    margin-top: -3px;
+  }
+  
+  .remember {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 8px;
+  
+    color: #667d98;
+  
+    font-size: 12px;
+  
+    cursor: pointer;
+  }
+  
+  .remember input {
+    position: absolute;
+  
+    opacity: 0;
+  
+    pointer-events: none;
+  }
+  
+  .check {
+    width: 16px;
+    height: 16px;
+  
+    display: inline-block;
+  
+    background: #ffffff;
+  
+    border: 1px solid #c9d7e6;
+  
+    border-radius: 4px;
+  
+    position: relative;
+  }
+  
+  .remember input:checked + .check {
+    background: #1387ea;
+  
+    border-color: #1387ea;
+  }
+  
+  .remember input:checked
+    + .check::after {
+    content: "";
+  
+    position: absolute;
+  
+    left: 4px;
+    top: 1px;
+  
+    width: 5px;
+    height: 9px;
+  
+    border-right: 2px solid #ffffff;
+  
+    border-bottom: 2px solid #ffffff;
+  
+    transform: rotate(45deg);
+  }
+  
+  .forgot {
+    padding: 0;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #2291a9;
+  
+    font-family: inherit;
+  
+    font-size: 13px;
+  
+    font-weight: 700;
+  
+    cursor: pointer;
+  }
+  
+  .forgot:hover {
+    color: #087bea;
+  
+    text-decoration: underline;
+  }
+  
+  /* =========================================================
+     ERROR
+     ========================================================= */
+  
+  .error {
+    padding: 11px 13px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 8px;
+  
+    background: #fff1f1;
+  
+    border: 1px solid #ffd6d6;
+  
+    border-radius: 7px;
+  
+    color: #dc4141;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  }
+  
+  .error span {
+    width: 18px;
+    height: 18px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    background: #dc4141;
+  
+    color: #ffffff;
+  
+    border-radius: 50%;
+  
+    font-size: 11px;
+  }
+  
+  /* =========================================================
+     LOGIN BUTTON
+     ========================================================= */
+  
+  .loginButton {
+    width: 100%;
+    height: 52px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    gap: 10px;
+  
+    border: none;
+  
+    border-radius: 9px;
+  
+    background: linear-gradient(
+      90deg,
+      #087bea,
+      #176fe4
+    );
+  
+    color: #ffffff;
+  
+    font-family: inherit;
+  
+    font-size: 14px;
+  
+    font-weight: 700;
+  
+    cursor: pointer;
+  
+    box-shadow:
+      0 9px 20px
+        rgba(18, 123, 234, 0.18);
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .loginButton:hover:not(:disabled) {
+    transform: translateY(-1px);
+  
+    box-shadow:
+      0 12px 25px
+        rgba(18, 123, 234, 0.25);
+  }
+  
+  .loginButton:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  .loginButton:disabled {
+    opacity: 0.7;
+  
+    cursor: not-allowed;
+  }
+  
+  .loginArrow {
+    width: 22px;
+    height: 22px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    font-size: 25px;
+  
+    font-weight: 300;
+  }
+  
+  /* =========================================================
+     SPINNER
+     ========================================================= */
+  
+  .spinner {
+    width: 17px;
+    height: 17px;
+  
+    border: 2px solid
+      rgba(255, 255, 255, 0.35);
+  
+    border-top-color: #ffffff;
+  
+    border-radius: 50%;
+  
+    animation: spin 0.7s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* =========================================================
+     OR
+     ========================================================= */
+  
+  .orDivider {
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 12px;
+  
+    margin: 1px 0;
+  }
+  
+  .orDivider span {
+    flex: 1;
+  
+    height: 1px;
+  
+    background: #e3ebf4;
+  }
+  
+  .orDivider b {
+    color: #9aa9bb;
+  
+    font-size: 10px;
+  
+    font-weight: 600;
+  }
+  
+  /* =========================================================
+     GOOGLE
+     ========================================================= */
+  
+  .googleButton {
+    width: 100%;
+    height: 49px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    gap: 10px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #dbe5ef;
+  
+    border-radius: 9px;
+  
+    color: #526b88;
+  
+    font-family: inherit;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .googleButton:hover {
+    background: #f8fbff;
+  
+    border-color: #c3d4e6;
+  }
+  
+  .googleIcon {
+    width: 21px;
+    height: 21px;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    color: #4285f4;
+  
+    font-size: 19px;
+  
+    font-weight: 800;
+  
+    font-family: Arial, sans-serif;
+  }
+  
+  /* =========================================================
+     CREATE ACCOUNT
+     ========================================================= */
+  
+  .contactText {
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    gap: 5px;
+  
+    margin-top: 3px;
+  
+    font-size: 13px;
+  }
+  
+  .contactText > span {
+    color: #697e98;
+  }
+  
+  .contactText button {
+    padding: 0;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #2291a9;
+  
+    font-family: inherit;
+  
+    font-size: 13px;
+  
+    font-weight: 700;
+  
+    cursor: pointer;
+  }
+  
+  .contactText button:hover {
+    color: #087bea;
+  
+    text-decoration: underline;
+  }
+  
+  /* =========================================================
+     1400px
+     ========================================================= */
+  
+  @media (max-width: 1400px) {
+    .container {
+      padding-left: 45px;
+      padding-right: 45px;
+  
+      grid-template-columns: 46% 54%;
+    }
+  
+    .heroContent h1 {
+      font-size: 41px;
+    }
+  
+    .loginCard {
+      max-width: 570px;
+    }
+  }
+  
+  /* =========================================================
+     1200px
+     ========================================================= */
+  
+  @media (max-width: 1200px) {
+    .container {
+      padding: 35px 30px;
+  
+      gap: 25px;
+    }
+  
+    .heroContent {
+      margin-top: 45px;
+    }
+  
+    .heroContent h1 {
+      font-size: 37px;
+    }
+  
+    .heroContent p {
+      font-size: 14px;
+    }
+  
+    .services {
+      max-width: 560px;
+    }
+  
+    .loginCard {
+      padding: 38px 35px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 28px;
+    }
+  }
+  
+  /* =========================================================
+     1050px
+     ========================================================= */
+  
+  @media (max-width: 1050px) {
+    .container {
+      max-width: 800px;
+  
+      grid-template-columns: 1fr;
+  
+      padding: 35px 25px;
+    }
+  
+    .leftSide {
+      min-height: auto;
+    }
+  
+    .heroContent {
+      margin-top: 35px;
+    }
+  
+    .heroContent h1 {
+      font-size: 39px;
+    }
+  
+    .services {
+      max-width: 650px;
+    }
+  
+    .illustrationArea {
+      height: 300px;
+    }
+  
+    .rightSide {
+      min-height: auto;
+  
+      padding: 0;
+  
+      align-items: flex-start;
+    }
+  
+    .loginCard {
+      max-width: 650px;
+  
+      margin: 10px auto 30px;
+    }
+  
+    .bottomShape {
+      bottom: -300px;
+    }
+  }
+  
+  /* =========================================================
+     768px TABLET / MOBILE
+     ========================================================= */
+  
+  @media (max-width: 768px) {
+    .page {
+      min-height: 100vh;
+  
+      overflow-y: auto;
+    }
+  
+    .container {
+      min-height: 100vh;
+  
+      display: flex;
+  
+      flex-direction: column;
+  
+      padding: 25px 20px 35px;
+  
+      gap: 20px;
+    }
+  
+    .illustrationArea {
+      display: none;
+    }
+  
+    .leftSide {
+      min-height: auto;
+    }
+  
+    .logoArea {
+      justify-content: center;
+    }
+  
+    .logoMark {
+      width: 48px;
+      height: 48px;
+    }
+  
+    .logoName {
+      font-size: 30px;
+    }
+  
+    .logoSub {
+      font-size: 8px;
+    }
+  
+    .heroContent {
+      display: none;
+    }
+  
+    .services {
+      display: none;
+    }
+  
+    .rightSide {
+      width: 100%;
+  
+      min-height: auto;
+  
+      display: block;
+    }
+  
+    .loginCard {
+      width: 100%;
+  
+      max-width: 100%;
+  
+      margin: 10px auto 0;
+  
+      padding: 45px 35px 40px;
+  
+      border-radius: 18px;
+  
+      box-shadow:
+        0 10px 35px
+          rgba(36, 79, 137, 0.08);
+    }
+  
+    .loginHeading {
+      margin-bottom: 30px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 31px;
+    }
+  
+    .loginHeading p {
+      font-size: 14px;
+    }
+  
+    .form {
+      gap: 20px;
+    }
+  
+    .inputBox {
+      height: 53px;
+    }
+  
+    .inputBox input {
+      font-size: 14px;
+    }
+  
+    .loginButton {
+      height: 53px;
+    }
+  
+    .bottomShape {
+      width: 550px;
+      height: 300px;
+  
+      left: -300px;
+      bottom: -240px;
+    }
+  
+    .topShape {
+      width: 300px;
+      height: 220px;
+  
+      top: -130px;
+      right: -100px;
+    }
+  }
+  
+  /* =========================================================
+     600px
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 22px 17px 30px;
+    }
+  
+    .logoArea {
+      margin-bottom: 8px;
+    }
+  
+    .loginCard {
+      padding: 42px 27px 37px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 29px;
+    }
+  
+    .loginHeading p {
+      font-size: 13px;
+    }
+  
+    .inputGroup label {
+      font-size: 12px;
+    }
+  
+    .inputBox {
+      height: 52px;
+    }
+  
+    .options {
+      align-items: flex-start;
+  
+      gap: 10px;
+    }
+  
+    .remember {
+      font-size: 11px;
+    }
+  
+    .forgot {
+      font-size: 12px;
+    }
+  
+    .contactText {
+      font-size: 12px;
+    }
+  
+    .contactText button {
+      font-size: 12px;
+    }
+  }
+  
+  /* =========================================================
+     480px
+     ========================================================= */
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 18px 15px 25px;
+    }
+  
+    .logoMark {
+      width: 43px;
+      height: 43px;
+    }
+  
+    .logoName {
+      font-size: 27px;
+    }
+  
+    .logoSub {
+      font-size: 7px;
+    }
+  
+    .loginCard {
+      padding: 40px 22px 33px;
+  
+      border-radius: 17px;
+    }
+  
+    .loginHeading {
+      margin-bottom: 27px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 28px;
+    }
+  
+    .loginHeading p {
+      max-width: 290px;
+  
+      font-size: 13px;
+    }
+  
+    .form {
+      gap: 18px;
+    }
+  
+    .inputBox {
+      height: 51px;
+  
+      padding: 0 13px;
+    }
+  
+    .inputBox input {
+      font-size: 13px;
+    }
+  
+    .inputIcon {
+      width: 19px;
+      height: 19px;
+    }
+  
+    .inputIcon svg {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .eyeButton {
+      width: 27px;
+      height: 27px;
+    }
+  
+    .forgot {
+      font-size: 11px;
+    }
+  
+    .loginButton {
+      height: 51px;
+  
+      font-size: 14px;
+    }
+  
+    .googleButton {
+      height: 49px;
+    }
+  
+    .contactText {
+      flex-wrap: wrap;
+    }
+  }
+  
+  /* =========================================================
+     390px
+     ========================================================= */
+  
+  @media (max-width: 390px) {
+    .container {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  
+    .loginCard {
+      padding: 37px 18px 30px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 26px;
+    }
+  
+    .loginHeading p {
+      font-size: 12px;
+    }
+  
+    .inputGroup label {
+      font-size: 11px;
+    }
+  
+    .inputBox {
+      height: 49px;
+    }
+  
+    .inputBox input {
+      font-size: 12px;
+    }
+  
+    .remember {
+      font-size: 10px;
+    }
+  
+    .forgot {
+      font-size: 10px;
+    }
+  
+    .loginButton {
+      height: 50px;
+    }
+  
+    .googleButton {
+      height: 47px;
+  
+      font-size: 11px;
+    }
+  
+    .contactText {
+      font-size: 11px;
+    }
+  
+    .contactText button {
+      font-size: 11px;
+    }
+  }
+  
+  /* =========================================================
+     360px
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .container {
+      padding: 12px 10px 20px;
+    }
+  
+    .logoName {
+      font-size: 24px;
+    }
+  
+    .loginCard {
+      padding: 34px 15px 27px;
+    }
+  
+    .loginHeading h2 {
+      font-size: 24px;
+    }
+  
+    .loginHeading p {
+      font-size: 11px;
+    }
+  
+    .inputBox {
+      height: 47px;
+    }
+  
+    .options {
+      gap: 5px;
+    }
+  
+    .loginButton {
+      height: 48px;
+  
+      font-size: 13px;
+    }
+  
+    .googleButton {
+      height: 45px;
+    }
+  }

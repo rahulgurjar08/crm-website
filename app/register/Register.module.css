@@ -1,0 +1,1552 @@
+/* =========================================================
+   REGISTER / CREATE ACCOUNT PAGE
+   ========================================================= */
+
+   .page {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background: #f7faff;
+    color: #123b70;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* =========================================================
+     MAIN CONTAINER
+     ========================================================= */
+  
+  .container {
+    width: 100%;
+    max-width: 1536px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 55px;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    gap: 25px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+  }
+  
+  /* =========================================================
+     BACKGROUND SHAPES
+     ========================================================= */
+  
+  .shapeOne {
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    top: -85px;
+    right: -25px;
+    background: #dce8ff;
+    border-radius: 0 0 0 100%;
+    transform: rotate(3deg);
+    z-index: 1;
+  }
+  
+  .shapeTwo {
+    position: absolute;
+    width: 85px;
+    height: 245px;
+    top: -105px;
+    right: 35px;
+    background: #b7c9fa;
+    opacity: 0.8;
+    transform: rotate(-43deg);
+    z-index: 2;
+  }
+  
+  .shapeThree {
+    position: absolute;
+    width: 720px;
+    height: 260px;
+    left: -240px;
+    bottom: -195px;
+    border-radius: 50%;
+    background: linear-gradient(
+      110deg,
+      #197df0 0%,
+      #197df0 35%,
+      #7636e8 100%
+    );
+    transform: rotate(19deg);
+    z-index: 1;
+  }
+  
+  /* =========================================================
+     LEFT SECTION
+     ========================================================= */
+  
+  .leftSide {
+    min-height: 100vh;
+    padding: 48px 0 28px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+  }
+  
+  /* =========================================================
+     BRAND
+     ========================================================= */
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .brandLogo {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: linear-gradient(
+      135deg,
+      #153de9 0%,
+      #0e83ed 45%,
+      #1bc3d5 100%
+    );
+  
+    color: #ffffff;
+    font-size: 37px;
+    font-weight: 900;
+    font-style: italic;
+  
+    box-shadow: 0 8px 22px rgba(18, 91, 224, 0.18);
+  }
+  
+  .brand h2 {
+    margin: 0;
+    font-size: 38px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+  
+    background: linear-gradient(
+      90deg,
+      #1649ed,
+      #13a9e2
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .brand span {
+    display: block;
+    margin-top: 5px;
+    color: #39434e;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+  }
+  
+  /* =========================================================
+     LEFT CONTENT
+     ========================================================= */
+  
+  .leftContent {
+    margin-top: 52px;
+  }
+  
+  .leftContent h1 {
+    margin: 0;
+    color: #123b70;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  
+  .leftContent h1 span {
+    background: linear-gradient(
+      90deg,
+      #087bea 0%,
+      #7438e8 100%
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .intro {
+    max-width: 570px;
+    margin: 16px 0 32px;
+    color: #7185a3;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  
+  /* =========================================================
+     FEATURES
+     ========================================================= */
+  
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+  }
+  
+  .featureIcon {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 13px;
+    font-size: 26px;
+  }
+  
+  .blue {
+    color: #087bea;
+    background: #e7f2ff;
+  }
+  
+  .purple {
+    color: #7436e7;
+    background: #eee7ff;
+  }
+  
+  .green {
+    color: #12b785;
+    background: #dcf9ee;
+  }
+  
+  .feature h3 {
+    margin: 0 0 5px;
+    color: #123b70;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+  
+  .feature p {
+    margin: 0;
+    color: #8192aa;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  /* =========================================================
+     DASHBOARD VISUAL
+     ========================================================= */
+  
+  .dashboardVisual {
+    width: 100%;
+    height: 355px;
+    margin-top: 25px;
+    position: relative;
+  }
+  
+  /* =========================================================
+     LAPTOP
+     ========================================================= */
+  
+  .laptop {
+    position: absolute;
+    left: 8%;
+    bottom: 5px;
+    width: 60%;
+    transform: perspective(900px) rotateX(4deg) rotateY(-8deg);
+    transform-origin: center bottom;
+  }
+  
+  .laptopScreen {
+    min-height: 230px;
+    padding: 9px;
+    display: flex;
+  
+    background: #ffffff;
+    border: 5px solid #143d8e;
+    border-radius: 14px 14px 7px 7px;
+  
+    box-shadow: 0 16px 35px rgba(25, 65, 145, 0.16);
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     LAPTOP SIDEBAR
+     ========================================================= */
+  
+  .screenSidebar {
+    width: 28%;
+    padding: 11px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  
+    background: #102d6c;
+    border-radius: 7px;
+  
+    color: #ffffff;
+    font-size: 7px;
+  }
+  
+  .screenSidebar strong {
+    margin-bottom: 3px;
+    color: #ffffff;
+    font-size: 10px;
+  }
+  
+  /* =========================================================
+     LAPTOP CONTENT
+     ========================================================= */
+  
+  .screenContent {
+    flex: 1;
+    min-width: 0;
+    padding: 9px 12px;
+    background: #f9fbff;
+    box-sizing: border-box;
+  }
+  
+  .screenTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    color: #123b70;
+    font-size: 10px;
+  }
+  
+  .screenTop span {
+    color: #7d91ac;
+    font-size: 7px;
+  }
+  
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 12px;
+  }
+  
+  .stats div {
+    padding: 8px 6px;
+    background: #ffffff;
+    border: 1px solid #e4edf7;
+    border-radius: 5px;
+  }
+  
+  .stats small {
+    display: block;
+    color: #8ba0bb;
+    font-size: 6px;
+  }
+  
+  .stats b {
+    display: block;
+    margin-top: 3px;
+    color: #123b70;
+    font-size: 12px;
+  }
+  
+  .chart {
+    height: 105px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+  
+    background: #ffffff;
+    border: 1px solid #e5edf6;
+    border-radius: 5px;
+  }
+  
+  .chartLine {
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 12%;
+    top: 25%;
+  
+    border-bottom: 3px solid #1689ed;
+    border-radius: 50%;
+  
+    transform: rotate(-5deg);
+  }
+  
+  .chartBars {
+    position: absolute;
+    right: 8%;
+    bottom: 7%;
+  
+    height: 70%;
+  
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  .chartBars i {
+    width: 7px;
+    display: block;
+  
+    background: #1689ed;
+    border-radius: 2px 2px 0 0;
+  }
+  
+  .chartBars i:nth-child(1) {
+    height: 35%;
+  }
+  
+  .chartBars i:nth-child(2) {
+    height: 55%;
+  }
+  
+  .chartBars i:nth-child(3) {
+    height: 42%;
+  }
+  
+  .chartBars i:nth-child(4) {
+    height: 70%;
+  }
+  
+  .chartBars i:nth-child(5) {
+    height: 85%;
+  }
+  
+  .chartBars i:nth-child(6) {
+    height: 100%;
+  }
+  
+  /* =========================================================
+     LAPTOP BASE
+     ========================================================= */
+  
+  .laptopBase {
+    width: 110%;
+    height: 17px;
+    margin-left: -5%;
+  
+    background: linear-gradient(
+      #b7cae5,
+      #dfe9f5
+    );
+  
+    border-radius: 0 0 25px 25px;
+  
+    box-shadow:
+      0 10px 20px rgba(19, 55, 115, 0.18);
+  }
+  
+  /* =========================================================
+     FLOATING BUBBLES
+     ========================================================= */
+  
+  .codeBubble,
+  .cloudBubble {
+    position: absolute;
+  
+    width: 55px;
+    height: 55px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #ffffff;
+    border-radius: 12px;
+  
+    font-size: 23px;
+    font-weight: 800;
+  
+    box-shadow: 0 8px 18px rgba(34, 78, 160, 0.13);
+  }
+  
+  .codeBubble {
+    right: 21%;
+    top: 52px;
+    background: #087bea;
+  }
+  
+  .cloudBubble {
+    right: 7%;
+    top: 118px;
+    background: #8038ed;
+  }
+  
+  /* =========================================================
+     SOLUTION CARD
+     ========================================================= */
+  
+  .solutionBubble {
+    position: absolute;
+    right: 3%;
+    bottom: 24px;
+  
+    padding: 15px 18px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  
+    background: #ffffff;
+    border-radius: 13px;
+  
+    box-shadow: 0 8px 25px rgba(22, 65, 130, 0.12);
+  }
+  
+  .solutionBubble strong {
+    color: #123b70;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  
+  .solutionBubble span {
+    color: #7890ad;
+    font-size: 12px;
+  }
+  
+  /* =========================================================
+     PLANT
+     ========================================================= */
+  
+  .plant {
+    position: absolute;
+    left: 0;
+    bottom: 14px;
+  
+    width: 90px;
+    height: 115px;
+  }
+  
+  .pot {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+  
+    width: 50px;
+    height: 48px;
+  
+    background: linear-gradient(
+      90deg,
+      #dce9f5,
+      #ffffff
+    );
+  
+    border-radius: 5px 5px 15px 15px;
+  
+    box-shadow: 0 5px 12px rgba(45, 76, 115, 0.1);
+  }
+  
+  .leafOne,
+  .leafTwo,
+  .leafThree {
+    position: absolute;
+    background: #16b77c;
+    border-radius: 100% 0 100% 0;
+  }
+  
+  .leafOne {
+    width: 32px;
+    height: 60px;
+    left: 22px;
+    top: 22px;
+    transform: rotate(-25deg);
+  }
+  
+  .leafTwo {
+    width: 30px;
+    height: 52px;
+    left: 43px;
+    top: 17px;
+    transform: rotate(30deg);
+  }
+  
+  .leafThree {
+    width: 27px;
+    height: 45px;
+    left: 7px;
+    top: 39px;
+    transform: rotate(-55deg);
+  }
+  
+  /* =========================================================
+     COPYRIGHT
+     ========================================================= */
+  
+  .copyright {
+    margin: auto 0 0;
+    padding-top: 20px;
+  
+    color: #7085a1;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  /* =========================================================
+     RIGHT FORM CARD
+     ========================================================= */
+  
+  .rightSide {
+    min-height: 855px;
+    margin: 82px 0 55px;
+  
+    padding: 30px 30px 34px;
+  
+    position: relative;
+  
+    background: rgba(255, 255, 255, 0.98);
+  
+    border: 1px solid rgba(224, 234, 245, 0.7);
+    border-radius: 15px;
+  
+    box-shadow:
+      0 12px 38px rgba(28, 72, 130, 0.09);
+  
+    box-sizing: border-box;
+  }
+  
+  /* =========================================================
+     SIGN IN LINK
+     ========================================================= */
+  
+  .accountLink {
+    position: absolute;
+    top: 29px;
+    right: 31px;
+  
+    color: #7b8da5;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  
+  .accountLink a {
+    margin-left: 7px;
+  
+    color: #087bea;
+    font-weight: 700;
+    text-decoration: none;
+  
+    transition: 0.2s ease;
+  }
+  
+  .accountLink a:hover {
+    color: #075fbd;
+  }
+  
+  /* =========================================================
+     FORM HEADER
+     ========================================================= */
+  
+  .formHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  
+    padding-top: 30px;
+    margin-bottom: 28px;
+  }
+  
+  .userIcon {
+    width: 53px;
+    height: 53px;
+    flex-shrink: 0;
+  
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #087bea;
+    background: #e9f3ff;
+  
+    border-radius: 13px;
+  
+    font-size: 27px;
+  }
+  
+  .userIcon span {
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+  
+    font-size: 17px;
+    font-weight: 800;
+  }
+  
+  .formHeader h2 {
+    margin: 0;
+  
+    color: #123b70;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+  
+  .formHeader p {
+    margin: 7px 0 0;
+  
+    color: #7e8ea6;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  /* =========================================================
+     FORM
+     ========================================================= */
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  /* =========================================================
+     TWO COLUMNS
+     ========================================================= */
+  
+  .twoColumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 17px 22px;
+  }
+  
+  /* =========================================================
+     INPUT GROUP
+     ========================================================= */
+  
+  .inputGroup {
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .inputGroup label {
+    color: #123b70;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 700;
+  }
+  
+  .inputGroup label span {
+    color: #1287ee;
+  }
+  
+  .inputGroup label small {
+    color: #7e8ea6;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  /* =========================================================
+     INPUT BOX
+     ========================================================= */
+  
+  .inputBox {
+    width: 100%;
+    height: 46px;
+  
+    padding: 0 12px;
+  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #dce6f1;
+    border-radius: 8px;
+  
+    box-sizing: border-box;
+  
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .inputBox:hover {
+    border-color: #c7d8eb;
+  }
+  
+  .inputBox:focus-within {
+    border-color: #1287ee;
+  
+    box-shadow:
+      0 0 0 3px rgba(18, 135, 238, 0.08);
+  }
+  
+  .inputBox > span:first-child {
+    flex-shrink: 0;
+  
+    color: #7890ad;
+    font-size: 16px;
+  }
+  
+  /* =========================================================
+     INPUT / SELECT
+     ========================================================= */
+  
+  .inputBox input,
+  .inputBox select {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+  
+    padding: 0;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #123b70;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  
+  .inputBox input::placeholder {
+    color: #9aaac0;
+  }
+  
+  .inputBox select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  
+  .inputBox select:invalid {
+    color: #9aaac0;
+  }
+  
+  /* =========================================================
+     PASSWORD EYE
+     ========================================================= */
+  
+  .eyeButton {
+    flex-shrink: 0;
+  
+    width: 28px;
+    height: 28px;
+  
+    padding: 0;
+  
+    border: none;
+    outline: none;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: transparent;
+  
+    color: #7186a2;
+  
+    font-size: 16px;
+  
+    cursor: pointer;
+  }
+  
+  .eyeButton:hover {
+    color: #087bea;
+  }
+  
+  /* =========================================================
+     SELECT ARROW
+     ========================================================= */
+  
+  .selectArrow {
+    flex-shrink: 0;
+  
+    color: #7890ad !important;
+    font-size: 17px !important;
+  
+    pointer-events: none;
+  }
+  
+  /* =========================================================
+     TERMS
+     ========================================================= */
+  
+  .terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    color: #55708f;
+    font-size: 12px;
+    line-height: 1.5;
+  
+    cursor: pointer;
+  }
+  
+  .terms input {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  
+    margin: 0;
+  
+    accent-color: #1287ee;
+  
+    cursor: pointer;
+  }
+  
+  .terms b {
+    color: #176cc2;
+  }
+  
+  /* =========================================================
+     ERROR
+     ========================================================= */
+  
+  .error {
+    padding: 10px 12px;
+  
+    background: #fff0f0;
+    border: 1px solid #ffd7d7;
+    border-radius: 7px;
+  
+    color: #e04848;
+  
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  /* =========================================================
+     CREATE ACCOUNT BUTTON
+     ========================================================= */
+  
+  .createButton {
+    width: 100%;
+    height: 46px;
+  
+    border: none;
+    border-radius: 8px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: linear-gradient(
+      90deg,
+      #087bea 0%,
+      #176fe5 100%
+    );
+  
+    color: #ffffff;
+  
+    font-size: 13px;
+    font-weight: 700;
+  
+    cursor: pointer;
+  
+    box-shadow:
+      0 8px 18px rgba(18, 123, 234, 0.16);
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+  
+  .createButton:hover {
+    background: linear-gradient(
+      90deg,
+      #076fd5,
+      #075fbd
+    );
+  
+    transform: translateY(-1px);
+  
+    box-shadow:
+      0 10px 24px rgba(18, 123, 234, 0.23);
+  }
+  
+  .createButton:active {
+    transform: translateY(0);
+  }
+  
+  .createButton span {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  /* =========================================================
+     DIVIDER
+     ========================================================= */
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    margin: 0;
+  }
+  
+  .divider span {
+    flex: 1;
+    height: 1px;
+    background: #e5edf5;
+  }
+  
+  .divider p {
+    margin: 0;
+  
+    color: #9aa9bb;
+  
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  
+  /* =========================================================
+     SOCIAL BUTTONS
+     ========================================================= */
+  
+  .socialButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .socialButton {
+    width: 100%;
+    height: 46px;
+  
+    border: 1px solid #dce6f1;
+    border-radius: 8px;
+  
+    background: #ffffff;
+  
+    color: #627994;
+  
+    font-size: 11px;
+    font-weight: 500;
+  
+    cursor: pointer;
+  
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease;
+  }
+  
+  .socialButton:hover {
+    background: #f8fbff;
+    border-color: #bcd1e7;
+  }
+  
+  .socialButton strong {
+    margin-right: 8px;
+    font-size: 17px;
+  }
+  
+  .google {
+    color: #4285f4;
+  }
+  
+  .github {
+    color: #111111;
+  }
+  
+  /* =========================================================
+     1400px
+     ========================================================= */
+  
+  @media (max-width: 1400px) {
+    .container {
+      padding: 0 40px;
+      grid-template-columns: 47% 53%;
+    }
+  
+    .leftContent h1 {
+      font-size: 44px;
+    }
+  
+    .rightSide {
+      margin-right: 0;
+    }
+  }
+  
+  /* =========================================================
+     1200px
+     ========================================================= */
+  
+  @media (max-width: 1200px) {
+    .container {
+      padding: 0 30px;
+      gap: 20px;
+    }
+  
+    .leftSide {
+      padding-top: 40px;
+    }
+  
+    .brand h2 {
+      font-size: 34px;
+    }
+  
+    .leftContent {
+      margin-top: 42px;
+    }
+  
+    .leftContent h1 {
+      font-size: 40px;
+    }
+  
+    .intro {
+      font-size: 15px;
+    }
+  
+    .rightSide {
+      margin-top: 65px;
+      padding: 28px 24px 30px;
+    }
+  
+    .formHeader h2 {
+      font-size: 23px;
+    }
+  
+    .laptop {
+      width: 65%;
+      left: 5%;
+    }
+  }
+  
+  /* =========================================================
+     1050px - TABLET / STACK
+     ========================================================= */
+  
+  @media (max-width: 1050px) {
+    .container {
+      grid-template-columns: 1fr;
+      max-width: 850px;
+      padding: 0 25px;
+    }
+  
+    .leftSide {
+      min-height: auto;
+      padding-top: 35px;
+    }
+  
+    .leftContent {
+      margin-top: 35px;
+    }
+  
+    .intro {
+      max-width: 650px;
+    }
+  
+    .dashboardVisual {
+      max-width: 700px;
+      height: 320px;
+    }
+  
+    .rightSide {
+      min-height: auto;
+      margin: 15px 0 40px;
+    }
+  
+    .copyright {
+      margin-top: 30px;
+    }
+  
+    .shapeThree {
+      bottom: -230px;
+    }
+  }
+  
+  /* =========================================================
+     768px
+     ========================================================= */
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 20px;
+    }
+  
+    .leftSide {
+      padding-top: 28px;
+    }
+  
+    .brandLogo {
+      width: 52px;
+      height: 52px;
+      font-size: 33px;
+    }
+  
+    .brand h2 {
+      font-size: 32px;
+    }
+  
+    .brand span {
+      font-size: 9px;
+    }
+  
+    .leftContent {
+      margin-top: 32px;
+    }
+  
+    .leftContent h1 {
+      font-size: 38px;
+    }
+  
+    .intro {
+      margin-top: 14px;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+  
+    .featureIcon {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .dashboardVisual {
+      height: 285px;
+      margin-top: 20px;
+    }
+  
+    .rightSide {
+      margin-top: 10px;
+      padding: 25px 22px 28px;
+    }
+  
+    .accountLink {
+      position: static;
+      margin-bottom: 18px;
+      text-align: right;
+    }
+  
+    .formHeader {
+      padding-top: 0;
+      margin-bottom: 24px;
+    }
+  
+    .twoColumns {
+      grid-template-columns: 1fr;
+      gap: 17px;
+    }
+  
+    .socialButtons {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+  
+  /* =========================================================
+     600px
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .page {
+      overflow-x: hidden;
+    }
+  
+    .container {
+      padding: 0 15px;
+    }
+  
+    .brand {
+      gap: 9px;
+    }
+  
+    .brandLogo {
+      width: 47px;
+      height: 47px;
+      border-radius: 13px;
+      font-size: 29px;
+    }
+  
+    .brand h2 {
+      font-size: 28px;
+    }
+  
+    .brand span {
+      font-size: 8px;
+    }
+  
+    .leftContent h1 {
+      font-size: 34px;
+      letter-spacing: -0.5px;
+    }
+  
+    .intro {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .feature {
+      gap: 12px;
+    }
+  
+    .featureIcon {
+      width: 45px;
+      height: 45px;
+      border-radius: 11px;
+      font-size: 21px;
+    }
+  
+    .feature h3 {
+      font-size: 14px;
+    }
+  
+    .feature p {
+      font-size: 11px;
+    }
+  
+    .dashboardVisual {
+      height: 235px;
+      width: 125%;
+      transform: scale(0.82);
+      transform-origin: left bottom;
+    }
+  
+    .rightSide {
+      padding: 20px 16px 22px;
+      border-radius: 12px;
+    }
+  
+    .accountLink {
+      font-size: 12px;
+    }
+  
+    .formHeader {
+      gap: 11px;
+    }
+  
+    .userIcon {
+      width: 45px;
+      height: 45px;
+      font-size: 23px;
+      border-radius: 11px;
+    }
+  
+    .formHeader h2 {
+      font-size: 20px;
+    }
+  
+    .formHeader p {
+      font-size: 12px;
+    }
+  
+    .form {
+      gap: 16px;
+    }
+  
+    .inputGroup {
+      gap: 7px;
+    }
+  
+    .inputGroup label {
+      font-size: 12px;
+    }
+  
+    .inputBox {
+      height: 46px;
+      padding: 0 11px;
+    }
+  
+    .inputBox input,
+    .inputBox select {
+      font-size: 12px;
+    }
+  
+    .terms {
+      font-size: 11px;
+      align-items: flex-start;
+    }
+  
+    .terms input {
+      margin-top: 1px;
+    }
+  
+    .copyright {
+      font-size: 10px;
+    }
+  }
+  
+  /* =========================================================
+     450px
+     ========================================================= */
+  
+  @media (max-width: 450px) {
+    .container {
+      padding: 0 12px;
+    }
+  
+    .leftSide {
+      padding-top: 20px;
+    }
+  
+    .brandLogo {
+      width: 43px;
+      height: 43px;
+      font-size: 26px;
+    }
+  
+    .brand h2 {
+      font-size: 25px;
+    }
+  
+    .brand span {
+      font-size: 7px;
+    }
+  
+    .leftContent {
+      margin-top: 27px;
+    }
+  
+    .leftContent h1 {
+      font-size: 30px;
+    }
+  
+    .intro {
+      font-size: 13px;
+    }
+  
+    .features {
+      gap: 14px;
+    }
+  
+    .featureIcon {
+      width: 42px;
+      height: 42px;
+      font-size: 19px;
+    }
+  
+    .feature h3 {
+      font-size: 13px;
+    }
+  
+    .feature p {
+      font-size: 10px;
+    }
+  
+    .dashboardVisual {
+      height: 195px;
+      width: 140%;
+      transform: scale(0.68);
+      transform-origin: left bottom;
+    }
+  
+    .rightSide {
+      margin-top: 5px;
+      padding: 18px 13px 20px;
+    }
+  
+    .accountLink {
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+  
+    .formHeader {
+      margin-bottom: 20px;
+    }
+  
+    .formHeader h2 {
+      font-size: 18px;
+    }
+  
+    .formHeader p {
+      margin-top: 5px;
+      font-size: 11px;
+    }
+  
+    .inputBox {
+      height: 44px;
+    }
+  
+    .createButton {
+      height: 45px;
+      font-size: 12px;
+    }
+  
+    .socialButton {
+      height: 44px;
+      font-size: 10px;
+    }
+  
+    .shapeThree {
+      width: 500px;
+      height: 180px;
+      left: -190px;
+      bottom: -120px;
+    }
+  }
+  
+  /* =========================================================
+     360px
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .container {
+      padding: 0 10px;
+    }
+  
+    .brand h2 {
+      font-size: 23px;
+    }
+  
+    .leftContent h1 {
+      font-size: 27px;
+    }
+  
+    .intro {
+      font-size: 12px;
+    }
+  
+    .feature h3 {
+      font-size: 12px;
+    }
+  
+    .feature p {
+      font-size: 9px;
+    }
+  
+    .dashboardVisual {
+      height: 175px;
+      width: 150%;
+      transform: scale(0.59);
+    }
+  
+    .rightSide {
+      padding: 16px 11px 18px;
+    }
+  
+    .accountLink {
+      font-size: 10px;
+    }
+  
+    .formHeader h2 {
+      font-size: 17px;
+    }
+  
+    .formHeader p {
+      font-size: 10px;
+    }
+  
+    .inputGroup label {
+      font-size: 11px;
+    }
+  
+    .inputBox input,
+    .inputBox select {
+      font-size: 11px;
+    }
+  
+    .terms {
+      font-size: 10px;
+    }
+  }

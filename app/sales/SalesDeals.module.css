@@ -1,0 +1,1452 @@
+/* =========================================================
+   SALES / DEALS PAGE
+   ========================================================= */
+
+   .page {
+    --blue: #1287ee;
+    --blue-dark: #0759b8;
+    --blue-light: #eaf5ff;
+  
+    --text: #123c70;
+    --text-dark: #0d315f;
+    --muted: #7890ad;
+  
+    --border: #e5edf6;
+    --bg: #f5f9fd;
+    --white: #ffffff;
+  
+    --green: #18b98b;
+    --green-light: #e8faf4;
+  
+    --red: #ed5361;
+    --red-light: #fff0f2;
+  
+    --purple: #8d55e8;
+    --purple-light: #f4efff;
+  
+    --orange: #e9a23b;
+    --orange-light: #fff5e7;
+  
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Arial,
+      sans-serif;
+  }
+  
+  
+  /* =========================================================
+     MAIN CONTENT
+     ========================================================= */
+  
+  .main {
+    margin-left: 258px;
+    padding: 96px 24px 35px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  
+  /* =========================================================
+     PAGE HEADER
+     ========================================================= */
+  
+  .pageHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 22px;
+  }
+  
+  .headerLeft {
+    min-width: 0;
+  }
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  
+    font-size: 12px;
+    line-height: 18px;
+    color: #7590ad;
+  }
+  
+  .breadcrumb span:first-child {
+    color: var(--blue);
+    font-size: 15px;
+  }
+  
+  .breadcrumb strong {
+    color: #27517f;
+    font-weight: 600;
+  }
+  
+  .titleRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .titleIcon {
+    width: 32px;
+    height: 32px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    margin-top: 1px;
+  
+    border-radius: 9px;
+    background: #e9f5ff;
+    color: var(--blue);
+  
+    font-size: 19px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .titleRow h1 {
+    margin: 0;
+  
+    font-size: 27px;
+    line-height: 34px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+  
+    color: #0c3971;
+  }
+  
+  .titleRow p {
+    margin: 3px 0 0;
+  
+    font-size: 13px;
+    line-height: 20px;
+  
+    color: #7890ad;
+  }
+  
+  
+  /* =========================================================
+     HEADER BUTTONS
+     ========================================================= */
+  
+  .headerButtons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    flex-shrink: 0;
+  }
+  
+  .addButton,
+  .settingsButton {
+    height: 42px;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 8px;
+  
+    border-radius: 9px;
+  
+    font-size: 13px;
+    font-weight: 650;
+  
+    cursor: pointer;
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+  
+  .addButton {
+    min-width: 108px;
+    padding: 0 17px;
+  
+    border: 1px solid var(--blue);
+    background: linear-gradient(
+      135deg,
+      #178df5,
+      #0878df
+    );
+  
+    color: white;
+  
+    box-shadow:
+      0 7px 17px rgba(18, 135, 238, 0.18);
+  }
+  
+  .addButton span {
+    font-size: 19px;
+    line-height: 1;
+  }
+  
+  .settingsButton {
+    padding: 0 16px;
+  
+    border: 1px solid #dce8f5;
+    background: white;
+  
+    color: #2378c9;
+  
+    box-shadow:
+      0 4px 12px rgba(33, 81, 126, 0.06);
+  }
+  
+  .addButton:hover,
+  .settingsButton:hover {
+    transform: translateY(-1px);
+  }
+  
+  .addButton:hover {
+    box-shadow:
+      0 9px 22px rgba(18, 135, 238, 0.24);
+  }
+  
+  .settingsButton:hover {
+    background: #f7fbff;
+  }
+  
+  
+  /* =========================================================
+     STATS
+     ========================================================= */
+  
+  .statsGrid {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr));
+  
+    gap: 12px;
+  
+    margin-bottom: 20px;
+  }
+  
+  .statCard {
+    min-height: 98px;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 13px;
+  
+    padding: 14px 15px;
+  
+    background: white;
+  
+    border: 1px solid #e6eef7;
+    border-radius: 11px;
+  
+    box-sizing: border-box;
+  
+    box-shadow:
+      0 4px 15px rgba(31, 77, 119, 0.055);
+  }
+  
+  .statIcon {
+    width: 46px;
+    height: 46px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border-radius: 50%;
+  
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .statIcon.blue {
+    background: #e8f5ff;
+    color: #1684e9;
+  }
+  
+  .statIcon.green {
+    background: #e5faf3;
+    color: #19b98b;
+  }
+  
+  .statIcon.red {
+    background: #ffebee;
+    color: #ed5361;
+  }
+  
+  .statInfo {
+    min-width: 0;
+  }
+  
+  .statInfo > span {
+    display: block;
+  
+    margin-bottom: 3px;
+  
+    font-size: 12px;
+    line-height: 17px;
+  
+    color: #7b91ac;
+  }
+  
+  .statValue {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+  
+    white-space: nowrap;
+  }
+  
+  .statValue strong {
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 750;
+  
+    color: #103a70;
+  }
+  
+  .statValue small {
+    font-size: 11px;
+    font-weight: 700;
+  
+    color: #18b78a;
+  }
+  
+  .statValue .redText {
+    color: #eb5664;
+  }
+  
+  .statInfo p {
+    margin: 4px 0 0;
+  
+    font-size: 10px;
+    line-height: 14px;
+  
+    color: #8ba0b7;
+  }
+  
+  
+  /* =========================================================
+     PIPELINE MAIN CARD
+     ========================================================= */
+  
+  .pipelineCard {
+    width: 100%;
+  
+    background: white;
+  
+    border: 1px solid #e3ecf5;
+    border-radius: 12px;
+  
+    box-shadow:
+      0 5px 20px rgba(30, 78, 122, 0.055);
+  
+    overflow: hidden;
+  }
+  
+  
+  /* =========================================================
+     FILTER BAR
+     ========================================================= */
+  
+  .filterBar {
+    display: flex;
+    align-items: center;
+  
+    gap: 9px;
+  
+    min-height: 60px;
+  
+    padding: 10px 12px;
+  
+    border-bottom: 1px solid #e8eff6;
+  
+    background: #ffffff;
+  
+    box-sizing: border-box;
+  }
+  
+  .pipelineSearch {
+    flex: 1;
+    min-width: 180px;
+  
+    height: 37px;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 8px;
+  
+    padding: 0 11px;
+  
+    border: 1px solid #dfeaf4;
+    border-radius: 7px;
+  
+    background: #fbfdff;
+  }
+  
+  .pipelineSearch > span {
+    color: #5793ca;
+    font-size: 18px;
+  }
+  
+  .pipelineSearch input {
+    width: 100%;
+  
+    border: none;
+    outline: none;
+    background: transparent;
+  
+    font-family: inherit;
+  
+    font-size: 11px;
+    color: #234d79;
+  }
+  
+  .pipelineSearch input::placeholder {
+    color: #91a5ba;
+  }
+  
+  .filterBar select {
+    height: 37px;
+  
+    min-width: 108px;
+  
+    padding: 0 28px 0 10px;
+  
+    border: 1px solid #dfeaf4;
+    border-radius: 7px;
+  
+    outline: none;
+  
+    background-color: white;
+  
+    color: #527292;
+  
+    font-family: inherit;
+  
+    font-size: 11px;
+    font-weight: 550;
+  
+    cursor: pointer;
+  }
+  
+  .filterBar select:focus {
+    border-color: #7bb8eb;
+    box-shadow:
+      0 0 0 3px rgba(18, 135, 238, 0.08);
+  }
+  
+  .resetButton,
+  .viewButton,
+  .listButton {
+    width: 36px;
+    height: 37px;
+  
+    flex-shrink: 0;
+  
+    border-radius: 7px;
+  
+    cursor: pointer;
+  
+    font-size: 16px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .resetButton {
+    border: 1px solid #e0eaf4;
+    background: white;
+    color: #4e83b4;
+  }
+  
+  .viewButton {
+    border: 1px solid #1487ed;
+    background: #1388ef;
+    color: white;
+  
+    box-shadow:
+      0 4px 10px rgba(18, 135, 238, 0.17);
+  }
+  
+  .listButton {
+    border: 1px solid #e0eaf4;
+    background: white;
+    color: #6885a3;
+  }
+  
+  .resetButton:hover,
+  .listButton:hover {
+    background: #f5faff;
+  }
+  
+  .viewButton:hover {
+    background: #087de3;
+  }
+  
+  
+  /* =========================================================
+     PIPELINE
+     ========================================================= */
+  
+  .pipeline {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(6, minmax(170px, 1fr));
+  
+    gap: 8px;
+  
+    padding: 9px;
+  
+    overflow-x: auto;
+  
+    background: #fbfdff;
+  
+    scrollbar-width: thin;
+  }
+  
+  .pipeline::-webkit-scrollbar {
+    height: 7px;
+  }
+  
+  .pipeline::-webkit-scrollbar-track {
+    background: #f0f5fa;
+  }
+  
+  .pipeline::-webkit-scrollbar-thumb {
+    background: #c9dceb;
+    border-radius: 20px;
+  }
+  
+  
+  /* =========================================================
+     PIPELINE COLUMN
+     ========================================================= */
+  
+  .column {
+    min-width: 170px;
+  
+    min-height: 560px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    border: 1px solid #e2ebf4;
+    border-radius: 9px;
+  
+    overflow: hidden;
+  
+    background: white;
+  }
+  
+  
+  /* =========================================================
+     COLUMN COLORS
+     ========================================================= */
+  
+  .column.blue {
+    background: #f4faff;
+    border-color: #dcecf9;
+  }
+  
+  .column.cyan {
+    background: #f3fbff;
+    border-color: #dceef7;
+  }
+  
+  .column.purple {
+    background: #faf8ff;
+    border-color: #e9e0fa;
+  }
+  
+  .column.orange {
+    background: #fffaf3;
+    border-color: #f4e6d0;
+  }
+  
+  .column.green {
+    background: #f3fcf8;
+    border-color: #dcefe8;
+  }
+  
+  .column.red {
+    background: #fff7f8;
+    border-color: #f4dfe2;
+  }
+  
+  
+  /* =========================================================
+     COLUMN HEADER
+     ========================================================= */
+  
+  .columnHeader {
+    min-height: 61px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    padding: 10px 10px;
+  
+    box-sizing: border-box;
+  
+    border-bottom: 1px solid rgba(214, 228, 241, 0.8);
+  }
+  
+  .columnHeader > div {
+    min-width: 0;
+  }
+  
+  .columnHeader strong {
+    display: block;
+  
+    margin-bottom: 4px;
+  
+    font-size: 12px;
+    line-height: 16px;
+  
+    font-weight: 750;
+  
+    color: #214b76;
+  }
+  
+  .columnHeader span {
+    display: block;
+  
+    font-size: 11px;
+    line-height: 15px;
+  
+    font-weight: 650;
+  
+    color: #5f7d9d;
+  }
+  
+  .columnHeader b {
+    width: 24px;
+    height: 24px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border-radius: 50%;
+  
+    background: rgba(225, 238, 249, 0.85);
+  
+    color: #35688f;
+  
+    font-size: 10px;
+  }
+  
+  
+  /* =========================================================
+     DEAL LIST
+     ========================================================= */
+  
+  .dealList {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 7px;
+  
+    padding: 7px;
+  
+    flex: 1;
+  }
+  
+  
+  /* =========================================================
+     DEAL CARD
+     ========================================================= */
+  
+  .dealCard {
+    padding: 9px;
+  
+    background: white;
+  
+    border: 1px solid #e2ebf3;
+    border-radius: 8px;
+  
+    box-shadow:
+      0 2px 8px rgba(35, 81, 123, 0.045);
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  
+    box-sizing: border-box;
+  }
+  
+  .dealCard:hover {
+    transform: translateY(-2px);
+  
+    box-shadow:
+      0 7px 16px rgba(35, 81, 123, 0.1);
+  }
+  
+  
+  /* =========================================================
+     DEAL TOP
+     ========================================================= */
+  
+  .dealTop {
+    display: flex;
+    align-items: flex-start;
+  
+    gap: 7px;
+  
+    min-width: 0;
+  }
+  
+  .dealIcon {
+    width: 29px;
+    height: 29px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border-radius: 7px;
+  
+    background: #eef7ff;
+  
+    color: #1385e8;
+  
+    font-size: 14px;
+  }
+  
+  .dealTitle {
+    min-width: 0;
+    flex: 1;
+  }
+  
+  .dealTitle strong {
+    display: block;
+  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  
+    margin-top: 1px;
+  
+    font-size: 10.5px;
+    line-height: 15px;
+  
+    font-weight: 750;
+  
+    color: #204b77;
+  }
+  
+  .dealTitle span {
+    display: block;
+  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  
+    margin-top: 2px;
+  
+    font-size: 9px;
+    line-height: 13px;
+  
+    color: #8298ae;
+  }
+  
+  .moreButton {
+    width: 20px;
+    height: 23px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border: none;
+    background: transparent;
+  
+    color: #9aafc3;
+  
+    cursor: pointer;
+  
+    font-size: 15px;
+  
+    border-radius: 4px;
+  }
+  
+  .moreButton:hover {
+    background: #f1f6fa;
+    color: #3278b5;
+  }
+  
+  
+  /* =========================================================
+     DEAL AMOUNT
+     ========================================================= */
+  
+  .dealAmount {
+    margin-top: 7px;
+    margin-left: 36px;
+  
+    font-size: 11px;
+    line-height: 15px;
+  
+    font-weight: 750;
+  
+    color: #234d79;
+  }
+  
+  
+  /* =========================================================
+     DEAL BOTTOM
+     ========================================================= */
+  
+  .dealBottom {
+    display: flex;
+    align-items: center;
+  
+    gap: 6px;
+  
+    margin-top: 8px;
+  }
+  
+  .personAvatar {
+    width: 22px;
+    height: 22px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border-radius: 50%;
+  
+    background:
+      linear-gradient(
+        135deg,
+        #1c8ae9,
+        #1b5fb3
+      );
+  
+    color: white;
+  
+    font-size: 7px;
+    font-weight: 750;
+  }
+  
+  .dealDate {
+    flex: 1;
+  
+    overflow: hidden;
+  
+    font-size: 8.5px;
+    line-height: 13px;
+  
+    color: #7891aa;
+  }
+  
+  .dealTag {
+    padding: 3px 6px;
+  
+    border-radius: 10px;
+  
+    background: #eaf6ff;
+  
+    color: #1682df;
+  
+    font-size: 7.5px;
+    line-height: 11px;
+  
+    font-weight: 700;
+  
+    white-space: nowrap;
+  }
+  
+  
+  /* =========================================================
+     EMPTY
+     ========================================================= */
+  
+  .emptyColumn {
+    min-height: 100px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 15px;
+  
+    border: 1px dashed #d6e3ee;
+    border-radius: 7px;
+  
+    color: #8ba0b5;
+  
+    font-size: 11px;
+  }
+  
+  
+  /* =========================================================
+     VIEW ALL
+     ========================================================= */
+  
+  .viewAll {
+    width: calc(100% - 14px);
+  
+    margin: 0 7px 8px;
+    padding: 8px 5px;
+  
+    border: none;
+    border-radius: 6px;
+  
+    background: transparent;
+  
+    color: #1682df;
+  
+    font-family: inherit;
+  
+    font-size: 10px;
+    font-weight: 700;
+  
+    text-align: left;
+  
+    cursor: pointer;
+  }
+  
+  .viewAll:hover {
+    background: rgba(18, 135, 238, 0.07);
+  }
+  
+  
+  /* =========================================================
+     MODAL OVERLAY
+     ========================================================= */
+  
+  .modalOverlay {
+    position: fixed;
+  
+    inset: 0;
+  
+    z-index: 999999;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    padding: 20px;
+  
+    background:
+      rgba(12, 43, 76, 0.38);
+  
+    backdrop-filter: blur(3px);
+  
+    box-sizing: border-box;
+  }
+  
+  
+  /* =========================================================
+     MODAL
+     ========================================================= */
+  
+  .modal {
+    width: 100%;
+    max-width: 500px;
+  
+    max-height: 90vh;
+  
+    overflow-y: auto;
+  
+    background: white;
+  
+    border-radius: 14px;
+  
+    box-shadow:
+      0 25px 70px rgba(16, 53, 88, 0.22);
+  
+    animation: modalIn 0.2s ease;
+  }
+  
+  @keyframes modalIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  
+  /* =========================================================
+     MODAL HEADER
+     ========================================================= */
+  
+  .modalHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  
+    padding: 20px 21px 16px;
+  
+    border-bottom: 1px solid #e9eff5;
+  }
+  
+  .modalHeader h2 {
+    margin: 0;
+  
+    font-size: 20px;
+    line-height: 27px;
+  
+    color: #123d70;
+  }
+  
+  .modalHeader p {
+    margin: 4px 0 0;
+  
+    font-size: 11px;
+    line-height: 17px;
+  
+    color: #8197ad;
+  }
+  
+  .modalHeader button {
+    width: 30px;
+    height: 30px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border: none;
+    border-radius: 7px;
+  
+    background: #f2f6fa;
+  
+    color: #587895;
+  
+    font-size: 21px;
+  
+    cursor: pointer;
+  }
+  
+  .modalHeader button:hover {
+    background: #e9f1f7;
+  }
+  
+  
+  /* =========================================================
+     MODAL BODY
+     ========================================================= */
+  
+  .modalBody {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 7px;
+  
+    padding: 18px 21px 20px;
+  }
+  
+  .modalBody label {
+    margin-top: 3px;
+  
+    font-size: 11px;
+    line-height: 16px;
+  
+    color: #315a82;
+  
+    font-weight: 700;
+  }
+  
+  .modalBody input,
+  .modalBody select {
+    width: 100%;
+    height: 40px;
+  
+    padding: 0 11px;
+  
+    box-sizing: border-box;
+  
+    border: 1px solid #dce8f2;
+    border-radius: 7px;
+  
+    outline: none;
+  
+    background: white;
+  
+    color: #254d75;
+  
+    font-family: inherit;
+  
+    font-size: 12px;
+  }
+  
+  .modalBody input::placeholder {
+    color: #9aacbc;
+  }
+  
+  .modalBody input:focus,
+  .modalBody select:focus {
+    border-color: #5ba9e9;
+  
+    box-shadow:
+      0 0 0 3px rgba(18, 135, 238, 0.08);
+  }
+  
+  .formRow {
+    display: grid;
+  
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  
+    gap: 13px;
+  
+    margin-top: 2px;
+  }
+  
+  .formRow > div {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 7px;
+  }
+  
+  
+  /* =========================================================
+     MODAL FOOTER
+     ========================================================= */
+  
+  .modalFooter {
+    display: flex;
+    justify-content: flex-end;
+  
+    gap: 9px;
+  
+    padding: 14px 21px 18px;
+  
+    border-top: 1px solid #e9eff5;
+  }
+  
+  .cancelButton,
+  .saveButton {
+    min-width: 90px;
+    height: 39px;
+  
+    padding: 0 15px;
+  
+    border-radius: 7px;
+  
+    font-family: inherit;
+  
+    font-size: 11px;
+    font-weight: 700;
+  
+    cursor: pointer;
+  }
+  
+  .cancelButton {
+    border: 1px solid #dce7f1;
+  
+    background: white;
+  
+    color: #63809c;
+  }
+  
+  .cancelButton:hover {
+    background: #f5f9fc;
+  }
+  
+  .saveButton {
+    border: 1px solid #1287ee;
+  
+    background: #1287ee;
+  
+    color: white;
+  
+    box-shadow:
+      0 5px 14px rgba(18, 135, 238, 0.17);
+  }
+  
+  .saveButton:hover {
+    background: #087de3;
+  }
+  
+  
+  /* =========================================================
+     TABLET
+     ========================================================= */
+  
+  @media (max-width: 1250px) {
+  
+    .main {
+      margin-left: 235px;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+  
+    .statsGrid {
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    }
+  
+    .pipeline {
+      grid-template-columns:
+        repeat(6, 205px);
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     SMALL LAPTOP
+     ========================================================= */
+  
+  @media (max-width: 1050px) {
+  
+    .main {
+      margin-left: 0;
+      padding-top: 88px;
+    }
+  
+    .pageHeader {
+      align-items: flex-start;
+    }
+  
+    .titleRow h1 {
+      font-size: 25px;
+    }
+  
+    .statsGrid {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+  
+    .filterBar {
+      flex-wrap: wrap;
+    }
+  
+    .pipelineSearch {
+      flex-basis: 100%;
+      order: -1;
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     MOBILE
+     ========================================================= */
+  
+  @media (max-width: 700px) {
+  
+    .main {
+      padding: 82px 12px 25px;
+    }
+  
+    .pageHeader {
+      flex-direction: column;
+  
+      margin-bottom: 17px;
+    }
+  
+    .headerButtons {
+      width: 100%;
+    }
+  
+    .addButton,
+    .settingsButton {
+      flex: 1;
+    }
+  
+    .titleRow h1 {
+      font-size: 23px;
+      line-height: 30px;
+    }
+  
+    .titleRow p {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  
+    .breadcrumb {
+      font-size: 11px;
+    }
+  
+    .statsGrid {
+      grid-template-columns:
+        1fr 1fr;
+  
+      gap: 9px;
+    }
+  
+    .statCard {
+      min-height: 91px;
+  
+      padding: 11px;
+      gap: 9px;
+    }
+  
+    .statIcon {
+      width: 39px;
+      height: 39px;
+  
+      font-size: 17px;
+    }
+  
+    .statInfo > span {
+      font-size: 10px;
+    }
+  
+    .statValue strong {
+      font-size: 18px;
+    }
+  
+    .statValue small {
+      font-size: 9px;
+    }
+  
+    .statInfo p {
+      font-size: 8px;
+    }
+  
+    .filterBar {
+      padding: 9px;
+  
+      gap: 7px;
+    }
+  
+    .filterBar select {
+      flex: 1;
+      min-width: 0;
+    }
+  
+    .pipeline {
+      grid-template-columns:
+        repeat(6, 210px);
+  
+      padding: 8px;
+    }
+  
+    .column {
+      min-height: 520px;
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     SMALL MOBILE
+     ========================================================= */
+  
+  @media (max-width: 480px) {
+  
+    .main {
+      padding-left: 9px;
+      padding-right: 9px;
+    }
+  
+    .headerButtons {
+      flex-direction: column;
+    }
+  
+    .addButton,
+    .settingsButton {
+      width: 100%;
+    }
+  
+    .statsGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .statCard {
+      min-height: 82px;
+    }
+  
+    .filterBar select {
+      flex-basis: calc(50% - 4px);
+    }
+  
+    .pipelineSearch {
+      min-width: 100%;
+    }
+  
+    .formRow {
+      grid-template-columns: 1fr;
+    }
+  
+    .modalOverlay {
+      padding: 10px;
+    }
+  
+    .modal {
+      max-height: 94vh;
+    }
+  
+    .modalHeader {
+      padding: 17px 16px 14px;
+    }
+  
+    .modalBody {
+      padding: 15px 16px 17px;
+    }
+  
+    .modalFooter {
+      padding: 12px 16px 15px;
+    }
+  
+  }
+  
+  
+  /* =========================================================
+     EXTRA SMALL
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+  
+    .main {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+  
+    .titleRow h1 {
+      font-size: 21px;
+    }
+  
+    .titleIcon {
+      width: 29px;
+      height: 29px;
+  
+      font-size: 16px;
+    }
+  
+    .filterBar select {
+      font-size: 10px;
+    }
+  
+    .pipeline {
+      grid-template-columns:
+        repeat(6, 195px);
+    }
+  
+  }

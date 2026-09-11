@@ -1,0 +1,1843 @@
+/* =========================================================
+   SETTINGS PAGE
+   ========================================================= */
+
+   .app {
+    --blue: #1287ee;
+    --blue-dark: #075fbd;
+    --blue-light: #eaf5ff;
+  
+    --text: #123b70;
+    --text-dark: #0c3265;
+    --muted: #7890ad;
+  
+    --border: #e3edf7;
+    --border-dark: #d7e4f0;
+  
+    --bg: #f5f9fd;
+    --panel: #ffffff;
+  
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+  
+    display: flex;
+  
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+  }
+  
+  /* =========================================================
+     SIDEBAR
+     ========================================================= */
+  
+  .sidebar {
+    width: 258px;
+    min-width: 258px;
+  
+    height: 100vh;
+  
+    position: fixed;
+    left: 0;
+    top: 0;
+  
+    z-index: 1000;
+  
+    background: #ffffff;
+    border-right: 1px solid #edf2f7;
+  
+    display: flex;
+    flex-direction: column;
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .logoArea {
+    height: 74px;
+    min-height: 74px;
+  
+    display: flex;
+    align-items: center;
+  
+    padding: 0 27px;
+  
+    border-bottom: 1px solid #f0f4f8;
+  }
+  
+  .logo {
+    width: 177px;
+    height: auto;
+    max-height: 56px;
+  
+    object-fit: contain;
+  }
+  
+  .mobileClose {
+    display: none;
+  }
+  
+  /* =========================================================
+     NAVIGATION
+     ========================================================= */
+  
+  .mainNav {
+    padding: 22px 15px 0;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  }
+  
+  .navItem {
+    width: 100%;
+    min-height: 44px;
+  
+    border: 0;
+    background: transparent;
+  
+    border-radius: 7px;
+  
+    padding: 0 13px;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 14px;
+  
+    color: #345987;
+  
+    font-size: 14.5px;
+    font-weight: 500;
+  
+    cursor: pointer;
+    text-align: left;
+  
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+  
+  .navItem:hover {
+    background: #f0f7ff;
+    color: var(--blue);
+  }
+  
+  .navIcon {
+    width: 25px;
+    min-width: 25px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 21px;
+    line-height: 1;
+  
+    color: #0c5bb5;
+  }
+  
+  .navText {
+    flex: 1;
+  
+    white-space: nowrap;
+  }
+  
+  .navActive {
+    background: linear-gradient(
+      90deg,
+      #118bf1,
+      #087ee4
+    );
+  
+    color: #ffffff;
+  
+    box-shadow:
+      0 5px 12px rgba(18, 135, 238, 0.16);
+  }
+  
+  .navActive .navIcon {
+    color: #ffffff;
+  }
+  
+  .navActive:hover {
+    color: #ffffff;
+  
+    background: linear-gradient(
+      90deg,
+      #118bf1,
+      #087ee4
+    );
+  }
+  
+  .navBadge {
+    width: 21px;
+    height: 21px;
+  
+    border-radius: 50%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: #1388ed;
+    color: #ffffff;
+  
+    font-size: 10px;
+    font-weight: 700;
+  }
+  
+  .navActive .navBadge {
+    background: #ffffff;
+    color: var(--blue);
+  }
+  
+  /* =========================================================
+     GROW CARD
+     ========================================================= */
+  
+  .growCard {
+    margin: auto 24px 20px;
+  
+    padding: 18px 16px 17px;
+  
+    min-height: 174px;
+  
+    border: 1px solid #e1edf8;
+    border-radius: 10px;
+  
+    background:
+      linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f5fbff 100%
+      );
+  
+    position: relative;
+  
+    overflow: hidden;
+  }
+  
+  .rocket {
+    font-size: 29px;
+  
+    margin-bottom: 8px;
+  }
+  
+  .growCard h3 {
+    margin: 0 0 8px;
+  
+    color: #093d80;
+  
+    font-size: 13.5px;
+    line-height: 1.45;
+  
+    font-weight: 700;
+  }
+  
+  .growCard p {
+    margin: 0;
+  
+    max-width: 170px;
+  
+    color: #7890ad;
+  
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  
+  .arrowButton {
+    position: absolute;
+  
+    right: 12px;
+    bottom: 13px;
+  
+    width: 24px;
+    height: 24px;
+  
+    border: 0;
+    border-radius: 50%;
+  
+    background: var(--blue);
+    color: #ffffff;
+  
+    font-size: 16px;
+  
+    cursor: pointer;
+  }
+  
+  .copyright {
+    padding: 0 24px 18px;
+  
+    color: #7890ad;
+  
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+  
+  .copyright p {
+    margin: 0;
+  }
+  
+  /* =========================================================
+     MAIN
+     ========================================================= */
+  
+  .main {
+    width: calc(100% - 258px);
+  
+    margin-left: 258px;
+  
+    min-width: 0;
+  }
+  
+  /* =========================================================
+     TOPBAR
+     ========================================================= */
+  
+  .topbar {
+    height: 74px;
+  
+    padding: 0 28px;
+  
+    background: #ffffff;
+  
+    border-bottom: 1px solid #e9f0f6;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 25px;
+  }
+  
+  .searchBox {
+    width: min(480px, 55%);
+  
+    height: 40px;
+  
+    display: flex;
+    align-items: center;
+  
+    background: #f5f9fd;
+  
+    border: 1px solid #e2edf7;
+  
+    border-radius: 9px;
+  
+    padding: 0 13px;
+  }
+  
+  .searchIcon {
+    color: #0b65bd;
+  
+    font-size: 25px;
+    line-height: 1;
+  
+    margin-right: 10px;
+  }
+  
+  .searchBox input {
+    width: 100%;
+  
+    border: 0;
+    outline: none;
+  
+    background: transparent;
+  
+    color: #123b70;
+  
+    font-size: 13px;
+  }
+  
+  .searchBox input::placeholder {
+    color: #91a5bb;
+  }
+  
+  .topActions {
+    margin-left: auto;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 16px;
+  }
+  
+  .iconButton {
+    width: 34px;
+    height: 34px;
+  
+    position: relative;
+  
+    border: 0;
+    background: transparent;
+  
+    color: #1269c0;
+  
+    font-size: 23px;
+  
+    cursor: pointer;
+  }
+  
+  .notificationDot {
+    position: absolute;
+  
+    top: 0;
+    right: 0;
+  
+    width: 15px;
+    height: 15px;
+  
+    border-radius: 50%;
+  
+    background: var(--blue);
+    color: white;
+  
+    font-size: 8px;
+    font-weight: 700;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .userProfile {
+    height: 48px;
+  
+    padding-left: 15px;
+  
+    border-left: 1px solid #e9f0f6;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+  
+    border-radius: 50%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background:
+      linear-gradient(
+        145deg,
+        #123e78,
+        #1287ee
+      );
+  
+    color: #ffffff;
+  
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 2px;
+  
+    min-width: 86px;
+  }
+  
+  .userInfo strong {
+    font-size: 12.5px;
+    color: #163e72;
+  }
+  
+  .userInfo span {
+    font-size: 10.5px;
+    color: #7890ad;
+  }
+  
+  .userArrow {
+    font-size: 19px;
+    color: #0d5fb2;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  /* =========================================================
+     CONTENT
+     ========================================================= */
+  
+  .content {
+    /*
+      TOP SE MARGIN / GAP
+      Screenshot ke according content ko top se 30px diya hai
+    */
+  
+    padding: 30px 28px 32px;
+  }
+  
+  /* =========================================================
+     BREADCRUMB
+     ========================================================= */
+  
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  
+    color: #7890ad;
+  
+    font-size: 12px;
+    font-weight: 500;
+  
+    margin-bottom: 14px;
+  }
+  
+  .breadcrumb span:first-child {
+    color: var(--blue);
+  
+    font-size: 16px;
+  }
+  
+  /* =========================================================
+     PAGE HEADER
+     ========================================================= */
+  
+  .pageHeader {
+    min-height: 68px;
+  
+    display: flex;
+    align-items: flex-start;
+  
+    justify-content: space-between;
+  
+    margin-bottom: 20px;
+  }
+  
+  .titleArea {
+    display: flex;
+    align-items: flex-start;
+  
+    gap: 13px;
+  }
+  
+  .titleIcon {
+    width: 40px;
+    height: 40px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    color: #0c5bb5;
+  
+    font-size: 29px;
+  }
+  
+  .titleArea h1 {
+    margin: 0 0 4px;
+  
+    color: #073b82;
+  
+    font-size: 28px;
+    line-height: 1.1;
+  
+    font-weight: 700;
+  }
+  
+  .titleArea p {
+    margin: 0;
+  
+    color: #7890ad;
+  
+    font-size: 13px;
+  }
+  
+  /* =========================================================
+     HEADER BUTTONS
+     ========================================================= */
+  
+  .headerButtons {
+    display: flex;
+  
+    gap: 11px;
+  }
+  
+  .saveButton,
+  .resetButton {
+    height: 40px;
+  
+    padding: 0 18px;
+  
+    border-radius: 8px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 8px;
+  
+    font-size: 13px;
+    font-weight: 600;
+  
+    cursor: pointer;
+  
+    transition: 0.2s ease;
+  }
+  
+  .saveButton {
+    border: 1px solid var(--blue);
+  
+    background: var(--blue);
+  
+    color: white;
+  
+    box-shadow:
+      0 4px 10px rgba(18, 135, 238, 0.15);
+  }
+  
+  .saveButton:hover {
+    background: var(--blue-dark);
+  }
+  
+  .resetButton {
+    border: 1px solid #dfebf5;
+  
+    background: #ffffff;
+  
+    color: #2573bc;
+  }
+  
+  .resetButton:hover {
+    background: #f3f8fc;
+  }
+  
+  /* =========================================================
+     SETTINGS LAYOUT
+     ========================================================= */
+  
+  .settingsLayout {
+    display: grid;
+  
+    grid-template-columns:
+      250px
+      minmax(440px, 1fr)
+      372px;
+  
+    gap: 16px;
+  
+    align-items: stretch;
+  }
+  
+  .settingsMenu,
+  .panel {
+    background: #ffffff;
+  
+    border: 1px solid #e4edf5;
+  
+    border-radius: 9px;
+  
+    box-shadow:
+      0 2px 10px rgba(26, 83, 126, 0.035);
+  }
+  
+  /* =========================================================
+     SETTINGS LEFT MENU
+     ========================================================= */
+  
+  .settingsMenu {
+    padding: 7px;
+  
+    min-height: 690px;
+  }
+  
+  .settingTab {
+    width: 100%;
+  
+    min-height: 64px;
+  
+    padding: 9px 11px;
+  
+    border: 0;
+  
+    border-radius: 7px;
+  
+    background: transparent;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 12px;
+  
+    text-align: left;
+  
+    cursor: pointer;
+  
+    color: var(--text);
+  
+    transition: 0.2s ease;
+  }
+  
+  .settingTab:hover {
+    background: #f5faff;
+  }
+  
+  .settingTabActive {
+    background: #eaf5ff;
+  }
+  
+  .settingIcon {
+    width: 29px;
+    min-width: 29px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    color: #0d66bb;
+  
+    font-size: 21px;
+  }
+  
+  .settingTabText {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  }
+  
+  .settingTabText strong {
+    color: #123d73;
+  
+    font-size: 14px;
+  
+    font-weight: 600;
+  }
+  
+  .settingTabText small {
+    color: #89a0b8;
+  
+    font-size: 11px;
+  
+    line-height: 1.3;
+  }
+  
+  /* =========================================================
+     CENTER / RIGHT
+     ========================================================= */
+  
+  .centerColumn,
+  .rightColumn {
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 16px;
+  }
+  
+  .panel {
+    padding: 18px;
+  }
+  
+  /* =========================================================
+     PANEL HEADER
+     ========================================================= */
+  
+  .panelHeader {
+    display: flex;
+    align-items: flex-start;
+  
+    gap: 10px;
+  
+    margin-bottom: 21px;
+  }
+  
+  .panelHeaderIcon {
+    width: 29px;
+    min-width: 29px;
+  
+    display: flex;
+    justify-content: center;
+  
+    color: #0c63b9;
+  
+    font-size: 21px;
+  }
+  
+  .panelHeader h2 {
+    margin: 0 0 4px;
+  
+    color: #123b70;
+  
+    font-size: 17px;
+  
+    line-height: 1.2;
+  
+    font-weight: 700;
+  }
+  
+  .panelHeader p {
+    margin: 0;
+  
+    color: #7890ad;
+  
+    font-size: 11.5px;
+  
+    line-height: 1.45;
+  }
+  
+  /* =========================================================
+     FORM
+     ========================================================= */
+  
+  .formGrid {
+    display: grid;
+  
+    grid-template-columns: 1fr 1fr;
+  
+    gap: 18px 20px;
+  }
+  
+  .field {
+    min-width: 0;
+  }
+  
+  .field label,
+  .formSection > label {
+    display: block;
+  
+    margin-bottom: 7px;
+  
+    color: #31577e;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  }
+  
+  .inputWrap,
+  .selectWrap {
+    height: 40px;
+  
+    border: 1px solid #dce8f2;
+  
+    border-radius: 7px;
+  
+    background: #ffffff;
+  
+    display: flex;
+    align-items: center;
+  
+    padding: 0 10px;
+  
+    position: relative;
+  }
+  
+  .inputWrap:focus-within,
+  .selectWrap:focus-within,
+  .textareaWrap:focus-within {
+    border-color: #72b9f2;
+  
+    box-shadow:
+      0 0 0 2px rgba(18, 135, 238, 0.06);
+  }
+  
+  .inputWrap > span,
+  .selectWrap > span {
+    color: #1b72c2;
+  
+    font-size: 16px;
+  
+    margin-right: 7px;
+  }
+  
+  .inputWrap input,
+  .selectWrap select {
+    width: 100%;
+    height: 100%;
+  
+    border: 0;
+    outline: 0;
+  
+    background: transparent;
+  
+    color: #34587d;
+  
+    font-size: 13px;
+  }
+  
+  .selectWrap select {
+    appearance: none;
+  
+    padding-right: 20px;
+  
+    cursor: pointer;
+  }
+  
+  .selectArrow {
+    position: absolute;
+  
+    right: 10px;
+    top: 50%;
+  
+    transform: translateY(-50%);
+  
+    pointer-events: none;
+  
+    color: #6d91b3 !important;
+  
+    font-size: 15px !important;
+  
+    margin: 0 !important;
+  }
+  
+  .formSection {
+    margin-top: 18px;
+  }
+  
+  /* =========================================================
+     LOGO
+     ========================================================= */
+  
+  .logoUpload {
+    display: flex;
+    align-items: center;
+  
+    gap: 12px;
+  }
+  
+  .logoPreview {
+    width: 145px;
+    height: 57px;
+  
+    border: 1px solid #e0ebf4;
+  
+    border-radius: 7px;
+  
+    background: #ffffff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    overflow: hidden;
+  }
+  
+  .logoPreview img {
+    width: 128px;
+    height: auto;
+  
+    object-fit: contain;
+  }
+  
+  .changeLogo {
+    height: 37px;
+  
+    padding: 0 13px;
+  
+    border: 1px solid #a8d3f5;
+  
+    border-radius: 7px;
+  
+    background: #ffffff;
+  
+    color: #1873c1;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  
+    cursor: pointer;
+  }
+  
+  .changeLogo:hover {
+    background: #eef8ff;
+  }
+  
+  .logoHint {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 3px;
+  
+    color: #91a5b8;
+  
+    font-size: 10.5px;
+  
+    line-height: 1.4;
+  }
+  
+  .logoHint strong {
+    color: #7d94ac;
+  
+    font-weight: 500;
+  }
+  
+  /* =========================================================
+     ADDRESS
+     ========================================================= */
+  
+  .textareaWrap {
+    min-height: 78px;
+  
+    border: 1px solid #dce8f2;
+  
+    border-radius: 7px;
+  
+    background: #ffffff;
+  
+    display: flex;
+    align-items: flex-start;
+  
+    padding: 10px;
+  
+    gap: 8px;
+  }
+  
+  .textareaWrap span {
+    color: #1a6fbd;
+  
+    font-size: 16px;
+  }
+  
+  .textareaWrap textarea {
+    width: 100%;
+  
+    min-height: 56px;
+  
+    border: 0;
+    outline: 0;
+  
+    resize: vertical;
+  
+    color: #34587d;
+  
+    font-family: inherit;
+  
+    font-size: 12.5px;
+  
+    line-height: 1.5;
+  }
+  
+  /* =========================================================
+     INFO BOX
+     ========================================================= */
+  
+  .infoBox {
+    margin-top: 18px;
+  
+    min-height: 58px;
+  
+    padding: 10px 12px;
+  
+    border: 1px solid #cfe7fa;
+  
+    border-radius: 7px;
+  
+    background: #eff8ff;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  }
+  
+  .infoIcon {
+    width: 29px;
+    height: 29px;
+  
+    min-width: 29px;
+  
+    border-radius: 50%;
+  
+    background: #1387e9;
+  
+    color: #ffffff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 16px;
+  
+    font-weight: 700;
+  }
+  
+  .infoBox p {
+    margin: 0;
+  
+    color: #4e7498;
+  
+    font-size: 11px;
+  
+    line-height: 1.5;
+  }
+  
+  /* =========================================================
+     SYSTEM PREFERENCES
+     ========================================================= */
+  
+  .toggleRow {
+    min-height: 61px;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 9px;
+  
+    border-bottom: 1px solid #edf3f8;
+  }
+  
+  .toggleRow:last-child {
+    border-bottom: 0;
+  }
+  
+  .toggleIcon {
+    width: 28px;
+    min-width: 28px;
+  
+    color: #0c64b9;
+  
+    font-size: 17px;
+  
+    display: flex;
+    justify-content: center;
+  }
+  
+  .toggleText {
+    flex: 1;
+  
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  }
+  
+  .toggleText strong {
+    color: #31577e;
+  
+    font-size: 12.5px;
+  
+    font-weight: 600;
+  }
+  
+  .toggleText span {
+    color: #8a9fb4;
+  
+    font-size: 10.5px;
+  
+    line-height: 1.3;
+  }
+  
+  .toggle {
+    width: 36px;
+    height: 21px;
+  
+    border: 0;
+  
+    border-radius: 20px;
+  
+    padding: 2px;
+  
+    background: #d8e3ee;
+  
+    cursor: pointer;
+  
+    transition: 0.2s ease;
+  }
+  
+  .toggle span {
+    width: 17px;
+    height: 17px;
+  
+    display: block;
+  
+    border-radius: 50%;
+  
+    background: #ffffff;
+  
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.12);
+  
+    transition: transform 0.2s ease;
+  }
+  
+  .toggleOn {
+    background: #1287ee;
+  }
+  
+  .toggleOn span {
+    transform: translateX(15px);
+  }
+  
+  /* =========================================================
+     QUICK ACTIONS
+     ========================================================= */
+  
+  .quickAction {
+    width: 100%;
+  
+    min-height: 66px;
+  
+    padding: 10px 8px;
+  
+    border: 1px solid #e3edf5;
+  
+    border-radius: 7px;
+  
+    background: #ffffff;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  
+    text-align: left;
+  
+    cursor: pointer;
+  
+    margin-bottom: 7px;
+  
+    transition: 0.2s ease;
+  }
+  
+  .quickAction:hover {
+    border-color: #b9dcf6;
+  
+    background: #f8fcff;
+  }
+  
+  .quickIcon {
+    width: 28px;
+    min-width: 28px;
+  
+    display: flex;
+    justify-content: center;
+  
+    color: #126bc0;
+  
+    font-size: 18px;
+  }
+  
+  .quickText {
+    flex: 1;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  }
+  
+  .quickText strong {
+    color: #31577e;
+  
+    font-size: 12px;
+  
+    font-weight: 600;
+  }
+  
+  .quickText small {
+    color: #8b9fb4;
+  
+    font-size: 10.5px;
+  }
+  
+  .quickArrow {
+    color: #4782b6;
+  
+    font-size: 20px;
+  }
+  
+  /* =========================================================
+     SECURE CARD
+     ========================================================= */
+  
+  .secureCard {
+    min-height: 72px;
+  
+    padding: 12px;
+  
+    border-radius: 8px;
+  
+    background: #eef8ff;
+  
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  
+    position: relative;
+  }
+  
+  .secureIcon {
+    width: 32px;
+    height: 32px;
+  
+    border-radius: 7px;
+  
+    background: #1188ed;
+  
+    color: #ffffff;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 18px;
+  
+    font-weight: 700;
+  }
+  
+  .secureCard div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  }
+  
+  .secureCard strong {
+    color: #1c5c92;
+  
+    font-size: 11.5px;
+  }
+  
+  .secureCard span {
+    color: #7890ad;
+  
+    font-size: 10px;
+  }
+  
+  .secureDot {
+    width: 9px;
+    height: 9px;
+  
+    position: absolute;
+  
+    right: 12px;
+    top: 50%;
+  
+    transform: translateY(-50%);
+  
+    border-radius: 50%;
+  
+    background: #16c784;
+  }
+  
+  /* =========================================================
+     PLACEHOLDER
+     ========================================================= */
+  
+  .placeholder {
+    min-height: 500px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  
+    padding: 30px;
+  }
+  
+  .placeholderIcon {
+    width: 62px;
+    height: 62px;
+  
+    border-radius: 50%;
+  
+    background: #eaf5ff;
+  
+    color: #1287ee;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 29px;
+  
+    margin-bottom: 15px;
+  }
+  
+  .placeholder h2 {
+    margin: 0 0 7px;
+  
+    color: #123b70;
+  
+    font-size: 21px;
+  }
+  
+  .placeholder p {
+    max-width: 390px;
+  
+    margin: 0 0 18px;
+  
+    color: #7890ad;
+  
+    font-size: 13px;
+  
+    line-height: 1.6;
+  }
+  
+  /* =========================================================
+     OVERLAY
+     ========================================================= */
+  
+  .overlay {
+    display: none;
+  }
+  
+  /* =========================================================
+     1400px
+     ========================================================= */
+  
+  @media (max-width: 1400px) {
+    .settingsLayout {
+      grid-template-columns:
+        235px
+        minmax(390px, 1fr)
+        350px;
+    }
+  
+    .sidebar {
+      width: 245px;
+      min-width: 245px;
+    }
+  
+    .main {
+      width: calc(100% - 245px);
+      margin-left: 245px;
+    }
+  
+    .content {
+      padding-top: 30px;
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+  
+    .logoArea {
+      padding-left: 22px;
+    }
+  }
+  
+  /* =========================================================
+     1200px
+     ========================================================= */
+  
+  @media (max-width: 1200px) {
+    .sidebar {
+      width: 220px;
+      min-width: 220px;
+    }
+  
+    .main {
+      width: calc(100% - 220px);
+      margin-left: 220px;
+    }
+  
+    .navItem {
+      font-size: 14px;
+    }
+  
+    .settingsLayout {
+      grid-template-columns:
+        215px
+        minmax(350px, 1fr);
+    }
+  
+    .rightColumn {
+      grid-column: 1 / -1;
+  
+      display: grid;
+  
+      grid-template-columns: 1fr 1fr;
+  
+      align-items: start;
+    }
+  
+    .secureCard {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  /* =========================================================
+     1050px
+     ========================================================= */
+  
+  @media (max-width: 1050px) {
+    .settingsLayout {
+      grid-template-columns: 200px 1fr;
+    }
+  
+    .rightColumn {
+      grid-column: 1 / -1;
+    }
+  
+    .formGrid {
+      gap: 15px;
+    }
+  
+    .content {
+      padding-top: 30px;
+      padding-left: 17px;
+      padding-right: 17px;
+    }
+  
+    .topbar {
+      padding: 0 18px;
+    }
+  }
+  
+  /* =========================================================
+     850px
+     ========================================================= */
+  
+  @media (max-width: 850px) {
+    .sidebar {
+      transform: translateX(-105%);
+  
+      transition: transform 0.25s ease;
+  
+      box-shadow:
+        8px 0 25px rgba(21, 65, 105, 0.12);
+    }
+  
+    .sidebarOpen {
+      transform: translateX(0);
+    }
+  
+    .main {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .hamburger {
+      width: 38px;
+      height: 38px;
+  
+      border: 1px solid #e0ebf5;
+  
+      border-radius: 7px;
+  
+      background: #ffffff;
+  
+      display: flex;
+  
+      flex-direction: column;
+  
+      align-items: center;
+      justify-content: center;
+  
+      gap: 4px;
+  
+      cursor: pointer;
+    }
+  
+    .hamburger span {
+      width: 17px;
+      height: 2px;
+  
+      border-radius: 2px;
+  
+      background: #1268bc;
+    }
+  
+    .mobileClose {
+      display: block;
+  
+      margin-left: auto;
+  
+      border: 0;
+  
+      background: transparent;
+  
+      color: #1268bc;
+  
+      font-size: 26px;
+  
+      cursor: pointer;
+    }
+  
+    .overlay {
+      display: block;
+  
+      position: fixed;
+  
+      inset: 0;
+  
+      z-index: 999;
+  
+      background: rgba(5, 30, 55, 0.35);
+    }
+  
+    .settingsLayout {
+      grid-template-columns: 1fr;
+    }
+  
+    .settingsMenu {
+      min-height: auto;
+  
+      display: grid;
+  
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .settingTab {
+      min-height: 60px;
+    }
+  
+    .rightColumn {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* =========================================================
+     650px
+     ========================================================= */
+  
+  @media (max-width: 650px) {
+    .topbar {
+      height: 64px;
+  
+      gap: 10px;
+  
+      padding: 0 12px;
+    }
+  
+    .searchBox {
+      flex: 1;
+  
+      width: auto;
+    }
+  
+    .searchBox input {
+      font-size: 11px;
+    }
+  
+    .topActions {
+      gap: 4px;
+    }
+  
+    .userInfo,
+    .userArrow {
+      display: none;
+    }
+  
+    .userProfile {
+      padding-left: 7px;
+  
+      border-left: 0;
+    }
+  
+    .content {
+      padding: 30px 12px 25px;
+    }
+  
+    .pageHeader {
+      flex-direction: column;
+  
+      gap: 15px;
+    }
+  
+    .headerButtons {
+      width: 100%;
+    }
+  
+    .saveButton,
+    .resetButton {
+      flex: 1;
+    }
+  
+    .settingsMenu {
+      grid-template-columns: 1fr;
+    }
+  
+    .rightColumn {
+      grid-template-columns: 1fr;
+    }
+  
+    .formGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .logoUpload {
+      flex-wrap: wrap;
+    }
+  
+    .panel {
+      padding: 15px;
+    }
+  
+    .titleArea h1 {
+      font-size: 24px;
+    }
+  
+    .titleArea p {
+      font-size: 12px;
+    }
+  
+    .settingTabText strong {
+      font-size: 13px;
+    }
+  
+    .settingTabText small {
+      font-size: 10px;
+    }
+  }
+  
+  /* =========================================================
+     430px
+     ========================================================= */
+  
+  @media (max-width: 430px) {
+    .searchBox {
+      display: none;
+    }
+  
+    .topbar {
+      justify-content: space-between;
+    }
+  
+    .topActions {
+      margin-left: auto;
+    }
+  
+    .titleArea {
+      gap: 7px;
+    }
+  
+    .titleIcon {
+      font-size: 25px;
+  
+      width: 31px;
+    }
+  
+    .titleArea h1 {
+      font-size: 23px;
+    }
+  
+    .titleArea p {
+      font-size: 11px;
+    }
+  
+    .breadcrumb {
+      margin-bottom: 11px;
+  
+      font-size: 11px;
+    }
+  
+    .headerButtons {
+      gap: 7px;
+    }
+  
+    .saveButton,
+    .resetButton {
+      height: 38px;
+  
+      padding: 0 10px;
+  
+      font-size: 12px;
+    }
+  
+    .settingTabText strong {
+      font-size: 13px;
+    }
+  
+    .settingTabText small {
+      font-size: 10px;
+    }
+  
+    .logoPreview {
+      width: 130px;
+    }
+  
+    .field label,
+    .formSection > label {
+      font-size: 12px;
+    }
+  
+    .inputWrap input,
+    .selectWrap select {
+      font-size: 12.5px;
+    }
+  }
+  
+  /* =========================================================
+     360px
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .content {
+      padding-top: 30px;
+  
+      padding-left: 9px;
+      padding-right: 9px;
+    }
+  
+    .panel {
+      padding: 13px;
+    }
+  
+    .pageHeader {
+      margin-bottom: 13px;
+    }
+  
+    .titleArea p {
+      max-width: 230px;
+  
+      font-size: 10.5px;
+    }
+  
+    .saveButton span,
+    .resetButton span {
+      display: none;
+    }
+  
+    .saveButton,
+    .resetButton {
+      flex: 0 0 42px;
+  
+      padding: 0;
+    }
+  
+    .logoUpload {
+      align-items: flex-start;
+    }
+  
+    .logoHint {
+      width: 100%;
+    }
+  
+    .panelHeader h2 {
+      font-size: 16px;
+    }
+  
+    .panelHeader p {
+      font-size: 10.5px;
+    }
+  
+    .toggleText strong {
+      font-size: 12px;
+    }
+  
+    .toggleText span {
+      font-size: 10px;
+    }
+  
+    .quickText strong {
+      font-size: 11.5px;
+    }
+  
+    .quickText small {
+      font-size: 10px;
+    }
+  }

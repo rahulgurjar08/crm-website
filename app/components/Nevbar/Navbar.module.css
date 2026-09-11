@@ -1,0 +1,557 @@
+.navbar {
+    width: 100%;
+    height: 72px;
+    background: #ffffff;
+    border-bottom: 1px solid #edf2f7;
+  
+    display: flex;
+    align-items: center;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    z-index: 1000;
+  }
+  
+  /* ============================= */
+  /* LEFT LOGO */
+  /* ============================= */
+  
+  .navLeft {
+    width: 258px;
+    height: 100%;
+  
+    display: flex;
+    align-items: center;
+  
+    padding-left: 38px;
+  
+    border-right: 1px solid #f0f3f7;
+  }
+  
+  .logoBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logoIcon {
+    width: 39px;
+    height: 45px;
+  
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .logoTop {
+    position: absolute;
+    top: 2px;
+    left: 0;
+  
+    width: 37px;
+    height: 13px;
+  
+    background: linear-gradient(
+      90deg,
+      #104de8,
+      #16b9c7
+    );
+  
+    border-radius: 5px 14px 14px 5px;
+  
+    transform: skewX(18deg);
+  }
+  
+  .logoBottom {
+    position: absolute;
+    top: 13px;
+    left: 4px;
+  
+    width: 15px;
+    height: 30px;
+  
+    background: linear-gradient(
+      180deg,
+      #0877df,
+      #19a7b9
+    );
+  
+    border-radius: 0 0 4px 12px;
+  
+    transform: skewX(-7deg);
+  }
+  
+  .logoText h2 {
+    margin: 0;
+  
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 800;
+  
+    letter-spacing: 0.5px;
+  
+    background: linear-gradient(
+      90deg,
+      #1159e9,
+      #12a9c2
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .logoText span {
+    display: block;
+  
+    margin-top: 2px;
+  
+    font-size: 8px;
+    font-weight: 600;
+  
+    letter-spacing: 1.5px;
+  
+    color: #7890a8;
+  }
+  
+  /* ============================= */
+  /* SEARCH */
+  /* ============================= */
+  
+  .searchWrapper {
+    width: 440px;
+    height: 42px;
+  
+    margin-left: 22px;
+  
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchWrapper input {
+    width: 100%;
+    height: 100%;
+  
+    border: none;
+    outline: none;
+  
+    background: #f5f8fc;
+  
+    border-radius: 11px;
+  
+    padding: 0 18px 0 48px;
+  
+    font-size: 13px;
+    color: #163c68;
+  }
+  
+  .searchWrapper input::placeholder {
+    color: #8da0b5;
+  }
+  
+  .searchWrapper input:focus {
+    box-shadow: 0 0 0 2px rgba(18, 135, 238, 0.08);
+  }
+  
+  .searchIcon {
+    position: absolute;
+  
+    left: 17px;
+  
+    width: 20px;
+    height: 20px;
+  
+    color: #315d8d;
+  
+    z-index: 2;
+  }
+  
+  /* ============================= */
+  /* RIGHT SIDE */
+  /* ============================= */
+  
+  .navRight {
+    margin-left: auto;
+  
+    height: 100%;
+  
+    display: flex;
+    align-items: center;
+  
+    padding-right: 27px;
+  
+    gap: 13px;
+  
+    position: relative;
+  }
+  
+  .iconButton {
+    width: 40px;
+    height: 40px;
+  
+    border: none;
+    background: transparent;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    position: relative;
+  
+    cursor: pointer;
+  
+    color: #315d8d;
+  
+    border-radius: 9px;
+  
+    transition: 0.2s ease;
+  }
+  
+  .iconButton:hover {
+    background: #f3f8fd;
+  }
+  
+  .iconButton svg {
+    width: 21px;
+    height: 21px;
+  }
+  
+  /* ============================= */
+  /* NOTIFICATION */
+  /* ============================= */
+  
+  .notificationBadge {
+    position: absolute;
+  
+    top: 3px;
+    right: 2px;
+  
+    min-width: 15px;
+    height: 15px;
+  
+    padding: 0 4px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 50px;
+  
+    background: #1688e8;
+    color: #ffffff;
+  
+    font-size: 9px;
+    font-weight: 700;
+  
+    border: 2px solid #ffffff;
+  }
+  
+  .notificationDropdown {
+    position: absolute;
+  
+    top: 62px;
+    right: 150px;
+  
+    width: 270px;
+  
+    background: #ffffff;
+  
+    border: 1px solid #e7edf4;
+  
+    border-radius: 12px;
+  
+    box-shadow: 0 12px 35px rgba(27, 70, 112, 0.14);
+  
+    padding: 15px;
+  
+    z-index: 20;
+  }
+  
+  .notificationDropdown h4 {
+    margin: 0 0 12px;
+  
+    font-size: 14px;
+  
+    color: #123c70;
+  }
+  
+  .notificationItem {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 4px;
+  
+    padding: 11px 4px;
+  
+    border-top: 1px solid #eef2f6;
+  }
+  
+  .notificationItem strong {
+    font-size: 12px;
+    color: #173f70;
+  }
+  
+  .notificationItem span {
+    font-size: 10px;
+    color: #8a9bb0;
+  }
+  
+  /* ============================= */
+  /* DIVIDER */
+  /* ============================= */
+  
+  .divider {
+    width: 1px;
+    height: 34px;
+  
+    background: #e9eef4;
+  
+    margin: 0 7px;
+  }
+  
+  /* ============================= */
+  /* PROFILE */
+  /* ============================= */
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+  
+    cursor: pointer;
+  
+    min-width: 190px;
+  }
+  
+  .avatar {
+    width: 39px;
+    height: 39px;
+  
+    border-radius: 50%;
+  
+    background: linear-gradient(
+      135deg,
+      #183e69,
+      #4e7299
+    );
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: #ffffff;
+  
+    font-size: 12px;
+    font-weight: 700;
+  
+    border: 3px solid #eef4fa;
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+  
+    gap: 3px;
+  }
+  
+  .profileInfo strong {
+    font-size: 12px;
+    font-weight: 600;
+  
+    color: #173d6b;
+  }
+  
+  .profileInfo span {
+    font-size: 10px;
+  
+    color: #8ca0b7;
+  }
+  
+  .chevron {
+    width: 15px;
+    height: 15px;
+  
+    color: #315d8d;
+  
+    margin-left: auto;
+  }
+  
+  /* ============================= */
+  /* 1200px */
+  /* ============================= */
+  
+  @media (max-width: 1200px) {
+    .navLeft {
+      width: 225px;
+      padding-left: 25px;
+    }
+  
+    .searchWrapper {
+      width: 350px;
+    }
+  
+    .profile {
+      min-width: 155px;
+    }
+  }
+  
+  /* ============================= */
+  /* 950px */
+  /* ============================= */
+  
+  @media (max-width: 950px) {
+    .navLeft {
+      width: 210px;
+    }
+  
+    .searchWrapper {
+      width: 280px;
+    }
+  
+    .profileInfo {
+      display: none;
+    }
+  
+    .profile {
+      min-width: auto;
+    }
+  }
+  
+  /* ============================= */
+  /* 700px */
+  /* ============================= */
+  
+  @media (max-width: 700px) {
+    .navLeft {
+      width: auto;
+  
+      padding-left: 18px;
+  
+      border-right: none;
+    }
+  
+    .logoText {
+      display: none;
+    }
+  
+    .searchWrapper {
+      flex: 1;
+  
+      width: auto;
+  
+      margin-left: 15px;
+    }
+  
+    .navRight {
+      padding-right: 12px;
+  
+      gap: 4px;
+    }
+  
+    .divider {
+      display: none;
+    }
+  
+    .profile {
+      min-width: auto;
+    }
+  
+    .avatar {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .chevron {
+      display: none;
+    }
+  }
+  
+  /* ============================= */
+  /* 500px */
+  /* ============================= */
+  
+  @media (max-width: 500px) {
+    .navbar {
+      height: 64px;
+    }
+  
+    .navLeft {
+      padding-left: 12px;
+    }
+  
+    .logoIcon {
+      width: 32px;
+      height: 38px;
+    }
+  
+    .logoTop {
+      width: 31px;
+      height: 11px;
+    }
+  
+    .logoBottom {
+      width: 13px;
+      height: 26px;
+      top: 11px;
+    }
+  
+    .searchWrapper {
+      height: 36px;
+  
+      margin-left: 8px;
+    }
+  
+    .searchWrapper input {
+      font-size: 11px;
+  
+      padding-left: 38px;
+    }
+  
+    .searchIcon {
+      width: 16px;
+      height: 16px;
+  
+      left: 12px;
+    }
+  
+    .iconButton {
+      width: 34px;
+      height: 34px;
+    }
+  
+    .iconButton svg {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .navRight {
+      padding-right: 7px;
+    }
+  }
+  
+  /* ============================= */
+  /* 380px */
+  /* ============================= */
+  
+  @media (max-width: 380px) {
+    .searchWrapper {
+      max-width: 145px;
+    }
+  
+    .iconButton:nth-child(2) {
+      display: none;
+    }
+  
+    .profile {
+      margin-left: 2px;
+    }
+  
+    .avatar {
+      width: 32px;
+      height: 32px;
+      font-size: 10px;
+    }
+  }
