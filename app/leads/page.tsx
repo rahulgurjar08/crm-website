@@ -397,6 +397,7 @@ export default function LeadsPage() {
                                 .map((x) => x[0])
                                 .join("")}
                             </span>
+
                             {lead.assignedTo}
                           </div>
                         </td>
@@ -425,7 +426,9 @@ export default function LeadsPage() {
                                 View Profile
                               </Link>
 
-                              <Link href={`/leads/${lead.id}?edit=true`}>
+                              <Link
+                                href={`/leads/${lead.id}?edit=true`}
+                              >
                                 Edit Lead
                               </Link>
 
@@ -461,7 +464,10 @@ export default function LeadsPage() {
                     ? 0
                     : (page - 1) * perPage + 1}{" "}
                   to{" "}
-                  {Math.min(page * perPage, filteredLeads.length)}{" "}
+                  {Math.min(
+                    page * perPage,
+                    filteredLeads.length
+                  )}{" "}
                   of {filteredLeads.length} leads
                 </span>
 
@@ -480,7 +486,9 @@ export default function LeadsPage() {
                     <button
                       key={number}
                       className={
-                        page === number ? styles.activePage : ""
+                        page === number
+                          ? styles.activePage
+                          : ""
                       }
                       onClick={() => setPage(number)}
                     >
@@ -502,13 +510,17 @@ export default function LeadsPage() {
               <div className={styles.sideCard}>
                 <div className={styles.cardTitle}>
                   <h3>⚱ Lead Filters</h3>
-                  <button onClick={clearFilters}>Clear All ›</button>
+
+                  <button onClick={clearFilters}>
+                    Clear All ›
+                  </button>
                 </div>
 
                 <label>Search</label>
 
                 <div className={styles.sideInput}>
                   🔍
+
                   <input
                     value={search}
                     onChange={(e) => {
@@ -712,7 +724,8 @@ function AddLeadModal({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [source, setSource] = useState("Website");
-  const [assignedTo, setAssignedTo] = useState("Rohit Singh");
+  const [assignedTo, setAssignedTo] =
+    useState("Rohit Singh");
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -732,12 +745,14 @@ function AddLeadModal({
       status: "New" as LeadStatus,
       assignedTo,
       nextFollowUp: "-",
+
       avatar: name
         .split(" ")
         .map((x) => x[0])
         .join("")
         .slice(0, 2)
         .toUpperCase(),
+
       leadType: "Website Development",
       priority: "Medium",
       createdAt: new Date().toLocaleString(),
@@ -750,7 +765,11 @@ function AddLeadModal({
       serviceRequired: "Website Development",
       featuresNeeded: "",
       budgetRange: "",
-      timeline: "",
+
+      // FIXED:
+      // timeline: "" was duplicate with timeline: []
+      projectTimeline: "",
+
       additionalNote: "",
 
       communications: [],
@@ -761,14 +780,23 @@ function AddLeadModal({
 
   return (
     <div className={styles.modalOverlay}>
-      <form className={styles.modal} onSubmit={submit}>
+      <form
+        className={styles.modal}
+        onSubmit={submit}
+      >
         <div className={styles.modalHeader}>
           <div>
             <h2>Add New Lead</h2>
-            <p>Create a new lead in your CRM.</p>
+
+            <p>
+              Create a new lead in your CRM.
+            </p>
           </div>
 
-          <button type="button" onClick={onClose}>
+          <button
+            type="button"
+            onClick={onClose}
+          >
             ×
           </button>
         </div>
@@ -776,71 +804,102 @@ function AddLeadModal({
         <div className={styles.formGrid}>
           <label>
             Lead Name *
+
             <input
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                setName(e.target.value)
+              }
               placeholder="Enter name"
             />
           </label>
 
           <label>
             Company *
+
             <input
               value={company}
-              onChange={(e) => setCompany(e.target.value)}
+              onChange={(e) =>
+                setCompany(e.target.value)
+              }
               placeholder="Enter company"
             />
           </label>
 
           <label>
             Phone *
+
             <input
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) =>
+                setPhone(e.target.value)
+              }
               placeholder="+91..."
             />
           </label>
 
           <label>
             Email *
+
             <input
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
               placeholder="email@example.com"
             />
           </label>
 
           <label>
             Source
+
             <select
               value={source}
-              onChange={(e) => setSource(e.target.value)}
+              onChange={(e) =>
+                setSource(e.target.value)
+              }
             >
-              {sourceOptions.slice(1).map((item) => (
-                <option key={item}>{item}</option>
-              ))}
+              {sourceOptions
+                .slice(1)
+                .map((item) => (
+                  <option key={item}>
+                    {item}
+                  </option>
+                ))}
             </select>
           </label>
 
           <label>
             Assigned To
+
             <select
               value={assignedTo}
-              onChange={(e) => setAssignedTo(e.target.value)}
+              onChange={(e) =>
+                setAssignedTo(e.target.value)
+              }
             >
-              {assignedOptions.slice(1).map((item) => (
-                <option key={item}>{item}</option>
-              ))}
+              {assignedOptions
+                .slice(1)
+                .map((item) => (
+                  <option key={item}>
+                    {item}
+                  </option>
+                ))}
             </select>
           </label>
         </div>
 
         <div className={styles.modalActions}>
-          <button type="button" onClick={onClose}>
+          <button
+            type="button"
+            onClick={onClose}
+          >
             Cancel
           </button>
 
-          <button type="submit">Create Lead</button>
+          <button type="submit">
+            Create Lead
+          </button>
         </div>
       </form>
     </div>

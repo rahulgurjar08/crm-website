@@ -10,34 +10,41 @@ export type LeadStatus =
 export type Lead = {
   id: number;
 
+  // Basic Information
   name: string;
   role: string;
   company: string;
   phone: string;
   email: string;
 
+  // Lead Information
   source: string;
   status: LeadStatus;
   assignedTo: string;
   nextFollowUp: string;
   avatar: string;
 
+  // Project Information
   leadType: string;
   priority: "High" | "Medium" | "Low";
 
+  // Dates
   createdAt: string;
   lastContact: string;
 
+  // Company Information
   website: string;
   businessType: string;
   companySize: string;
 
+  // Requirement Information
   serviceRequired: string;
   featuresNeeded: string;
   budgetRange: string;
   projectTimeline: string;
   additionalNote: string;
 
+  // Communication History
   communications: {
     type: string;
     title: string;
@@ -46,6 +53,7 @@ export type Lead = {
     time: string;
   }[];
 
+  // Activity Timeline
   timeline: {
     title: string;
     date: string;
@@ -53,12 +61,14 @@ export type Lead = {
     status: string;
   }[];
 
+  // Notes
   notes: string[];
 };
 
 export const initialLeads: Lead[] = [
   {
     id: 1,
+
     name: "Sneha Kapoor",
     role: "Owner",
     company: "Smile Dental Clinic",
@@ -114,8 +124,7 @@ export const initialLeads: Lead[] = [
       {
         type: "WhatsApp",
         title: "WhatsApp Message",
-        message:
-          "Thank you! I will review and get back to you.",
+        message: "Thank you! I will review and get back to you.",
         date: "08 Sep 2025",
         time: "05:45 PM",
       },
@@ -156,6 +165,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 2,
+
     name: "Amit Sharma",
     role: "Manager",
     company: "Bright Smile Care",
@@ -191,6 +201,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 3,
+
     name: "Pooja Khandelwal",
     role: "Owner",
     company: "Dental Plus",
@@ -226,6 +237,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 4,
+
     name: "Rahul Saini",
     role: "Founder",
     company: "Care Dental",
@@ -262,6 +274,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 5,
+
     name: "Anjali Verma",
     role: "Owner",
     company: "Healthy Smiles",
@@ -297,6 +310,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 6,
+
     name: "Vikash Gupta",
     role: "Manager",
     company: "Dental World",
@@ -332,6 +346,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 7,
+
     name: "Neha Tiwari",
     role: "Owner",
     company: "Pearl Dental",
@@ -367,6 +382,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 8,
+
     name: "Aditya Bansal",
     role: "CEO",
     company: "Perfect Smile",
@@ -402,6 +418,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 9,
+
     name: "Sonal Patel",
     role: "Owner",
     company: "Shree Dental Care",
@@ -437,6 +454,7 @@ export const initialLeads: Lead[] = [
 
   {
     id: 10,
+
     name: "Mohit Garg",
     role: "Manager",
     company: "Family Dental",
@@ -473,6 +491,10 @@ export const initialLeads: Lead[] = [
 
 const STORAGE_KEY = "prism-crm-leads";
 
+/**
+ * Get leads from localStorage.
+ * If no saved leads exist, initial leads are stored and returned.
+ */
 export function getStoredLeads(): Lead[] {
   if (typeof window === "undefined") {
     return initialLeads;
@@ -497,11 +519,15 @@ export function getStoredLeads(): Lead[] {
     }
 
     return parsed as Lead[];
-  } catch {
+  } catch (error) {
+    console.error("Failed to load leads:", error);
     return initialLeads;
   }
 }
 
+/**
+ * Save leads to localStorage.
+ */
 export function saveLeads(leads: Lead[]): void {
   if (typeof window === "undefined") {
     return;
