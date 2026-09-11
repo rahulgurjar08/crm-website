@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import Navbar from "../../components/Nevbar/page";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -27,7 +27,6 @@ type Tab =
 
 export default function ProjectDetailsPage() {
   const params = useParams();
-  const router = useRouter();
 
   const id = Number(params.id);
 
@@ -135,10 +134,10 @@ export default function ProjectDetailsPage() {
 
       return {
         ...item,
-        tasks: item.tasks.map((task) => {
+        tasks: item.tasks.map((task): ProjectTask => {
           if (task.id !== taskId) return task;
 
-          const nextStatus =
+          const nextStatus: ProjectTask["status"] =
             task.status === "Pending"
               ? "In Progress"
               : task.status === "In Progress"
@@ -162,7 +161,9 @@ export default function ProjectDetailsPage() {
       <div className={styles.notFound}>
         <div>
           <div className={styles.notFoundIcon}>📁</div>
+
           <h1>Project not found</h1>
+
           <p>
             The project ID <strong>{id || "unknown"}</strong> does not
             exist.
@@ -187,13 +188,17 @@ export default function ProjectDetailsPage() {
           {/* Breadcrumb */}
           <div className={styles.breadcrumb}>
             <Link href="/dashboard">⌂ Dashboard</Link>
+
             <span>›</span>
+
             <Link href="/projects">Projects</Link>
+
             <span>›</span>
+
             <strong>Project Details</strong>
           </div>
 
-          {/* Top action */}
+          {/* Top Actions */}
           <div className={styles.topActions}>
             <div />
 
@@ -212,11 +217,13 @@ export default function ProjectDetailsPage() {
                 ＋ Add Task
               </button>
 
-              <button className={styles.moreButton}>••• More</button>
+              <button className={styles.moreButton}>
+                ••• More
+              </button>
             </div>
           </div>
 
-          {/* Project header */}
+          {/* Project Header */}
           <section className={styles.projectHeader}>
             <div className={styles.projectIdentity}>
               <div className={styles.projectIcon}>🎓</div>
@@ -227,9 +234,11 @@ export default function ProjectDetailsPage() {
 
                   <span
                     className={`${styles.statusBadge} ${
-                      styles[project.status
-                        .toLowerCase()
-                        .replace(/\s/g, "")] || ""
+                      styles[
+                        project.status
+                          .toLowerCase()
+                          .replace(/\s/g, "")
+                      ] || ""
                     }`}
                   >
                     ● {project.status}
@@ -238,7 +247,9 @@ export default function ProjectDetailsPage() {
 
                 <div className={styles.clientLine}>
                   <strong>{project.client}</strong>
+
                   <span>•</span>
+
                   <span>{project.category}</span>
                 </div>
 
@@ -249,6 +260,7 @@ export default function ProjectDetailsPage() {
             <div className={styles.summaryCards}>
               <div className={styles.summaryCard}>
                 <span>Progress</span>
+
                 <strong>{project.progress}%</strong>
 
                 <div className={styles.progressTrack}>
@@ -263,16 +275,21 @@ export default function ProjectDetailsPage() {
 
               <div className={styles.summaryCard}>
                 <span>Start Date</span>
+
                 <strong>▣ {project.startDate}</strong>
               </div>
 
               <div className={styles.summaryCard}>
                 <span>Deadline</span>
+
                 <strong>▣ {project.deadline}</strong>
               </div>
 
-              <div className={`${styles.summaryCard} ${styles.remaining}`}>
+              <div
+                className={`${styles.summaryCard} ${styles.remaining}`}
+              >
                 <span>Remaining</span>
+
                 <strong>◷ {project.remaining}</strong>
               </div>
             </div>
@@ -305,11 +322,13 @@ export default function ProjectDetailsPage() {
                 {tab === "Team" && "♧"}
                 {tab === "Activity" && "◷"}
                 {tab === "Notes" && "▧"}
+
                 <span>{tab}</span>
               </button>
             ))}
           </nav>
 
+          {/* Overview */}
           {activeTab === "Overview" && (
             <Overview
               project={project}
@@ -319,6 +338,7 @@ export default function ProjectDetailsPage() {
             />
           )}
 
+          {/* Tasks */}
           {activeTab === "Tasks" && (
             <TasksTab
               project={project}
@@ -327,20 +347,25 @@ export default function ProjectDetailsPage() {
             />
           )}
 
+          {/* Files */}
           {activeTab === "Files" && (
             <FilesTab project={project} />
           )}
 
+          {/* Invoices */}
           {activeTab === "Invoices" && <InvoicesTab />}
 
+          {/* Team */}
           {activeTab === "Team" && (
             <TeamTab project={project} />
           )}
 
+          {/* Activity */}
           {activeTab === "Activity" && (
             <ActivityTab project={project} />
           )}
 
+          {/* Notes */}
           {activeTab === "Notes" && <NotesTab />}
         </main>
       </div>
@@ -472,6 +497,7 @@ function Overview({
   return (
     <div className={styles.contentGrid}>
       <div className={styles.leftContent}>
+        {/* Project Details */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>▣ Project Details</h2>
@@ -480,9 +506,21 @@ function Overview({
           </div>
 
           <div className={styles.detailsGrid}>
-            <Detail label="Project Name" value={project.name} />
-            <Detail label="Client" value={project.client} />
-            <Detail label="Type" value={project.type} />
+            <Detail
+              label="Project Name"
+              value={project.name}
+            />
+
+            <Detail
+              label="Client"
+              value={project.client}
+            />
+
+            <Detail
+              label="Type"
+              value={project.type}
+            />
+
             <Detail label="Priority">
               <span className={styles.priorityHigh}>
                 {project.priority}
@@ -505,20 +543,27 @@ function Overview({
               </span>
             </Detail>
 
-            <Detail label="Budget" value={project.budget} />
+            <Detail
+              label="Budget"
+              value={project.budget}
+            />
           </div>
 
           <div className={styles.descriptionBlock}>
             <span>Project Description</span>
+
             <p>{project.description}</p>
           </div>
         </section>
 
+        {/* Tasks */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>☑ Tasks</h2>
 
-            <button onClick={onAddTask}>View All →</button>
+            <button onClick={onAddTask}>
+              View All →
+            </button>
           </div>
 
           <TaskTable
@@ -527,6 +572,7 @@ function Overview({
           />
         </section>
 
+        {/* Recent Files */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>▤ Recent Files</h2>
@@ -539,6 +585,7 @@ function Overview({
       </div>
 
       <aside className={styles.rightContent}>
+        {/* Progress */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>▣ Project Progress</h2>
@@ -621,21 +668,27 @@ function Overview({
           </div>
         </section>
 
+        {/* Team */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>♧ Project Team</h2>
+
             <button>Manage Team →</button>
           </div>
 
           <div className={styles.teamList}>
             {project.members.map((member) => (
-              <div className={styles.teamMember} key={member.id}>
+              <div
+                className={styles.teamMember}
+                key={member.id}
+              >
                 <div className={styles.avatar}>
                   {member.avatar}
                 </div>
 
                 <div className={styles.memberInfo}>
                   <strong>{member.name}</strong>
+
                   <span>{member.role}</span>
                 </div>
 
@@ -651,9 +704,11 @@ function Overview({
           </button>
         </section>
 
+        {/* Recent Activity */}
         <section className={styles.card}>
           <div className={styles.cardHeader}>
             <h2>◷ Recent Activity</h2>
+
             <button>View All →</button>
           </div>
 
@@ -663,7 +718,9 @@ function Overview({
                 className={styles.activityItem}
                 key={activity.id}
               >
-                <div className={styles.activityIcon}>▣</div>
+                <div className={styles.activityIcon}>
+                  ▣
+                </div>
 
                 <div>
                   <strong>{activity.title}</strong>
@@ -679,17 +736,23 @@ function Overview({
           </div>
         </section>
 
+        {/* Help */}
         <section className={styles.helpCard}>
           <div className={styles.helpIcon}>➤</div>
 
           <div>
-            <strong>Keep the project on track!</strong>
+            <strong>
+              Keep the project on track!
+            </strong>
+
             <p>
               Stay updated with tasks, deadlines and team
               progress.
             </p>
 
-            <button>View Timeline →</button>
+            <button>
+              View Timeline →
+            </button>
           </div>
         </section>
       </aside>
@@ -715,7 +778,9 @@ function TasksTab({
       <div className={styles.cardHeader}>
         <h2>☑ All Project Tasks</h2>
 
-        <button onClick={onAddTask}>＋ Add Task</button>
+        <button onClick={onAddTask}>
+          ＋ Add Task
+        </button>
       </div>
 
       <TaskTable
@@ -737,9 +802,13 @@ function TaskTable({
     <div className={styles.taskTable}>
       <div className={styles.taskHeader}>
         <span>Task Name</span>
+
         <span>Assignee</span>
+
         <span>Priority</span>
+
         <span>Status</span>
+
         <span>Due Date</span>
       </div>
 
@@ -749,7 +818,10 @@ function TaskTable({
         </div>
       ) : (
         project.tasks.map((task) => (
-          <div className={styles.taskRow} key={task.id}>
+          <div
+            className={styles.taskRow}
+            key={task.id}
+          >
             <div className={styles.taskName}>
               <button
                 className={
@@ -757,9 +829,13 @@ function TaskTable({
                     ? styles.checked
                     : styles.unchecked
                 }
-                onClick={() => onUpdateTask(task.id)}
+                onClick={() =>
+                  onUpdateTask(task.id)
+                }
               >
-                {task.status === "Completed" ? "✓" : ""}
+                {task.status === "Completed"
+                  ? "✓"
+                  : ""}
               </button>
 
               <span>{task.name}</span>
@@ -805,7 +881,11 @@ function TaskTable({
    FILES
 ========================================================= */
 
-function FilesTab({ project }: { project: Project }) {
+function FilesTab({
+  project,
+}: {
+  project: Project;
+}) {
   return (
     <section className={styles.card}>
       <div className={styles.cardHeader}>
@@ -819,7 +899,11 @@ function FilesTab({ project }: { project: Project }) {
   );
 }
 
-function FileRow({ project }: { project: Project }) {
+function FileRow({
+  project,
+}: {
+  project: Project;
+}) {
   if (project.files.length === 0) {
     return (
       <div className={styles.empty}>
@@ -831,7 +915,10 @@ function FileRow({ project }: { project: Project }) {
   return (
     <div className={styles.filesGrid}>
       {project.files.map((file) => (
-        <div className={styles.fileCard} key={file.id}>
+        <div
+          className={styles.fileCard}
+          key={file.id}
+        >
           <div
             className={`${styles.fileIcon} ${
               styles[`file${file.type}`]
@@ -842,6 +929,7 @@ function FileRow({ project }: { project: Project }) {
 
           <div>
             <strong>{file.name}</strong>
+
             <span>{file.size}</span>
           </div>
 
@@ -865,7 +953,9 @@ function InvoicesTab() {
 
       <div className={styles.emptyLarge}>
         <div>₹</div>
+
         <strong>No invoices yet</strong>
+
         <p>
           Invoices related to this project will appear here.
         </p>
@@ -878,22 +968,31 @@ function InvoicesTab() {
    TEAM
 ========================================================= */
 
-function TeamTab({ project }: { project: Project }) {
+function TeamTab({
+  project,
+}: {
+  project: Project;
+}) {
   return (
     <section className={styles.card}>
       <div className={styles.cardHeader}>
         <h2>♧ Project Team</h2>
+
         <button>＋ Add Member</button>
       </div>
 
       <div className={styles.teamGrid}>
         {project.members.map((member) => (
-          <div className={styles.teamBox} key={member.id}>
+          <div
+            className={styles.teamBox}
+            key={member.id}
+          >
             <div className={styles.bigAvatar}>
               {member.avatar}
             </div>
 
             <strong>{member.name}</strong>
+
             <span>{member.role}</span>
 
             <em>{member.tag}</em>
@@ -908,7 +1007,11 @@ function TeamTab({ project }: { project: Project }) {
    ACTIVITY
 ========================================================= */
 
-function ActivityTab({ project }: { project: Project }) {
+function ActivityTab({
+  project,
+}: {
+  project: Project;
+}) {
   return (
     <section className={styles.card}>
       <div className={styles.cardHeader}>
@@ -921,11 +1024,15 @@ function ActivityTab({ project }: { project: Project }) {
             className={styles.fullActivityItem}
             key={activity.id}
           >
-            <div className={styles.activityIcon}>●</div>
+            <div className={styles.activityIcon}>
+              ●
+            </div>
 
             <div>
               <strong>{activity.title}</strong>
+
               <p>{activity.description}</p>
+
               <small>
                 {activity.user} • {activity.time}
               </small>
@@ -952,8 +1059,12 @@ function NotesTab() {
 
       <div className={styles.emptyLarge}>
         <div>▧</div>
+
         <strong>No notes yet</strong>
-        <p>Add project notes and important information here.</p>
+
+        <p>
+          Add project notes and important information here.
+        </p>
       </div>
     </section>
   );
@@ -992,8 +1103,12 @@ function Legend({
 }) {
   return (
     <div className={styles.legend}>
-      <span className={`${styles.legendDot} ${styles[type]}`} />
+      <span
+        className={`${styles.legendDot} ${styles[type]}`}
+      />
+
       <span>{label}</span>
+
       <strong>{value}</strong>
     </div>
   );
@@ -1065,12 +1180,19 @@ function Modal({
     >
       <div
         className={styles.modal}
-        onMouseDown={(e) => e.stopPropagation()}
+        onMouseDown={(e) =>
+          e.stopPropagation()
+        }
       >
         <div className={styles.modalHeader}>
           <h2>{title}</h2>
 
-          <button onClick={onClose}>×</button>
+          <button
+            type="button"
+            onClick={onClose}
+          >
+            ×
+          </button>
         </div>
 
         {children}
