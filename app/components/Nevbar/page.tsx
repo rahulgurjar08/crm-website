@@ -9,21 +9,21 @@ export default function Navbar() {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const notificationRef = useRef(null);
-  const profileRef = useRef(null);
+  const notificationRef = useRef<HTMLDivElement>(null);
+  const profileRef = useRef<HTMLDivElement>(null);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside(event: MouseEvent) {
       if (
         notificationRef.current &&
-        !notificationRef.current.contains(event.target)
+        !notificationRef.current.contains(event.target as Node)
       ) {
         setShowNotifications(false);
       }
       if (
         profileRef.current &&
-        !profileRef.current.contains(event.target)
+        !profileRef.current.contains(event.target as Node)
       ) {
         setShowProfileMenu(false);
       }
@@ -33,7 +33,7 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [notificationRef, profileRef]);
+  }, []); // Empty array is best here to avoid re-binding
 
   const handleProfileClick = () => {
     setShowProfileMenu((prev) => !prev);
