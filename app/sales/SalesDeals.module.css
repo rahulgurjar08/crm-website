@@ -37,6 +37,8 @@
       "Segoe UI",
       Arial,
       sans-serif;
+    font-size: 16px; /* Base font size boosted */
+    -webkit-text-size-adjust: 100%;
   }
   
   
@@ -46,9 +48,10 @@
   
   .main {
     margin-left: 258px;
-    padding: 96px 24px 35px;
+    padding: 96px 28px 40px;
     min-height: 100vh;
     box-sizing: border-box;
+    transition: margin-left 0.3s ease, padding 0.3s ease;
   }
   
   
@@ -61,7 +64,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 25px;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
   
   .headerLeft {
@@ -74,14 +77,14 @@
     gap: 10px;
     margin-bottom: 12px;
   
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px; /* Increased from 12px */
+    line-height: 20px;
     color: #7590ad;
   }
   
   .breadcrumb span:first-child {
     color: var(--blue);
-    font-size: 15px;
+    font-size: 17px; /* Increased from 15px */
   }
   
   .breadcrumb strong {
@@ -92,12 +95,12 @@
   .titleRow {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 14px;
   }
   
   .titleIcon {
-    width: 32px;
-    height: 32px;
+    width: 40px; /* Increased size */
+    height: 40px;
   
     display: flex;
     align-items: center;
@@ -105,11 +108,11 @@
   
     margin-top: 1px;
   
-    border-radius: 9px;
+    border-radius: 10px;
     background: #e9f5ff;
     color: var(--blue);
   
-    font-size: 19px;
+    font-size: 22px; /* Increased from 19px */
     font-weight: 700;
     flex-shrink: 0;
   }
@@ -117,8 +120,8 @@
   .titleRow h1 {
     margin: 0;
   
-    font-size: 27px;
-    line-height: 34px;
+    font-size: 30px; /* Increased from 27px */
+    line-height: 38px;
     font-weight: 750;
     letter-spacing: -0.5px;
   
@@ -126,10 +129,10 @@
   }
   
   .titleRow p {
-    margin: 3px 0 0;
+    margin: 4px 0 0;
   
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 15px; /* Increased from 13px */
+    line-height: 22px;
   
     color: #7890ad;
   }
@@ -149,7 +152,7 @@
   
   .addButton,
   .settingsButton {
-    height: 42px;
+    height: 44px; /* Slightly larger target */
   
     display: inline-flex;
     align-items: center;
@@ -159,7 +162,7 @@
   
     border-radius: 9px;
   
-    font-size: 13px;
+    font-size: 14px; /* Increased from 13px */
     font-weight: 650;
   
     cursor: pointer;
@@ -171,8 +174,8 @@
   }
   
   .addButton {
-    min-width: 108px;
-    padding: 0 17px;
+    min-width: 115px;
+    padding: 0 18px;
   
     border: 1px solid var(--blue);
     background: linear-gradient(
@@ -188,12 +191,12 @@
   }
   
   .addButton span {
-    font-size: 19px;
+    font-size: 21px; /* Increased from 19px */
     line-height: 1;
   }
   
   .settingsButton {
-    padding: 0 16px;
+    padding: 0 18px;
   
     border: 1px solid #dce8f5;
     background: white;
@@ -229,25 +232,25 @@
     grid-template-columns:
       repeat(5, minmax(0, 1fr));
   
-    gap: 12px;
+    gap: 14px;
   
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   
   .statCard {
-    min-height: 98px;
+    min-height: 104px;
   
     display: flex;
     align-items: center;
   
-    gap: 13px;
+    gap: 14px;
   
-    padding: 14px 15px;
+    padding: 16px 18px;
   
     background: white;
   
     border: 1px solid #e6eef7;
-    border-radius: 11px;
+    border-radius: 12px;
   
     box-sizing: border-box;
   
@@ -256,8 +259,8 @@
   }
   
   .statIcon {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
   
     display: flex;
     align-items: center;
@@ -267,7 +270,7 @@
   
     border-radius: 50%;
   
-    font-size: 20px;
+    font-size: 22px; /* Increased from 20px */
     font-weight: 700;
   }
   
@@ -293,10 +296,10 @@
   .statInfo > span {
     display: block;
   
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   
-    font-size: 12px;
-    line-height: 17px;
+    font-size: 13px; /* Increased from 12px */
+    line-height: 18px;
   
     color: #7b91ac;
   }
@@ -310,15 +313,15 @@
   }
   
   .statValue strong {
-    font-size: 21px;
-    line-height: 25px;
+    font-size: 23px; /* Increased from 21px */
+    line-height: 27px;
     font-weight: 750;
   
     color: #103a70;
   }
   
   .statValue small {
-    font-size: 11px;
+    font-size: 12px; /* Increased from 11px */
     font-weight: 700;
   
     color: #18b78a;
@@ -331,8 +334,8 @@
   .statInfo p {
     margin: 4px 0 0;
   
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 12px; /* Increased from 10px */
+    line-height: 16px;
   
     color: #8ba0b7;
   }
@@ -365,11 +368,11 @@
     display: flex;
     align-items: center;
   
-    gap: 9px;
+    gap: 10px;
   
-    min-height: 60px;
+    min-height: 64px;
   
-    padding: 10px 12px;
+    padding: 12px 16px;
   
     border-bottom: 1px solid #e8eff6;
   
@@ -380,26 +383,26 @@
   
   .pipelineSearch {
     flex: 1;
-    min-width: 180px;
+    min-width: 200px;
   
-    height: 37px;
+    height: 40px; /* Increased size */
   
     display: flex;
     align-items: center;
   
-    gap: 8px;
+    gap: 10px;
   
-    padding: 0 11px;
+    padding: 0 12px;
   
     border: 1px solid #dfeaf4;
-    border-radius: 7px;
+    border-radius: 8px;
   
     background: #fbfdff;
   }
   
   .pipelineSearch > span {
     color: #5793ca;
-    font-size: 18px;
+    font-size: 20px;
   }
   
   .pipelineSearch input {
@@ -411,7 +414,7 @@
   
     font-family: inherit;
   
-    font-size: 11px;
+    font-size: 13px; /* Increased from 11px */
     color: #234d79;
   }
   
@@ -420,14 +423,14 @@
   }
   
   .filterBar select {
-    height: 37px;
+    height: 40px;
   
-    min-width: 108px;
+    min-width: 120px;
   
-    padding: 0 28px 0 10px;
+    padding: 0 28px 0 12px;
   
     border: 1px solid #dfeaf4;
-    border-radius: 7px;
+    border-radius: 8px;
   
     outline: none;
   
@@ -437,7 +440,7 @@
   
     font-family: inherit;
   
-    font-size: 11px;
+    font-size: 13px; /* Increased from 11px */
     font-weight: 550;
   
     cursor: pointer;
@@ -452,16 +455,16 @@
   .resetButton,
   .viewButton,
   .listButton {
-    width: 36px;
-    height: 37px;
+    width: 40px;
+    height: 40px;
   
     flex-shrink: 0;
   
-    border-radius: 7px;
+    border-radius: 8px;
   
     cursor: pointer;
   
-    font-size: 16px;
+    font-size: 18px; /* Increased from 16px */
   
     display: flex;
     align-items: center;
@@ -507,11 +510,11 @@
     display: grid;
   
     grid-template-columns:
-      repeat(6, minmax(170px, 1fr));
+      repeat(6, minmax(230px, 1fr)); /* Broader columns for readable text */
   
-    gap: 8px;
+    gap: 12px;
   
-    padding: 9px;
+    padding: 12px;
   
     overflow-x: auto;
   
@@ -521,7 +524,7 @@
   }
   
   .pipeline::-webkit-scrollbar {
-    height: 7px;
+    height: 8px;
   }
   
   .pipeline::-webkit-scrollbar-track {
@@ -539,15 +542,15 @@
      ========================================================= */
   
   .column {
-    min-width: 170px;
+    min-width: 220px;
   
-    min-height: 560px;
+    min-height: 580px;
   
     display: flex;
     flex-direction: column;
   
     border: 1px solid #e2ebf4;
-    border-radius: 9px;
+    border-radius: 10px;
   
     overflow: hidden;
   
@@ -595,13 +598,13 @@
      ========================================================= */
   
   .columnHeader {
-    min-height: 61px;
+    min-height: 66px;
   
     display: flex;
     align-items: center;
     justify-content: space-between;
   
-    padding: 10px 10px;
+    padding: 12px 14px;
   
     box-sizing: border-box;
   
@@ -617,8 +620,8 @@
   
     margin-bottom: 4px;
   
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 14px; /* Increased from 12px */
+    line-height: 18px;
   
     font-weight: 750;
   
@@ -628,8 +631,8 @@
   .columnHeader span {
     display: block;
   
-    font-size: 11px;
-    line-height: 15px;
+    font-size: 12px; /* Increased from 11px */
+    line-height: 16px;
   
     font-weight: 650;
   
@@ -637,8 +640,8 @@
   }
   
   .columnHeader b {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
   
     display: flex;
     align-items: center;
@@ -652,7 +655,8 @@
   
     color: #35688f;
   
-    font-size: 10px;
+    font-size: 11px; /* Increased from 10px */
+    font-weight: 700;
   }
   
   
@@ -664,9 +668,9 @@
     display: flex;
     flex-direction: column;
   
-    gap: 7px;
+    gap: 10px;
   
-    padding: 7px;
+    padding: 10px;
   
     flex: 1;
   }
@@ -677,12 +681,12 @@
      ========================================================= */
   
   .dealCard {
-    padding: 9px;
+    padding: 12px;
   
     background: white;
   
     border: 1px solid #e2ebf3;
-    border-radius: 8px;
+    border-radius: 9px;
   
     box-shadow:
       0 2px 8px rgba(35, 81, 123, 0.045);
@@ -710,14 +714,14 @@
     display: flex;
     align-items: flex-start;
   
-    gap: 7px;
+    gap: 9px;
   
     min-width: 0;
   }
   
   .dealIcon {
-    width: 29px;
-    height: 29px;
+    width: 32px;
+    height: 32px;
   
     display: flex;
     align-items: center;
@@ -725,13 +729,13 @@
   
     flex-shrink: 0;
   
-    border-radius: 7px;
+    border-radius: 8px;
   
     background: #eef7ff;
   
     color: #1385e8;
   
-    font-size: 14px;
+    font-size: 16px; /* Increased from 14px */
   }
   
   .dealTitle {
@@ -748,8 +752,8 @@
   
     margin-top: 1px;
   
-    font-size: 10.5px;
-    line-height: 15px;
+    font-size: 13px; /* Increased from 10.5px */
+    line-height: 18px;
   
     font-weight: 750;
   
@@ -765,15 +769,15 @@
   
     margin-top: 2px;
   
-    font-size: 9px;
-    line-height: 13px;
+    font-size: 11px; /* Increased from 9px */
+    line-height: 15px;
   
     color: #8298ae;
   }
   
   .moreButton {
-    width: 20px;
-    height: 23px;
+    width: 24px;
+    height: 26px;
   
     display: flex;
     align-items: center;
@@ -788,7 +792,7 @@
   
     cursor: pointer;
   
-    font-size: 15px;
+    font-size: 17px;
   
     border-radius: 4px;
   }
@@ -804,11 +808,11 @@
      ========================================================= */
   
   .dealAmount {
-    margin-top: 7px;
-    margin-left: 36px;
+    margin-top: 8px;
+    margin-left: 41px;
   
-    font-size: 11px;
-    line-height: 15px;
+    font-size: 13px; /* Increased from 11px */
+    line-height: 17px;
   
     font-weight: 750;
   
@@ -824,14 +828,14 @@
     display: flex;
     align-items: center;
   
-    gap: 6px;
+    gap: 8px;
   
-    margin-top: 8px;
+    margin-top: 10px;
   }
   
   .personAvatar {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
   
     display: flex;
     align-items: center;
@@ -850,7 +854,7 @@
   
     color: white;
   
-    font-size: 7px;
+    font-size: 10px; /* Increased from 7px */
     font-weight: 750;
   }
   
@@ -859,23 +863,23 @@
   
     overflow: hidden;
   
-    font-size: 8.5px;
-    line-height: 13px;
+    font-size: 11px; /* Increased from 8.5px */
+    line-height: 15px;
   
     color: #7891aa;
   }
   
   .dealTag {
-    padding: 3px 6px;
+    padding: 4px 8px;
   
-    border-radius: 10px;
+    border-radius: 12px;
   
     background: #eaf6ff;
   
     color: #1682df;
   
-    font-size: 7.5px;
-    line-height: 11px;
+    font-size: 10px; /* Increased from 7.5px */
+    line-height: 13px;
   
     font-weight: 700;
   
@@ -901,7 +905,7 @@
   
     color: #8ba0b5;
   
-    font-size: 11px;
+    font-size: 13px; /* Increased from 11px */
   }
   
   
@@ -910,10 +914,10 @@
      ========================================================= */
   
   .viewAll {
-    width: calc(100% - 14px);
+    width: calc(100% - 16px);
   
-    margin: 0 7px 8px;
-    padding: 8px 5px;
+    margin: 0 8px 10px;
+    padding: 10px 8px;
   
     border: none;
     border-radius: 6px;
@@ -924,7 +928,7 @@
   
     font-family: inherit;
   
-    font-size: 10px;
+    font-size: 12px; /* Increased from 10px */
     font-weight: 700;
   
     text-align: left;
@@ -969,7 +973,7 @@
   
   .modal {
     width: 100%;
-    max-width: 500px;
+    max-width: 520px;
   
     max-height: 90vh;
   
@@ -1007,7 +1011,7 @@
     align-items: flex-start;
     justify-content: space-between;
   
-    padding: 20px 21px 16px;
+    padding: 22px 24px 18px;
   
     border-bottom: 1px solid #e9eff5;
   }
@@ -1015,8 +1019,8 @@
   .modalHeader h2 {
     margin: 0;
   
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 22px; /* Increased from 20px */
+    line-height: 28px;
   
     color: #123d70;
   }
@@ -1024,15 +1028,15 @@
   .modalHeader p {
     margin: 4px 0 0;
   
-    font-size: 11px;
-    line-height: 17px;
+    font-size: 13px; /* Increased from 11px */
+    line-height: 18px;
   
     color: #8197ad;
   }
   
   .modalHeader button {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
   
     display: flex;
     align-items: center;
@@ -1045,7 +1049,7 @@
   
     color: #587895;
   
-    font-size: 21px;
+    font-size: 22px;
   
     cursor: pointer;
   }
@@ -1063,16 +1067,16 @@
     display: flex;
     flex-direction: column;
   
-    gap: 7px;
+    gap: 10px;
   
-    padding: 18px 21px 20px;
+    padding: 20px 24px 22px;
   }
   
   .modalBody label {
-    margin-top: 3px;
+    margin-top: 4px;
   
-    font-size: 11px;
-    line-height: 16px;
+    font-size: 13px; /* Increased from 11px */
+    line-height: 18px;
   
     color: #315a82;
   
@@ -1082,14 +1086,14 @@
   .modalBody input,
   .modalBody select {
     width: 100%;
-    height: 40px;
+    height: 42px;
   
-    padding: 0 11px;
+    padding: 0 12px;
   
     box-sizing: border-box;
   
     border: 1px solid #dce8f2;
-    border-radius: 7px;
+    border-radius: 8px;
   
     outline: none;
   
@@ -1099,7 +1103,7 @@
   
     font-family: inherit;
   
-    font-size: 12px;
+    font-size: 14px; /* Increased from 12px */
   }
   
   .modalBody input::placeholder {
@@ -1120,7 +1124,7 @@
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   
-    gap: 13px;
+    gap: 14px;
   
     margin-top: 2px;
   }
@@ -1129,7 +1133,7 @@
     display: flex;
     flex-direction: column;
   
-    gap: 7px;
+    gap: 8px;
   }
   
   
@@ -1141,25 +1145,25 @@
     display: flex;
     justify-content: flex-end;
   
-    gap: 9px;
+    gap: 10px;
   
-    padding: 14px 21px 18px;
+    padding: 16px 24px 20px;
   
     border-top: 1px solid #e9eff5;
   }
   
   .cancelButton,
   .saveButton {
-    min-width: 90px;
-    height: 39px;
+    min-width: 95px;
+    height: 42px;
   
-    padding: 0 15px;
+    padding: 0 18px;
   
-    border-radius: 7px;
+    border-radius: 8px;
   
     font-family: inherit;
   
-    font-size: 11px;
+    font-size: 13px; /* Increased from 11px */
     font-weight: 700;
   
     cursor: pointer;
@@ -1194,36 +1198,39 @@
   
   
   /* =========================================================
-     TABLET
+     RESPONSIVE MEDIA QUERIES (FULL RESPONSIVENESS)
      ========================================================= */
   
-  @media (max-width: 1250px) {
-  
-    .main {
-      margin-left: 235px;
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-  
+  /* --- LARGE SCREEN / DESKTOP (1400px and up) --- */
+  @media (min-width: 1400px) {
     .statsGrid {
-      grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
   
     .pipeline {
-      grid-template-columns:
-        repeat(6, 205px);
+      grid-template-columns: repeat(6, minmax(0, 1fr)); /* Dynamic fluid columns on big screens */
     }
-  
   }
   
+  /* --- TABLET / SMALL DESKTOP (Max 1250px) --- */
+  @media (max-width: 1250px) {
+    .main {
+      margin-left: 235px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   
-  /* =========================================================
-     SMALL LAPTOP
-     ========================================================= */
+    .statsGrid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   
+    .pipeline {
+      grid-template-columns: repeat(6, 220px);
+    }
+  }
+  
+  /* --- SMALL LAPTOP / TABLET PORTRAIT (Max 1050px) --- */
   @media (max-width: 1050px) {
-  
     .main {
       margin-left: 0;
       padding-top: 88px;
@@ -1234,12 +1241,11 @@
     }
   
     .titleRow h1 {
-      font-size: 25px;
+      font-size: 26px;
     }
   
     .statsGrid {
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   
     .filterBar {
@@ -1250,24 +1256,17 @@
       flex-basis: 100%;
       order: -1;
     }
-  
   }
   
-  
-  /* =========================================================
-     MOBILE
-     ========================================================= */
-  
-  @media (max-width: 700px) {
-  
+  /* --- MOBILE DEVICES (Max 768px) --- */
+  @media (max-width: 768px) {
     .main {
-      padding: 82px 12px 25px;
+      padding: 82px 16px 30px;
     }
   
     .pageHeader {
       flex-direction: column;
-  
-      margin-bottom: 17px;
+      margin-bottom: 20px;
     }
   
     .headerButtons {
@@ -1277,63 +1276,59 @@
     .addButton,
     .settingsButton {
       flex: 1;
+      height: 42px;
     }
   
     .titleRow h1 {
-      font-size: 23px;
-      line-height: 30px;
+      font-size: 24px;
+      line-height: 32px;
     }
   
     .titleRow p {
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 13px;
+      line-height: 20px;
     }
   
     .breadcrumb {
-      font-size: 11px;
+      font-size: 12px;
     }
   
     .statsGrid {
-      grid-template-columns:
-        1fr 1fr;
-  
-      gap: 9px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
   
     .statCard {
-      min-height: 91px;
-  
-      padding: 11px;
-      gap: 9px;
+      min-height: 92px;
+      padding: 12px;
+      gap: 10px;
     }
   
     .statIcon {
-      width: 39px;
-      height: 39px;
-  
-      font-size: 17px;
-    }
-  
-    .statInfo > span {
-      font-size: 10px;
-    }
-  
-    .statValue strong {
+      width: 42px;
+      height: 42px;
       font-size: 18px;
     }
   
+    .statInfo > span {
+      font-size: 11px;
+    }
+  
+    .statValue strong {
+      font-size: 19px;
+    }
+  
     .statValue small {
-      font-size: 9px;
+      font-size: 10px;
     }
   
     .statInfo p {
-      font-size: 8px;
+      font-size: 10px;
     }
   
     .filterBar {
-      padding: 9px;
-  
-      gap: 7px;
+      padding: 10px;
+      gap: 8px;
     }
   
     .filterBar select {
@@ -1342,28 +1337,20 @@
     }
   
     .pipeline {
-      grid-template-columns:
-        repeat(6, 210px);
-  
-      padding: 8px;
+      grid-template-columns: repeat(6, 220px);
+      padding: 10px;
     }
   
     .column {
-      min-height: 520px;
+      min-height: 540px;
     }
-  
   }
   
-  
-  /* =========================================================
-     SMALL MOBILE
-     ========================================================= */
-  
+  /* --- SMALL MOBILE (Max 480px) --- */
   @media (max-width: 480px) {
-  
     .main {
-      padding-left: 9px;
-      padding-right: 9px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   
     .headerButtons {
@@ -1376,15 +1363,16 @@
     }
   
     .statsGrid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Single column on tiny screens */
     }
   
     .statCard {
-      min-height: 82px;
+      min-height: 85px;
     }
   
     .filterBar select {
-      flex-basis: calc(50% - 4px);
+      flex-basis: calc(50% - 5px);
+      font-size: 12px;
     }
   
     .pipelineSearch {
@@ -1396,7 +1384,7 @@
     }
   
     .modalOverlay {
-      padding: 10px;
+      padding: 12px;
     }
   
     .modal {
@@ -1404,49 +1392,41 @@
     }
   
     .modalHeader {
-      padding: 17px 16px 14px;
+      padding: 18px 16px 14px;
     }
   
     .modalBody {
-      padding: 15px 16px 17px;
+      padding: 16px 16px 18px;
     }
   
     .modalFooter {
-      padding: 12px 16px 15px;
+      padding: 14px 16px 16px;
     }
-  
   }
   
-  
-  /* =========================================================
-     EXTRA SMALL
-     ========================================================= */
-  
+  /* --- EXTRA SMALL MOBILE (Max 360px) --- */
   @media (max-width: 360px) {
-  
     .main {
-      padding-left: 7px;
-      padding-right: 7px;
+      padding-left: 8px;
+      padding-right: 8px;
     }
   
     .titleRow h1 {
-      font-size: 21px;
+      font-size: 22px;
     }
   
     .titleIcon {
-      width: 29px;
-      height: 29px;
-  
-      font-size: 16px;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
     }
   
     .filterBar select {
-      font-size: 10px;
+      font-size: 11px;
+      padding: 0 20px 0 8px;
     }
   
     .pipeline {
-      grid-template-columns:
-        repeat(6, 195px);
+      grid-template-columns: repeat(6, 200px);
     }
-  
   }

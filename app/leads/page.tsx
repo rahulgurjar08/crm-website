@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Navbar from "../components/Nevbar/page";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -52,7 +52,19 @@ export default function LeadsPage() {
   const perPage = 10;
 
   useEffect(() => {
-    setLeads(getStoredLeads());
+    const stored = getStoredLeads();
+    if (stored && stored.length > 0) {
+      setLeads(stored);
+    }
+  }, []);
+
+  // Close action menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside() {
+      setMenuId(null);
+    }
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
   const filteredLeads = useMemo(() => {
@@ -410,11 +422,12 @@ export default function LeadsPage() {
 
                         <td className={styles.actionCell}>
                           <button
-                            onClick={() =>
+                            onClick={(e) => {
+                              e.stopPropagation();
                               setMenuId(
                                 menuId === lead.id ? null : lead.id
-                              )
-                            }
+                              );
+                            }}
                             className={styles.moreButton}
                           >
                             ⋯
@@ -724,8 +737,7 @@ function AddLeadModal({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [source, setSource] = useState("Website");
-  const [assignedTo, setAssignedTo] =
-    useState("Rohit Singh");
+  const [assignedTo, setAssignedTo] = useState("Rohit Singh");
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -766,8 +778,6 @@ function AddLeadModal({
       featuresNeeded: "",
       budgetRange: "",
 
-      // FIXED:
-      // timeline: "" was duplicate with timeline: []
       projectTimeline: "",
 
       additionalNote: "",

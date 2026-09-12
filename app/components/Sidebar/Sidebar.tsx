@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import styles from "./Sidebar.module.css";
 
 type MenuItem = {
@@ -12,68 +11,24 @@ type MenuItem = {
   badge?: number;
 };
 
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
 const menuItems: MenuItem[] = [
-  {
-    name: "Dashboard",
-    href: "/dashboard",
-    icon: "dashboard",
-  },
-  {
-    name: "Leads",
-    href: "/leads",
-    icon: "leads",
-  },
-  {
-    name: "Clients",
-    href: "/clients",
-    icon: "clients",
-  },
-  {
-    name: "Follow-ups",
-    href: "/follow-ups",
-    icon: "followups",
-  },
-  {
-    name: "Sales / Deals",
-    href: "/sales",
-    icon: "sales",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-    icon: "projects",
-  },
-  {
-    name: "Tasks",
-    href: "/tasks",
-    icon: "tasks",
-  },
-  {
-    name: "Invoices & Payments",
-    href: "/invoices",
-    icon: "invoices",
-  },
-  {
-    name: "Reports & Analytics",
-    href: "/reports",
-    icon: "reports",
-  },
-  {
-    name: "Team",
-    href: "/team",
-    icon: "team",
-  },
-  {
-    name: "Notifications",
-    href: "/notifications",
-    icon: "notifications",
-    badge: 3,
-  },
-  {
-    name: "Settings",
-    href: "/settings",
-    icon: "settings",
-  },
+  { name: "Dashboard", href: "/dashboard", icon: "dashboard" },
+  { name: "Leads", href: "/leads", icon: "leads" },
+  { name: "Clients", href: "/clients", icon: "clients" },
+  { name: "Follow-ups", href: "/follow-ups", icon: "followups" },
+  { name: "Sales / Deals", href: "/sales", icon: "sales" },
+  { name: "Projects", href: "/projects", icon: "projects" },
+  { name: "Tasks", href: "/tasks", icon: "tasks" },
+  { name: "Invoices & Payments", href: "/invoices", icon: "invoices" },
+  { name: "Reports & Analytics", href: "/reports", icon: "reports" },
+  { name: "Team", href: "/team", icon: "team" },
+  { name: "Notifications", href: "/notifications", icon: "notifications", badge: 3 },
+  { name: "Settings", href: "/settings", icon: "settings" },
 ];
 
 function MenuIcon({ type }: { type: string }) {
@@ -98,7 +53,6 @@ function MenuIcon({ type }: { type: string }) {
           <rect x="14" y="14" width="7" height="7" rx="1" />
         </svg>
       );
-
     case "leads":
       return (
         <svg {...commonProps}>
@@ -108,7 +62,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M17 15c2.5.4 4 2 4 5" />
         </svg>
       );
-
     case "clients":
       return (
         <svg {...commonProps}>
@@ -117,7 +70,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M8 17c.8-2 2.1-3 4-3s3.2 1 4 3" />
         </svg>
       );
-
     case "followups":
       return (
         <svg {...commonProps}>
@@ -126,7 +78,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M17.5 4.5 20 3l-.5 3" />
         </svg>
       );
-
     case "sales":
       return (
         <svg {...commonProps}>
@@ -135,7 +86,6 @@ function MenuIcon({ type }: { type: string }) {
           <circle cx="8" cy="12" r="1" />
         </svg>
       );
-
     case "projects":
       return (
         <svg {...commonProps}>
@@ -143,7 +93,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M4 7V5h6l2 2" />
         </svg>
       );
-
     case "tasks":
       return (
         <svg {...commonProps}>
@@ -151,7 +100,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="m8 12 2.5 2.5L16 9" />
         </svg>
       );
-
     case "invoices":
       return (
         <svg {...commonProps}>
@@ -159,7 +107,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M9 8h6M9 12h6M9 16h3" />
         </svg>
       );
-
     case "reports":
       return (
         <svg {...commonProps}>
@@ -169,7 +116,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M22 20H2" />
         </svg>
       );
-
     case "team":
       return (
         <svg {...commonProps}>
@@ -179,7 +125,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M15 15c3.2.2 5 1.7 5 5" />
         </svg>
       );
-
     case "notifications":
       return (
         <svg {...commonProps}>
@@ -187,7 +132,6 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M10 21h4" />
         </svg>
       );
-
     case "settings":
       return (
         <svg {...commonProps}>
@@ -195,122 +139,88 @@ function MenuIcon({ type }: { type: string }) {
           <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.6v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1A1.7 1.7 0 0 0 8 15a1.7 1.7 0 0 0-1.5-1H6.4v-2.6h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.1h2.6v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1V14h-.1a1.7 1.7 0 0 0-1.5 1z" />
         </svg>
       );
-
     default:
       return null;
   }
 }
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className={styles.sidebar}>
-      <div className={styles.menuArea}>
-        <nav className={styles.navigation}>
-          {menuItems.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/dashboard" &&
-                pathname.startsWith(item.href));
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {isOpen && <div className={styles.overlay} onClick={onClose} />}
 
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`${styles.menuItem} ${
-                  isActive ? styles.active : ""
-                }`}
-              >
-                <span className={styles.menuIcon}>
-                  <MenuIcon type={item.icon} />
-                </span>
+      <aside className={`${styles.sidebar} ${isOpen ? styles.mobileOpen : ""}`}>
+        <div className={styles.menuArea}>
+          <nav className={styles.navigation}>
+            {menuItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/dashboard" && pathname.startsWith(`${item.href}/`));
 
-                <span className={styles.menuText}>
-                  {item.name}
-                </span>
-
-                {item.badge && (
-                  <span className={styles.menuBadge}>
-                    {item.badge}
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={onClose}
+                  className={`${styles.menuItem} ${isActive ? styles.active : ""}`}
+                >
+                  <span className={styles.menuIcon}>
+                    <MenuIcon type={item.icon} />
                   </span>
-                )}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
 
-      {/* Bottom Area */}
-      <div className={styles.bottomArea}>
+                  <span className={styles.menuText}>{item.name}</span>
 
-        {/* ADMIN BUTTON */}
-        <Link
-          href="/admin/login"
-          className={`${styles.adminButton} ${
-            pathname === "/admin" ? styles.adminButtonActive : ""
-          }`}
-        >
-          <span className={styles.adminIcon}>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+                  {item.badge !== undefined && (
+                    <span className={styles.menuBadge}>{item.badge}</span>
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+
+        {/* Bottom Area */}
+        <div className={styles.bottomArea}>
+          {/* ADMIN BUTTON */}
+       
+          {/* Promotional Card */}
+          <div className={styles.promoCard}>
+            <div className={styles.promoLogo}>
+              <span></span>
+              <span></span>
+            </div>
+
+            <h3>
+              Grow Your Business
+              <br />
+              With Technology
+            </h3>
+
+            <p>
+              We build innovative web, mobile
+              <br />
+              and AI solutions.
+            </p>
+
+            <button
+              type="button"
+              className={styles.promoButton}
+              aria-label="Learn more"
             >
-              <path d="M12 2l2.2 4.6L19 8l-3.5 3.4.8 4.8L12 14l-4.3 2.2.8-4.8L5 8l4.8-1.4L12 2z" />
-              <path d="M6 19h12" />
-              <path d="M9 22h6" />
-            </svg>
-          </span>
-
-          <span className={styles.adminText}>
-            Admin
-          </span>
-
-          <span className={styles.adminArrow}>
-            →
-          </span>
-        </Link>
-
-        {/* Promotional Card */}
-        <div className={styles.promoCard}>
-          <div className={styles.promoLogo}>
-            <span></span>
-            <span></span>
+              →
+            </button>
           </div>
 
-          <h3>
-            Grow Your Business
-            <br />
-            With Technology
-          </h3>
-
-          <p>
-            We build innovative web, mobile
-            <br />
-            and AI solutions.
-          </p>
-
-          <button
-            type="button"
-            className={styles.promoButton}
-            aria-label="Learn more"
-          >
-            →
-          </button>
+          {/* Copyright */}
+          <div className={styles.copyright}>
+            <span>© 2026 Prism Infotech Solution</span>
+            <span>All rights reserved.</span>
+          </div>
         </div>
-
-        {/* Copyright */}
-        <div className={styles.copyright}>
-          <span>© 2026 Prism Infotech Solution</span>
-          <span>All rights reserved.</span>
-        </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 }

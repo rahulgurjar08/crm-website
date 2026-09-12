@@ -5,16 +5,19 @@ import styles from "./FollowUps.module.css";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Nevbar/page";
 
+type FollowUpType = "Call" | "Email" | "Meeting" | "Follow-up";
+type FollowUpStatus = "Pending" | "Follow-up" | "Scheduled" | "Overdue";
+
 type FollowUp = {
   id: number;
   initials: string;
   name: string;
   company: string;
-  type: "Call" | "Email" | "Meeting" | "Follow-up";
+  type: FollowUpType;
   purpose: string;
   date: string;
   time: string;
-  status: "Pending" | "Follow-up" | "Scheduled" | "Overdue";
+  status: FollowUpStatus;
   assigned: string;
 };
 
@@ -201,35 +204,17 @@ const initialFollowUps: FollowUp[] = [
   },
 ];
 
-const navItems = [
-  { icon: "⌂", label: "Dashboard" },
-  { icon: "♙", label: "Leads" },
-  { icon: "♙", label: "Clients" },
-  { icon: "◉", label: "Follow-ups" },
-  { icon: "♜", label: "Sales / Deals" },
-  { icon: "▣", label: "Projects" },
-  { icon: "✓", label: "Tasks" },
-  { icon: "▤", label: "Invoices & Payments" },
-  { icon: "◫", label: "Reports & Analytics" },
-  { icon: "♧", label: "Team" },
-  { icon: "♧", label: "Notifications" },
-  { icon: "⚙", label: "Settings" },
-];
-
 export default function FollowUpsPage() {
-  const [followUps, setFollowUps] = useState(initialFollowUps);
-
+  const [followUps, setFollowUps] = useState<FollowUp[]>(initialFollowUps);
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All Types");
   const [statusFilter, setStatusFilter] = useState("All Status");
-
   const [page, setPage] = useState(1);
 
   const [showModal, setShowModal] = useState(false);
-
   const [newName, setNewName] = useState("");
   const [newCompany, setNewCompany] = useState("");
-  const [newType, setNewType] = useState<FollowUp["type"]>("Call");
+  const [newType, setNewType] = useState<FollowUpType>("Call");
   const [newPurpose, setNewPurpose] = useState("");
   const [newDate, setNewDate] = useState("");
   const [newTime, setNewTime] = useState("");
@@ -243,9 +228,7 @@ export default function FollowUpsPage() {
         item.company.toLowerCase().includes(search.toLowerCase()) ||
         item.purpose.toLowerCase().includes(search.toLowerCase());
 
-      const typeMatch =
-        typeFilter === "All Types" || item.type === typeFilter;
-
+      const typeMatch = typeFilter === "All Types" || item.type === typeFilter;
       const statusMatch =
         statusFilter === "All Status" || item.status === statusFilter;
 
@@ -253,10 +236,7 @@ export default function FollowUpsPage() {
     });
   }, [followUps, search, typeFilter, statusFilter]);
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredData.length / rowsPerPage)
-  );
+  const totalPages = Math.max(1, Math.ceil(filteredData.length / rowsPerPage));
 
   const visibleData = filteredData.slice(
     (page - 1) * rowsPerPage,
@@ -278,6 +258,27 @@ export default function FollowUpsPage() {
     setPage(1);
   }
 
+  function formatTime(timeStr: string): string {
+    if (!timeStr) return "10:00 AM";
+    const [h, m] = timeStr.split(":");
+    let hours = parseInt(h, 10);
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    const formattedHours = hours < 10 ? `0${hours}` : hours;
+    return `${formattedHours}:${m} ${ampm}`;
+  }
+
+  function formatDate(dateStr: string): string {
+    if (!dateStr) return "10 Sep 2025";
+    const [year, month, day] = dateStr.split("-");
+    const dateObj = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    return dateObj.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  }
+
   function addFollowUp() {
     if (!newName.trim() || !newCompany.trim()) {
       alert("Please enter name and company.");
@@ -285,6 +286,7 @@ export default function FollowUpsPage() {
     }
 
     const initials = newName
+      .trim()
       .split(" ")
       .map((word) => word[0])
       .join("")
@@ -294,58 +296,33 @@ export default function FollowUpsPage() {
     const item: FollowUp = {
       id: Date.now(),
       initials,
-      name: newName,
-      company: newCompany,
+      name: newName.trim(),
+      company: newCompany.trim(),
       type: newType,
-      purpose: newPurpose || "General follow-up",
-      date: newDate
-        ? new Date(newDate).toLocaleDateString("en-GB", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          })
-        : "10 Sep 2025",
-      time: newTime || "10:00 AM",
+      purpose: newPurpose.trim() || "General follow-up",
+      date: formatDate(newDate),
+      time: formatTime(newTime),
       status: "Pending",
       assigned: "Vishal Thakur",
     };
 
     setFollowUps((prev) => [item, ...prev]);
-
     setNewName("");
     setNewCompany("");
     setNewPurpose("");
     setNewDate("");
     setNewTime("");
     setNewType("Call");
-
     setShowModal(false);
-    setPage(1);
-  }
-
-  function clearFilters() {
-    setSearch("");
-    setTypeFilter("All Types");
-    setStatusFilter("All Status");
     setPage(1);
   }
 
   return (
     <div className={styles.page}>
-      {/* ================= SIDEBAR ================= */}
       <Sidebar />
-
-
-      {/* ================= TOPBAR ================= */}
       <Navbar />
 
-     
-
-      {/* ================= MAIN ================= */}
-
       <main className={styles.main}>
-        {/* PAGE HEADER */}
-
         <section className={styles.pageHeader}>
           <div>
             <div className={styles.breadcrumb}>
@@ -358,10 +335,8 @@ export default function FollowUpsPage() {
 
             <div className={styles.titleRow}>
               <div className={styles.titleIcon}>☑</div>
-
               <div>
                 <h1>Follow-ups</h1>
-
                 <p>
                   Stay on track with your leads, clients and projects.
                   Never miss an important follow-up.
@@ -374,12 +349,9 @@ export default function FollowUpsPage() {
             className={styles.addButton}
             onClick={() => setShowModal(true)}
           >
-            <span>＋</span>
-            Add Follow-up
+            <span>＋</span> Add Follow-up
           </button>
         </section>
-
-        {/* ================= STATS ================= */}
 
         <section className={styles.statsGrid}>
           <StatCard
@@ -389,7 +361,6 @@ export default function FollowUpsPage() {
             percent="↑ 12%"
             color="blue"
           />
-
           <StatCard
             icon="▤"
             title="Today's Follow-ups"
@@ -397,7 +368,6 @@ export default function FollowUpsPage() {
             percent="↑ 50%"
             color="blue"
           />
-
           <StatCard
             icon="☒"
             title="Overdue"
@@ -405,7 +375,6 @@ export default function FollowUpsPage() {
             percent="↑ 100%"
             color="red"
           />
-
           <StatCard
             icon="☑"
             title="Completed"
@@ -413,7 +382,6 @@ export default function FollowUpsPage() {
             percent="↑ 25%"
             color="green"
           />
-
           <StatCard
             icon="▣"
             title="This Week"
@@ -423,16 +391,11 @@ export default function FollowUpsPage() {
           />
         </section>
 
-        {/* ================= CONTENT ================= */}
-
         <section className={styles.contentGrid}>
-          {/* TABLE */}
-
           <div className={styles.tableCard}>
             <div className={styles.tableToolbar}>
               <div className={styles.tableSearch}>
                 <span>⌕</span>
-
                 <input
                   value={search}
                   onChange={(e) => changeSearch(e.target.value)}
@@ -481,7 +444,6 @@ export default function FollowUpsPage() {
                     <th className={styles.checkColumn}>
                       <input type="checkbox" />
                     </th>
-
                     <th>Name / Company</th>
                     <th>Type</th>
                     <th>Purpose</th>
@@ -495,10 +457,7 @@ export default function FollowUpsPage() {
                 <tbody>
                   {visibleData.length === 0 ? (
                     <tr>
-                      <td
-                        colSpan={8}
-                        className={styles.noResults}
-                      >
+                      <td colSpan={8} className={styles.noResults}>
                         No follow-ups found.
                       </td>
                     </tr>
@@ -508,24 +467,19 @@ export default function FollowUpsPage() {
                         <td>
                           <input type="checkbox" />
                         </td>
-
                         <td>
                           <div className={styles.clientCell}>
-                            <div className={styles.avatar}>
-                              {item.initials}
-                            </div>
-
+                            <div className={styles.avatar}>{item.initials}</div>
                             <div>
                               <strong>{item.name}</strong>
                               <span>{item.company}</span>
                             </div>
                           </div>
                         </td>
-
                         <td>
                           <span
                             className={`${styles.typeBadge} ${
-                              styles[item.type.toLowerCase()]
+                              styles[item.type.toLowerCase().replace("-", "")]
                             }`}
                           >
                             {item.type === "Call" && "☎ "}
@@ -535,32 +489,26 @@ export default function FollowUpsPage() {
                             {item.type}
                           </span>
                         </td>
-
                         <td>
-                          <span className={styles.purpose}>
-                            {item.purpose}
-                          </span>
+                          <span className={styles.purpose}>{item.purpose}</span>
                         </td>
-
                         <td>
                           <div className={styles.dateTime}>
                             <strong>{item.date}</strong>
                             <span>{item.time}</span>
                           </div>
                         </td>
-
                         <td>
                           <span
                             className={`${styles.statusBadge} ${
-                              styles[item.status
-                                .toLowerCase()
-                                .replace("-", "")]
+                              styles[
+                                item.status.toLowerCase().replace("-", "")
+                              ]
                             }`}
                           >
                             {item.status}
                           </span>
                         </td>
-
                         <td>
                           <div className={styles.assigned}>
                             <div className={styles.smallAvatar}>
@@ -570,15 +518,11 @@ export default function FollowUpsPage() {
                                 .join("")
                                 .slice(0, 2)}
                             </div>
-
                             <span>{item.assigned}</span>
                           </div>
                         </td>
-
                         <td>
-                          <button className={styles.actionButton}>
-                            ⋯
-                          </button>
+                          <button className={styles.actionButton}>⋯</button>
                         </td>
                       </tr>
                     ))
@@ -587,45 +531,28 @@ export default function FollowUpsPage() {
               </table>
             </div>
 
-            {/* TABLE FOOTER */}
-
             <div className={styles.tableFooter}>
               <span>
                 Showing{" "}
-                {filteredData.length === 0
-                  ? 0
-                  : (page - 1) * rowsPerPage + 1}{" "}
-                to{" "}
-                {Math.min(
-                  page * rowsPerPage,
-                  filteredData.length
-                )}{" "}
-                of {filteredData.length} follow-ups
+                {filteredData.length === 0 ? 0 : (page - 1) * rowsPerPage + 1}{" "}
+                to {Math.min(page * rowsPerPage, filteredData.length)} of{" "}
+                {filteredData.length} follow-ups
               </span>
 
               <div className={styles.pagination}>
                 <button
                   disabled={page === 1}
-                  onClick={() =>
-                    setPage((prev) => Math.max(1, prev - 1))
-                  }
+                  onClick={() => setPage((prev) => Math.max(1, prev - 1))}
                 >
                   ‹
                 </button>
 
-                {Array.from(
-                  { length: totalPages },
-                  (_, index) => index + 1
-                )
+                {Array.from({ length: totalPages }, (_, index) => index + 1)
                   .slice(0, 4)
                   .map((number) => (
                     <button
                       key={number}
-                      className={
-                        number === page
-                          ? styles.currentPage
-                          : ""
-                      }
+                      className={number === page ? styles.currentPage : ""}
                       onClick={() => setPage(number)}
                     >
                       {number}
@@ -635,9 +562,7 @@ export default function FollowUpsPage() {
                 <button
                   disabled={page === totalPages}
                   onClick={() =>
-                    setPage((prev) =>
-                      Math.min(totalPages, prev + 1)
-                    )
+                    setPage((prev) => Math.min(totalPages, prev + 1))
                   }
                 >
                   ›
@@ -646,18 +571,13 @@ export default function FollowUpsPage() {
             </div>
           </div>
 
-          {/* ================= RIGHT SIDEBAR ================= */}
-
           <aside className={styles.rightPanel}>
-            {/* CALENDAR */}
-
             <div className={styles.panelCard}>
               <div className={styles.panelHeader}>
                 <div>
                   <span className={styles.panelIcon}>▣</span>
                   <h3>Calendar</h3>
                 </div>
-
                 <button>View Calendar →</button>
               </div>
 
@@ -679,45 +599,15 @@ export default function FollowUpsPage() {
 
               <div className={styles.calendarGrid}>
                 {[
-                  "",
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9",
-                  "10",
-                  "11",
-                  "12",
-                  "13",
-                  "14",
-                  "15",
-                  "16",
-                  "17",
-                  "18",
-                  "19",
-                  "20",
-                  "21",
-                  "22",
-                  "23",
-                  "24",
-                  "25",
-                  "26",
-                  "27",
-                  "28",
-                  "29",
-                  "30",
+                  "", "1", "2", "3", "4", "5", "6",
+                  "7", "8", "9", "10", "11", "12", "13",
+                  "14", "15", "16", "17", "18", "19", "20",
+                  "21", "22", "23", "24", "25", "26", "27",
+                  "28", "29", "30"
                 ].map((day, index) => (
                   <span
                     key={index}
-                    className={
-                      day === "10"
-                        ? styles.selectedDay
-                        : ""
-                    }
+                    className={day === "10" ? styles.selectedDay : ""}
                   >
                     {day}
                   </span>
@@ -734,30 +624,24 @@ export default function FollowUpsPage() {
                   <i className={styles.blueDot} />
                   <span>10 Sep 10:00 AM - Amit Sharma (Call)</span>
                 </div>
-
                 <div>
                   <i className={styles.purpleDot} />
                   <span>10 Sep 11:30 AM - Pooja Khandelwal (Email)</span>
                 </div>
-
                 <div>
                   <i className={styles.blueDot} />
                   <span>10 Sep 02:00 PM - Rahul Saini (Call)</span>
                 </div>
-
                 <div>
                   <i className={styles.greenDot} />
                   <span>10 Sep 04:00 PM - Anjali Verma (Meeting)</span>
                 </div>
-
                 <div>
                   <i className={styles.blueDot} />
                   <span>11 Sep 10:30 AM - Vikash Gupta (Call)</span>
                 </div>
               </div>
             </div>
-
-            {/* QUICK ACTIONS */}
 
             <div className={styles.panelCard}>
               <div className={styles.panelTitle}>
@@ -767,51 +651,34 @@ export default function FollowUpsPage() {
 
               <div className={styles.quickActions}>
                 <button onClick={() => setShowModal(true)}>
-                  <span>▣</span>
-                  Add Follow-up
+                  <span>▣</span> Add Follow-up
                 </button>
-
                 <button>
-                  <span>☎</span>
-                  Call Log
+                  <span>☎</span> Call Log
                 </button>
-
                 <button>
-                  <span>✉</span>
-                  Send Email
+                  <span>✉</span> Send Email
                 </button>
-
                 <button>
-                  <span>▣</span>
-                  View Calendar
+                  <span>▣</span> View Calendar
                 </button>
               </div>
             </div>
 
-            {/* BOTTOM CARD */}
-
             <div className={styles.consistentCard}>
               <div className={styles.consistentIcon}>◎</div>
-
               <div>
                 <strong>
-                  Consistent follow-ups
-                  <br />
+                  Consistent follow-ups <br />
                   bring more deals!
                 </strong>
-
-                <span>
-                  Stay connected. Stay ahead.
-                </span>
+                <span>Stay connected. Stay ahead.</span>
               </div>
-
               <button>→</button>
             </div>
           </aside>
         </section>
       </main>
-
-      {/* ================= ADD MODAL ================= */}
 
       {showModal && (
         <div
@@ -827,10 +694,7 @@ export default function FollowUpsPage() {
                 <h2>Add Follow-up</h2>
                 <p>Create a new follow-up activity.</p>
               </div>
-
-              <button onClick={() => setShowModal(false)}>
-                ×
-              </button>
+              <button onClick={() => setShowModal(false)}>×</button>
             </div>
 
             <div className={styles.modalBody}>
@@ -844,22 +708,17 @@ export default function FollowUpsPage() {
               <label>Company</label>
               <input
                 value={newCompany}
-                onChange={(e) =>
-                  setNewCompany(e.target.value)
-                }
+                onChange={(e) => setNewCompany(e.target.value)}
                 placeholder="Enter company"
               />
 
               <div className={styles.formRow}>
                 <div>
                   <label>Type</label>
-
                   <select
                     value={newType}
                     onChange={(e) =>
-                      setNewType(
-                        e.target.value as FollowUp["type"]
-                      )
+                      setNewType(e.target.value as FollowUpType)
                     }
                   >
                     <option>Call</option>
@@ -871,13 +730,10 @@ export default function FollowUpsPage() {
 
                 <div>
                   <label>Date</label>
-
                   <input
                     type="date"
                     value={newDate}
-                    onChange={(e) =>
-                      setNewDate(e.target.value)
-                    }
+                    onChange={(e) => setNewDate(e.target.value)}
                   />
                 </div>
               </div>
@@ -885,24 +741,18 @@ export default function FollowUpsPage() {
               <div className={styles.formRow}>
                 <div>
                   <label>Time</label>
-
                   <input
                     type="time"
                     value={newTime}
-                    onChange={(e) =>
-                      setNewTime(e.target.value)
-                    }
+                    onChange={(e) => setNewTime(e.target.value)}
                   />
                 </div>
 
                 <div>
                   <label>Purpose</label>
-
                   <input
                     value={newPurpose}
-                    onChange={(e) =>
-                      setNewPurpose(e.target.value)
-                    }
+                    onChange={(e) => setNewPurpose(e.target.value)}
                     placeholder="Follow-up purpose"
                   />
                 </div>
@@ -916,11 +766,7 @@ export default function FollowUpsPage() {
               >
                 Cancel
               </button>
-
-              <button
-                className={styles.saveButton}
-                onClick={addFollowUp}
-              >
+              <button className={styles.saveButton} onClick={addFollowUp}>
                 Add Follow-up
               </button>
             </div>
@@ -930,9 +776,6 @@ export default function FollowUpsPage() {
     </div>
   );
 }
-
-
-/* ================= STAT CARD ================= */
 
 function StatCard({
   icon,
@@ -949,20 +792,13 @@ function StatCard({
 }) {
   return (
     <div className={styles.statCard}>
-      <div
-        className={`${styles.statIcon} ${styles[color]}`}
-      >
-        {icon}
-      </div>
-
+      <div className={`${styles.statIcon} ${styles[color]}`}>{icon}</div>
       <div className={styles.statInfo}>
         <span>{title}</span>
-
         <div className={styles.statValue}>
           <strong>{value}</strong>
           <small>{percent}</small>
         </div>
-
         <p>vs. last week</p>
       </div>
     </div>

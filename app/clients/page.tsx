@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import Navbar from "../components/Nevbar/page";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -8,6 +8,7 @@ import {
   getStoredClients,
   saveClients,
   type ClientStatus,
+  type Client,
 } from "./data/clients";
 import styles from "./Clients.module.css";
 
@@ -28,7 +29,8 @@ const industryOptions = [
 ];
 
 export default function ClientsPage() {
-  const [clients, setClients] = useState(getStoredClients);
+  const [clients, setClients] = useState<Client[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("All Status");
@@ -45,6 +47,13 @@ export default function ClientsPage() {
     email: "",
     industry: "Healthcare",
   });
+
+  // Client-side hydration fix for LocalStorage access
+  useEffect(() => {
+    const data = getStoredClients();
+    setClients(data);
+    setIsLoaded(true);
+  }, []);
 
   const perPage = 10;
 
@@ -171,6 +180,10 @@ export default function ClientsPage() {
 
     setShowAdd(false);
     setPage(1);
+  }
+
+  if (!isLoaded) {
+    return null; // Hydration mismatch se bachne ke liye mount hone tak wait karta hai
   }
 
   return (
@@ -525,13 +538,13 @@ export default function ClientsPage() {
                   <p>
                     <i className={styles.dotGreen} />
                     Active
-                    <b>{activeClients} (83%)</b>
+                    <b>{activeClients} ({clients.length ? Math.round((activeClients / clients.length) * 100) : 0}%)</b>
                   </p>
 
                   <p>
                     <i className={styles.dotBlue} />
                     Pending
-                    <b>{pendingClients} (17%)</b>
+                    <b>{pendingClients} ({clients.length ? Math.round((pendingClients / clients.length) * 100) : 0}%)</b>
                   </p>
 
                   <p>
@@ -543,7 +556,7 @@ export default function ClientsPage() {
                           (x) => x.status === "Follow Up"
                         ).length
                       }{" "}
-                      (8%)
+                      ({clients.length ? Math.round((clients.filter((x) => x.status === "Follow Up").length / clients.length) * 100) : 0}%)
                     </b>
                   </p>
 
@@ -556,7 +569,7 @@ export default function ClientsPage() {
                           (x) => x.status === "Inactive"
                         ).length
                       }{" "}
-                      (0%)
+                      ({clients.length ? Math.round((clients.filter((x) => x.status === "Inactive").length / clients.length) * 100) : 0}%)
                     </b>
                   </p>
                 </div>
@@ -568,19 +581,31 @@ export default function ClientsPage() {
                 <div className={styles.industryList}>
                   <p>
                     <span>♧ Healthcare</span>
-                    <b>10 (83%)</b>
+                    <b>
+                      {clients.filter((c) => c.industry === "Healthcare").length} (
+                      {clients.length ? Math.round((clients.filter((c) => c.industry === "Healthcare").length / clients.length) * 100) : 0}%)
+                    </b>
                   </p>
                   <p>
                     <span>♧ Education</span>
-                    <b>1 (8%)</b>
+                    <b>
+                      {clients.filter((c) => c.industry === "Education").length} (
+                      {clients.length ? Math.round((clients.filter((c) => c.industry === "Education").length / clients.length) * 100) : 0}%)
+                    </b>
                   </p>
                   <p>
                     <span>⌘ IT & Software</span>
-                    <b>1 (8%)</b>
+                    <b>
+                      {clients.filter((c) => c.industry === "IT & Software").length} (
+                      {clients.length ? Math.round((clients.filter((c) => c.industry === "IT & Software").length / clients.length) * 100) : 0}%)
+                    </b>
                   </p>
                   <p>
                     <span>••• Other</span>
-                    <b>0 (0%)</b>
+                    <b>
+                      {clients.filter((c) => c.industry === "Other").length} (
+                      {clients.length ? Math.round((clients.filter((c) => c.industry === "Other").length / clients.length) * 100) : 0}%)
+                    </b>
                   </p>
                 </div>
               </div>

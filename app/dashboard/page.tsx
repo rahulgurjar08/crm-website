@@ -17,16 +17,13 @@ export default function DashboardPage() {
             <h1>
               Welcome Back, <span>👋</span>
             </h1>
-
-            <p>
-              Here&apos;s what&apos;s happening with your business today.
-            </p>
+            <p>Here&apos;s what&apos;s happening with your business today.</p>
           </div>
 
           <div className={styles.headerActions}>
             <button className={styles.dateButton}>
               <span className={styles.calendarIcon}>▣</span>
-              <span>10 Sep 2025&nbsp; – &nbsp;10 Sep 2025</span>
+              <span>10 Sep 2025 &nbsp;–&nbsp; 10 Sep 2025</span>
               <span className={styles.downArrow}>⌄</span>
             </button>
 
@@ -39,40 +36,11 @@ export default function DashboardPage() {
 
         {/* ================= STATS ================= */}
         <section className={styles.statsGrid}>
-          <StatCard
-            icon="👥"
-            title="Total Leads"
-            value="24"
-            growth="12%"
-          />
-
-          <StatCard
-            icon="▣"
-            title="Total Clients"
-            value="8"
-            growth="25%"
-          />
-
-          <StatCard
-            icon="▦"
-            title="Follow-ups Today"
-            value="6"
-            growth="50%"
-          />
-
-          <StatCard
-            icon="◎"
-            title="Active Projects"
-            value="5"
-            growth="66%"
-          />
-
-          <StatCard
-            icon="◉"
-            title="Total Revenue"
-            value="₹ 1,20,000"
-            growth="40%"
-          />
+          <StatCard icon="👥" title="Total Leads" value="24" growth="12%" />
+          <StatCard icon="▣" title="Total Clients" value="8" growth="25%" />
+          <StatCard icon="▦" title="Follow-ups Today" value="6" growth="50%" />
+          <StatCard icon="◎" title="Active Projects" value="5" growth="66%" />
+          <StatCard icon="◉" title="Total Revenue" value="₹ 1,20,000" growth="40%" />
         </section>
 
         {/* ================= MIDDLE ROW ================= */}
@@ -86,8 +54,7 @@ export default function DashboardPage() {
               </div>
 
               <button className={styles.periodButton}>
-                Last 7 Days
-                <span>⌄</span>
+                Last 7 Days <span>⌄</span>
               </button>
             </div>
 
@@ -113,49 +80,18 @@ export default function DashboardPage() {
                     preserveAspectRatio="none"
                   >
                     <defs>
-                      <linearGradient
-                        id="salesFill"
-                        x1="0"
-                        y1="0"
-                        x2="0"
-                        y2="1"
-                      >
-                        <stop
-                          offset="0%"
-                          stopColor="#1689ed"
-                          stopOpacity="0.18"
-                        />
-                        <stop
-                          offset="100%"
-                          stopColor="#1689ed"
-                          stopOpacity="0"
-                        />
+                      <linearGradient id="salesFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#1689ed" stopOpacity="0.18" />
+                        <stop offset="100%" stopColor="#1689ed" stopOpacity="0" />
                       </linearGradient>
                     </defs>
 
                     <path
-                      d="M0 190
-                         C50 180 65 172 105 165
-                         C145 158 160 140 205 145
-                         C250 150 270 152 305 146
-                         C345 140 360 90 405 100
-                         C450 110 465 125 500 118
-                         C545 110 565 45 610 55
-                         C650 65 670 38 700 20
-                         L700 250
-                         L0 250 Z"
+                      d="M0 190 C50 180 65 172 105 165 C145 158 160 140 205 145 C250 150 270 152 305 146 C345 140 360 90 405 100 C450 110 465 125 500 118 C545 110 565 45 610 55 C650 65 670 38 700 20 L700 250 L0 250 Z"
                       fill="url(#salesFill)"
                     />
-
                     <path
-                      d="M0 190
-                         C50 180 65 172 105 165
-                         C145 158 160 140 205 145
-                         C250 150 270 152 305 146
-                         C345 140 360 90 405 100
-                         C450 110 465 125 500 118
-                         C545 110 565 45 610 55
-                         C650 65 670 38 700 20"
+                      d="M0 190 C50 180 65 172 105 165 C145 158 160 140 205 145 C250 150 270 152 305 146 C345 140 360 90 405 100 C450 110 465 125 500 118 C545 110 565 45 610 55 C650 65 670 38 700 20"
                       fill="none"
                       stroke="#1689ed"
                       strokeWidth="3"
@@ -191,7 +127,6 @@ export default function DashboardPage() {
                   growth="33%"
                   type="blue"
                 />
-
                 <SalesStat
                   icon="✓"
                   title="Won Deals"
@@ -199,7 +134,6 @@ export default function DashboardPage() {
                   growth="50%"
                   type="green"
                 />
-
                 <SalesStat
                   icon="♡"
                   title="Lost Deals"
@@ -219,10 +153,7 @@ export default function DashboardPage() {
                 <span className={styles.titleIcon}>▣</span>
                 <h2>Lead Status</h2>
               </div>
-
-              <button className={styles.viewAllButton}>
-                View All →
-              </button>
+              <button className={styles.viewAllButton}>View All →</button>
             </div>
 
             <div className={styles.leadStatusContent}>
@@ -236,40 +167,11 @@ export default function DashboardPage() {
               </div>
 
               <div className={styles.legend}>
-                <LegendItem
-                  color="blue"
-                  name="New"
-                  count="8"
-                  percent="33%"
-                />
-
-                <LegendItem
-                  color="cyan"
-                  name="Contacted"
-                  count="6"
-                  percent="25%"
-                />
-
-                <LegendItem
-                  color="yellow"
-                  name="Interested"
-                  count="5"
-                  percent="21%"
-                />
-
-                <LegendItem
-                  color="purple"
-                  name="Proposal Sent"
-                  count="3"
-                  percent="12%"
-                />
-
-                <LegendItem
-                  color="green"
-                  name="Won"
-                  count="2"
-                  percent="9%"
-                />
+                <LegendItem color="blue" name="New" count="8" percent="33%" />
+                <LegendItem color="cyan" name="Contacted" count="6" percent="25%" />
+                <LegendItem color="yellow" name="Interested" count="5" percent="21%" />
+                <LegendItem color="purple" name="Proposal Sent" count="3" percent="12%" />
+                <LegendItem color="green" name="Won" count="2" percent="9%" />
               </div>
             </div>
           </div>
@@ -284,10 +186,7 @@ export default function DashboardPage() {
                 <span className={styles.titleIcon}>♙</span>
                 <h2>Recent Leads</h2>
               </div>
-
-              <button className={styles.viewAllButton}>
-                View All →
-              </button>
+              <button className={styles.viewAllButton}>View All →</button>
             </div>
 
             <div className={styles.tableWrapper}>
@@ -300,7 +199,6 @@ export default function DashboardPage() {
                     <th>Next Follow-up</th>
                   </tr>
                 </thead>
-
                 <tbody>
                   <LeadRow
                     initials="AS"
@@ -311,7 +209,6 @@ export default function DashboardPage() {
                     follow="Today"
                     time="10:00 AM"
                   />
-
                   <LeadRow
                     initials="PK"
                     name="Priya Verma"
@@ -321,7 +218,6 @@ export default function DashboardPage() {
                     follow="Today"
                     time="02:30 PM"
                   />
-
                   <LeadRow
                     initials="RK"
                     name="Rohit Singh"
@@ -331,7 +227,6 @@ export default function DashboardPage() {
                     follow="11 Sep 2025"
                     time="11:00 AM"
                   />
-
                   <LeadRow
                     initials="SN"
                     name="Sneha Patel"
@@ -341,7 +236,6 @@ export default function DashboardPage() {
                     follow="12 Sep 2025"
                     time="04:00 PM"
                   />
-
                   <LeadRow
                     initials="VG"
                     name="Vikash Gupta"
@@ -358,17 +252,14 @@ export default function DashboardPage() {
 
           {/* RIGHT COLUMN */}
           <div className={styles.rightColumn}>
-            {/* UPCOMING */}
+            {/* UPCOMING FOLLOW-UPS */}
             <div className={styles.card}>
               <div className={styles.cardHeader}>
                 <div className={styles.cardTitle}>
                   <span className={styles.titleIcon}>▣</span>
                   <h2>Upcoming Follow-ups</h2>
                 </div>
-
-                <button className={styles.viewAllButton}>
-                  View All →
-                </button>
+                <button className={styles.viewAllButton}>View All →</button>
               </div>
 
               <div className={styles.followupList}>
@@ -381,7 +272,6 @@ export default function DashboardPage() {
                   action="Call"
                   actionType="call"
                 />
-
                 <Followup
                   date="11"
                   month="Sep"
@@ -391,7 +281,6 @@ export default function DashboardPage() {
                   action="Email"
                   actionType="email"
                 />
-
                 <Followup
                   date="12"
                   month="Sep"
@@ -401,7 +290,6 @@ export default function DashboardPage() {
                   action="Meeting"
                   actionType="meeting"
                 />
-
                 <Followup
                   date="13"
                   month="Sep"
@@ -430,61 +318,54 @@ export default function DashboardPage() {
                 <QuickAction icon="▤" text="Create Invoice" />
               </div>
             </div>
-          </div>
 
-          {/* ACTIVITY */}
-          <div className={styles.card}>
-            <div className={styles.cardHeader}>
-              <div className={styles.cardTitle}>
-                <span className={styles.titleIcon}>▣</span>
-                <h2>Recent Activity</h2>
+            {/* RECENT ACTIVITY */}
+            <div className={styles.card}>
+              <div className={styles.cardHeader}>
+                <div className={styles.cardTitle}>
+                  <span className={styles.titleIcon}>▣</span>
+                  <h2>Recent Activity</h2>
+                </div>
+                <button className={styles.viewAllButton}>View All →</button>
               </div>
 
-              <button className={styles.viewAllButton}>
-                View All →
-              </button>
-            </div>
-
-            <div className={styles.activityList}>
-              <Activity
-                icon="♙"
-                title="New lead added"
-                description="Amit Sharma from Smile Dental Clinic"
-                time="10 minutes ago"
-                type="blue"
-              />
-
-              <Activity
-                icon="▣"
-                title="Deal updated"
-                description="Bright Smile – Proposal Sent"
-                time="1 hour ago"
-                type="purple"
-              />
-
-              <Activity
-                icon="₹"
-                title="Payment received"
-                description="₹ 25,000 from Care Dental"
-                time="2 hours ago"
-                type="green"
-              />
-
-              <Activity
-                icon="▣"
-                title="Project created"
-                description="Website for Dental Plus"
-                time="3 hours ago"
-                type="blue"
-              />
-
-              <Activity
-                icon="✓"
-                title="Task completed"
-                description="Design Homepage"
-                time="5 hours ago"
-                type="green"
-              />
+              <div className={styles.activityList}>
+                <Activity
+                  icon="♙"
+                  title="New lead added"
+                  description="Amit Sharma from Smile Dental Clinic"
+                  time="10 minutes ago"
+                  type="blue"
+                />
+                <Activity
+                  icon="▣"
+                  title="Deal updated"
+                  description="Bright Smile – Proposal Sent"
+                  time="1 hour ago"
+                  type="purple"
+                />
+                <Activity
+                  icon="₹"
+                  title="Payment received"
+                  description="₹ 25,000 from Care Dental"
+                  time="2 hours ago"
+                  type="green"
+                />
+                <Activity
+                  icon="▣"
+                  title="Project created"
+                  description="Website for Dental Plus"
+                  time="3 hours ago"
+                  type="blue"
+                />
+                <Activity
+                  icon="✓"
+                  title="Task completed"
+                  description="Design Homepage"
+                  time="5 hours ago"
+                  type="green"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -494,7 +375,7 @@ export default function DashboardPage() {
 }
 
 /* ============================= */
-/* COMPONENTS */
+/* SUB-COMPONENTS */
 /* ============================= */
 
 function StatCard({
@@ -511,16 +392,12 @@ function StatCard({
   return (
     <div className={styles.statCard}>
       <div className={styles.statIcon}>{icon}</div>
-
       <div className={styles.statInfo}>
         <span>{title}</span>
-
         <div className={styles.statValueRow}>
           <strong>{value}</strong>
-
           <small>↑ {growth}</small>
         </div>
-
         <p>vs. last week</p>
       </div>
     </div>
@@ -544,15 +421,11 @@ function SalesStat({
 }) {
   return (
     <div className={styles.salesStat}>
-      <div className={`${styles.salesStatIcon} ${styles[type]}`}>
-        {icon}
-      </div>
-
+      <div className={`${styles.salesStatIcon} ${styles[type]}`}>{icon}</div>
       <div>
         <span>{title}</span>
         <strong>{value}</strong>
       </div>
-
       <small className={down ? styles.down : ""}>
         {down ? "↓" : "↑"} {growth}
       </small>
@@ -574,9 +447,7 @@ function LegendItem({
   return (
     <div className={styles.legendItem}>
       <span className={`${styles.legendDot} ${styles[color]}`}></span>
-
       <span className={styles.legendName}>{name}</span>
-
       <strong>
         {count} <small>({percent})</small>
       </strong>
@@ -606,25 +477,17 @@ function LeadRow({
       <td>
         <div className={styles.person}>
           <span className={styles.personAvatar}>{initials}</span>
-
           <div>
             <strong>{name}</strong>
           </div>
         </div>
       </td>
-
       <td>{company}</td>
-
       <td>
-        <span
-          className={`${styles.statusBadge} ${
-            styles[statusType]
-          }`}
-        >
+        <span className={`${styles.statusBadge} ${styles[statusType]}`}>
           {status}
         </span>
       </td>
-
       <td>
         <div className={styles.followDate}>
           <strong>{follow}</strong>
@@ -658,32 +521,19 @@ function Followup({
         <strong>{date}</strong>
         <span>{month}</span>
       </div>
-
       <div className={styles.followupPerson}>
         <strong>{name}</strong>
         <span>{company}</span>
       </div>
-
       <span className={styles.followupTime}>{time}</span>
-
-      <button
-        className={`${styles.followupAction} ${
-          styles[actionType]
-        }`}
-      >
+      <button className={`${styles.followupAction} ${styles[actionType]}`}>
         {action}
       </button>
     </div>
   );
 }
 
-function QuickAction({
-  icon,
-  text,
-}: {
-  icon: string;
-  text: string;
-}) {
+function QuickAction({ icon, text }: { icon: string; text: string }) {
   return (
     <button className={styles.quickAction}>
       <span>{icon}</span>
@@ -707,15 +557,11 @@ function Activity({
 }) {
   return (
     <div className={styles.activityItem}>
-      <div className={`${styles.activityIcon} ${styles[type]}`}>
-        {icon}
-      </div>
-
+      <div className={`${styles.activityIcon} ${styles[type]}`}>{icon}</div>
       <div className={styles.activityText}>
         <strong>{title}</strong>
         <span>{description}</span>
       </div>
-
       <small>{time}</small>
     </div>
   );

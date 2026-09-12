@@ -1,4 +1,8 @@
-.sidebar {
+/* =========================================================
+   SIDEBAR BASE STYLES
+   ========================================================= */
+
+   .sidebar {
     position: fixed;
     top: 72px;
     left: 0;
@@ -16,6 +20,8 @@
   
     overflow-y: auto;
     overflow-x: hidden;
+  
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .sidebar::-webkit-scrollbar {
@@ -27,31 +33,30 @@
     border-radius: 10px;
   }
   
-  /* ============================= */
-  /* MENU */
-  /* ============================= */
+  /* =========================================================
+     MENU AREA
+     ========================================================= */
   
   .menuArea {
-    padding: 27px 16px 0;
+    padding: 24px 16px 0;
   }
   
   .navigation {
     display: flex;
     flex-direction: column;
-  
-    gap: 5px;
+    gap: 6px;
   }
   
   .menuItem {
     width: 100%;
-    min-height: 40px;
+    min-height: 42px;
   
     padding: 0 12px;
   
     display: flex;
     align-items: center;
   
-    gap: 15px;
+    gap: 14px;
   
     text-decoration: none;
   
@@ -59,10 +64,7 @@
   
     color: #29496d;
   
-    transition:
-      background 0.2s ease,
-      color 0.2s ease,
-      transform 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
   }
   
   .menuItem:hover {
@@ -81,31 +83,24 @@
     flex-shrink: 0;
   
     color: #365979;
+    transition: color 0.2s ease;
   }
   
-  .menuIcon svg {
-    width: 20px;
-    height: 20px;
+  .menuItem:hover .menuIcon {
+    color: #1685e5;
   }
   
   .menuText {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 500;
   
     white-space: nowrap;
   }
   
   .menuItem.active {
-    background: linear-gradient(
-      100deg,
-      #1289ee,
-      #1684e5
-    );
-  
+    background: linear-gradient(100deg, #1289ee, #1684e5);
     color: #ffffff;
-  
-    box-shadow:
-      0 5px 14px rgba(18, 137, 238, 0.18);
+    box-shadow: 0 4px 14px rgba(18, 137, 238, 0.2);
   }
   
   .menuItem.active .menuIcon {
@@ -116,9 +111,9 @@
     font-weight: 600;
   }
   
-  /* ============================= */
-  /* BADGE */
-  /* ============================= */
+  /* =========================================================
+     BADGE
+     ========================================================= */
   
   .menuBadge {
     margin-left: auto;
@@ -126,9 +121,9 @@
     min-width: 19px;
     height: 19px;
   
-    padding: 0 5px;
+    padding: 0 6px;
   
-    border-radius: 50%;
+    border-radius: 10px;
   
     display: flex;
     align-items: center;
@@ -147,126 +142,169 @@
     color: #1688e8;
   }
   
-  /* ============================= */
-  /* BOTTOM */
-  /* ============================= */
+  /* =========================================================
+     BOTTOM AREA
+     ========================================================= */
   
   .bottomArea {
     margin-top: auto;
-  
-    padding: 35px 24px 18px;
+    padding: 28px 20px 24px;
   }
   
-  /* ============================= */
-  /* PROMO CARD */
-  /* ============================= */
+  /* =========================================================
+     ADMIN BUTTON
+     ========================================================= */
+  
+  .adminButton {
+    width: 100%;
+    min-height: 46px;
+  
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    padding: 0 14px;
+    margin-bottom: 16px;
+  
+    border: 1px solid #dbe8f5;
+    border-radius: 10px;
+  
+    background: #ffffff;
+    color: #123b70;
+  
+    text-decoration: none;
+  
+    font-size: 13.5px;
+    font-weight: 700;
+  
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+      transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .adminButton:hover,
+  .adminButtonActive {
+    background: #1287ee;
+    border-color: #1287ee;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(18, 135, 238, 0.2);
+  }
+  
+  .adminButton:hover {
+    transform: translateY(-1px);
+  }
+  
+  .adminIcon {
+    width: 28px;
+    height: 28px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;
+  
+    border-radius: 6px;
+  
+    background: #eaf5ff;
+    color: #1287ee;
+  
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  
+  .adminButton:hover .adminIcon,
+  .adminButtonActive .adminIcon {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+  
+  .adminText {
+    flex: 1;
+    white-space: nowrap;
+  }
+  
+  .adminArrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  
+  .adminButton:hover .adminArrow {
+    transform: translateX(3px);
+  }
+  
+  /* =========================================================
+     PROMO CARD
+     ========================================================= */
   
   .promoCard {
-    min-height: 184px;
-  
     position: relative;
-  
-    padding: 17px 18px;
+    padding: 16px;
   
     border: 1px solid #dce8f3;
+    border-radius: 10px;
   
-    border-radius: 8px;
-  
-    background: linear-gradient(
-      145deg,
-      #ffffff,
-      #f9fcff
-    );
-  
-    box-shadow:
-      0 4px 14px rgba(40, 91, 135, 0.04);
+    background: linear-gradient(145deg, #ffffff, #f9fcff);
+    box-shadow: 0 4px 14px rgba(40, 91, 135, 0.04);
   }
   
   .promoLogo {
-    width: 38px;
-    height: 39px;
-  
+    width: 36px;
+    height: 32px;
     position: relative;
-  
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
   
   .promoLogo span:first-child {
     position: absolute;
-  
     top: 1px;
     left: 0;
-  
-    width: 34px;
-    height: 12px;
-  
-    background: linear-gradient(
-      90deg,
-      #1556e9,
-      #15b5c3
-    );
-  
-    border-radius: 5px 13px 13px 5px;
-  
+    width: 32px;
+    height: 11px;
+    background: linear-gradient(90deg, #1556e9, #15b5c3);
+    border-radius: 4px 12px 12px 4px;
     transform: skewX(17deg);
   }
   
   .promoLogo span:last-child {
     position: absolute;
-  
-    top: 11px;
+    top: 10px;
     left: 4px;
-  
-    width: 13px;
-    height: 28px;
-  
-    background: linear-gradient(
-      180deg,
-      #0877df,
-      #17a8b8
-    );
-  
-    border-radius: 0 0 4px 11px;
+    width: 12px;
+    height: 22px;
+    background: linear-gradient(180deg, #0877df, #17a8b8);
+    border-radius: 0 0 4px 10px;
   }
   
   .promoCard h3 {
     margin: 0;
-  
     font-size: 12px;
-    line-height: 17px;
-  
+    line-height: 1.4;
     font-weight: 700;
-  
     color: #173e6c;
   }
   
   .promoCard p {
-    margin: 7px 0 0;
-  
-    font-size: 9px;
-    line-height: 14px;
-  
+    margin: 6px 0 0;
+    font-size: 10px;
+    line-height: 1.4;
     color: #7890a9;
   }
   
   .promoButton {
     position: absolute;
-  
-    right: 15px;
+    right: 14px;
     bottom: 14px;
   
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   
     border: none;
-  
     border-radius: 50%;
   
     background: #1688e8;
-  
     color: #ffffff;
   
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1;
   
     cursor: pointer;
@@ -275,262 +313,110 @@
     align-items: center;
     justify-content: center;
   
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
   }
   
   .promoButton:hover {
     transform: scale(1.1);
+    background: #1072c6;
   }
   
-  /* ============================= */
-  /* COPYRIGHT */
-  /* ============================= */
+  /* =========================================================
+     COPYRIGHT
+     ========================================================= */
   
   .copyright {
     display: flex;
     flex-direction: column;
-  
-    gap: 4px;
-  
-    margin-top: 43px;
+    gap: 2px;
+    margin-top: 24px;
   }
   
   .copyright span {
-    font-size: 9px;
-  
-    line-height: 13px;
-  
+    font-size: 9.5px;
+    line-height: 1.4;
     color: #7089a3;
   }
   
-  /* ============================= */
-  /* 1200px */
-  /* ============================= */
+  /* =========================================================
+     BACKDROP OVERLAY FOR MOBILE
+     ========================================================= */
+  
+  .overlay {
+    display: none;
+  }
+  
+  /* =========================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================= */
   
   @media (max-width: 1200px) {
     .sidebar {
-      width: 225px;
+      width: 235px;
     }
   
     .menuArea {
-      padding-left: 13px;
-      padding-right: 13px;
+      padding-left: 12px;
+      padding-right: 12px;
     }
   
     .bottomArea {
-      padding-left: 18px;
-      padding-right: 18px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
-  
-  /* ============================= */
-  /* 950px */
-  /* ============================= */
   
   @media (max-width: 950px) {
     .sidebar {
-      width: 225px;
+      width: 220px;
+    }
+  
+    .adminButton {
+      min-height: 42px;
+      padding: 0 10px;
+      font-size: 12.5px;
+    }
+  
+    .adminIcon {
+      width: 26px;
+      height: 26px;
     }
   }
   
-  /* ============================= */
-  /* 700px */
-  /* ============================= */
-  
+  /* Mobile & Tablet Drawer Mode */
   @media (max-width: 700px) {
     .sidebar {
-      top: 64px;
-  
+      top: 60px;
       width: 260px;
-  
       transform: translateX(-100%);
-  
-      transition: transform 0.3s ease;
-  
-      box-shadow:
-        8px 0 30px rgba(20, 63, 105, 0.12);
+      box-shadow: none;
+      z-index: 1000;
     }
   
     .sidebar.mobileOpen {
       transform: translateX(0);
+      box-shadow: 8px 0 30px rgba(20, 63, 105, 0.15);
+    }
+  
+    .overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(2px);
+      z-index: 999;
+    }
+  
+    .menuArea {
+      padding-top: 16px;
     }
   }
   
-  /* ============================= */
-  /* 500px */
-  /* ============================= */
-  
-  @media (max-width: 500px) {
+  @media (max-width: 480px) {
     .sidebar {
       width: 245px;
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* =========================================================
-   ADMIN BUTTON
-   ========================================================= */
-
-.adminButton {
-  width: 100%;
-  min-height: 48px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 0 15px;
-  margin-bottom: 14px;
-
-  border: 1px solid #dbe8f5;
-  border-radius: 12px;
-
-  background: #ffffff;
-  color: #123b70;
-
-  text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.adminButton:hover {
-  background: #1287ee;
-  border-color: #1287ee;
-  color: #ffffff;
-
-  transform: translateY(-1px);
-
-  box-shadow: 0 7px 18px rgba(18, 135, 238, 0.18);
-}
-
-.adminButtonActive {
-  background: #1287ee;
-  border-color: #1287ee;
-  color: #ffffff;
-
-  box-shadow: 0 7px 18px rgba(18, 135, 238, 0.18);
-}
-
-.adminIcon {
-  width: 30px;
-  height: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border-radius: 8px;
-
-  background: #eaf5ff;
-  color: #1287ee;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.adminButton:hover .adminIcon,
-.adminButtonActive .adminIcon {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-}
-
-.adminText {
-  flex: 1;
-
-  white-space: nowrap;
-}
-
-.adminArrow {
-  font-size: 19px;
-  line-height: 1;
-
-  transition: transform 0.2s ease;
-}
-
-.adminButton:hover .adminArrow {
-  transform: translateX(4px);
-}
-
-
-/* =========================================================
-   RESPONSIVE ADMIN BUTTON
-   ========================================================= */
-
-@media (max-width: 950px) {
-  .adminButton {
-    min-height: 46px;
-    padding: 0 13px;
-    margin-bottom: 12px;
-
-    font-size: 13.5px;
-  }
-
-  .adminIcon {
-    width: 29px;
-    height: 29px;
-  }
-}
-
-@media (max-width: 600px) {
-  .adminButton {
-    min-height: 44px;
-
-    padding: 0 12px;
-    gap: 10px;
-
-    border-radius: 10px;
-
-    font-size: 13px;
-  }
-
-  .adminIcon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .adminArrow {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 430px) {
-  .adminButton {
-    min-height: 42px;
-    padding: 0 10px;
-    gap: 9px;
-
-    font-size: 12.5px;
-  }
-
-  .adminIcon {
-    width: 26px;
-    height: 26px;
-  }
-}
